@@ -16,7 +16,4 @@ class LanguageController extends Controller
    public function languageUpdate(){
 
    }
-   public function languageDestroy(){
-    
-   }
 }

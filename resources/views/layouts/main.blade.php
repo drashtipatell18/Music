@@ -43,7 +43,7 @@
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="category.html">
+              <a href="{{ route('category') }}">
                 <img src="image/sb_cat.svg">
                 category
               </a>
