@@ -50,7 +50,7 @@
             </li>
 
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="artist.html">
+              <a href="{{ route('artist') }}">
                 <img src="image/sb_art.svg">
                 Artist
               </a>

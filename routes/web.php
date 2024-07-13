@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ArtistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -49,3 +50,7 @@ Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
 Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
+
+Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
+Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
+Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.category');
