@@ -56,7 +56,7 @@
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="album.html">
+              <a href="{{ route('albums') }}">
                 <img src="image/sb_al.svg">
                 Album
 

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\MusicVideoController;
+use App\Http\Controllers\AlbumController;
 
 
 Route::get('/', function () {
@@ -25,19 +26,23 @@ Auth::routes([
     'verify' => false
 ]);
 
+// Login & Register Route
+
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
 
 Route::get('/login', [HomeController::class, 'Login'])->name('login');
 Route::post('/loginstore', [HomeController::class, 'loginStore'])->name('loginstore');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
-
 Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordForm'])->name('forget.password');
 Route::post('/forget-password', [DashboardController::class, 'sendResetLinkEmail'])->name('forget.password.email');
 Route::get('/verify-otp', [DashboardController::class, 'verifyOTPForm'])->name('verify.otp');
 Route::post('verify-otp', [DashboardController::class, 'verifyOTP']);
 Route::get('/resend-otp', [DashboardController::class, 'resend'])->name('resend.otp');
 Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
+
+
+// Dashboard
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -54,7 +59,11 @@ Route::post('/music_videos/insert',[MusicVideoController::class,'musicVideosInse
 Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
 
 
+// Album
 
+Route::get('/albums', [AlbumController::class, 'albums'])->name('albums');
+Route::post('/albums/store', [AlbumController::class, 'storeAlbum'])->name('albums.store');
+Route::post('/albums/update/{id}', [AlbumController::class, 'updateAlbum'])->name('update.albums');
 
 // User
 
@@ -74,6 +83,8 @@ Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
 Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
+
+// Artist
 
 Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
 Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');

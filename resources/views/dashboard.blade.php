@@ -6,7 +6,7 @@
             <h3 class="fw-bolder">Dashboard</h3>
         </div>
         <div class="row">
-            <a href="music_video.html" class=" col-md-6 col-xl-4 k_db_box mb-4">
+            <a href="{{ route('music_videos') }}" class=" col-md-6 col-xl-4 k_db_box mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </a>
-            <a href="album.html" class=" col-md-6 col-xl-4 k_db_box  mb-4">
+            <a href="{{ route('albums') }}" class=" col-md-6 col-xl-4 k_db_box  mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </a>
-            <a href="music_video.html" class=" col-md-6 col-xl-4 k_db_box  mb-4">
+            <a href="{{ route('music_videos') }}" class=" col-md-6 col-xl-4 k_db_box  mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </a>
-            <a href="language.html" class="col-md-6 col-xl-4 k_db_box  mb-4">
+            <a href="{{ route('language') }}" class="col-md-6 col-xl-4 k_db_box  mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </a>
-            <a href="category.html" class="col-md-6 col-xl-4 k_db_box  mb-4">
+            <a href="{{ route('category') }}" class="col-md-6 col-xl-4 k_db_box  mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </a>
-            <a href="artist.html" class="col-md-6 col-xl-4 k_db_box  mb-4">
+            <a href="{{ route('artist') }}" class="col-md-6 col-xl-4 k_db_box  mb-4">
                 <div class="card m-1">
                     <div class="row g-0">
                         <div class="col-10">
@@ -230,7 +230,7 @@
 
             drawChart();
         });
-   
+
         var ctx = document.getElementById('myChart2').getContext('2d');
         var myChart2 = new Chart(ctx, {
             type: 'bar',
