@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="premium.html">
+              <a href="{{ route('premiums') }}">
                 <img src="image/sb_pr.svg">
                 Premium
               </a>
