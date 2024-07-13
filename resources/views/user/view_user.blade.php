@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Users: Music App Management')
 @section('content')
     <section class="daily_price">
         <div class="p-3 btn-clr d-flex justify-content-between">
@@ -165,5 +166,5 @@
     </section>
 @endsection
 @push('script')
-   
+
 @endpush

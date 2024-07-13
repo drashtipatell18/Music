@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Music & Video: Music App Management')
 @section('content')
 
     <div class="container-fluid p-0 d-flex h-100">

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Dashboard: Music App Management')
 @section('content')
     <!-- Dashboard Content -->
     <section class="k_dash daily_price ">

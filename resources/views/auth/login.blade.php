@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Login: Music App Management')
 @section('content')
 
 <section class="Login_form">
