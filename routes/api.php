@@ -39,6 +39,8 @@ Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordF
 Route::post('/forget-password', [DashboardController::class, 'sendResetLinkEmail'])->name('forget.password.email');
 Route::get('/verify-otp', [DashboardController::class, 'verifyOTPForm'])->name('verify.otp');
 Route::post('verify-otp', [DashboardController::class, 'verifyOTP']);
+Route::get('/resend-otp', [DashboardController::class, 'resend'])->name('resend.otp');
+Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 

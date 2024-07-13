@@ -48,9 +48,9 @@ class DashboardController extends Controller
     public function verifyOTPForm()
     {
         $email = session('reset_email');
-        if (!$email) {
-            return redirect()->route('show.forgetpassword')->with('danger', 'Session expired. Please try again.');
-        }
+        // if (!$email) {
+        //     return redirect()->route('forget.password')->with('danger', 'Session expired. Please try again.');
+        // }
         return view('auth.otpPage', ['email' => $email]);
     }
 
@@ -65,10 +65,12 @@ class DashboardController extends Controller
            dd('success');
         }
 
-
-
-
         return back()->withErrors(['otp' => 'Invalid OTP.']);
+    }
+
+    public function resetPassword()
+    {
+        return view('auth.resetpass');
     }
 
 }

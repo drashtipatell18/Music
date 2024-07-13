@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArtistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PremiumController;
 
 Route::get('/', function () {
     // if(Auth::check()) {
@@ -33,6 +34,13 @@ Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordF
 Route::post('/forget-password', [DashboardController::class, 'sendResetLinkEmail'])->name('forget.password.email');
 Route::get('/verify-otp', [DashboardController::class, 'verifyOTPForm'])->name('verify.otp');
 Route::post('verify-otp', [DashboardController::class, 'verifyOTP']);
+Route::get('/resend-otp', [DashboardController::class, 'resend'])->name('resend.otp');
+Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
+
+
+// Premium
+
+Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
