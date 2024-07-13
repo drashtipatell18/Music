@@ -63,7 +63,7 @@
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="music_video.html">
+              <a href="{{ route('music_videos') }}">
                 <img src="image/sb_mv.svg">
                 Music & Video
               </a>

@@ -6,15 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ViewUserPremium extends Model
+class MusicVideo extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = [
-        'user_name',
-        'email',
-        'phone',
-        'purchase_date',
-        'expire_date'
-
-    ];
+    protected $fillable = ['name', 'artist_name', 'album_name', 'category', 'language', 'icons','type','url','status'];
 }

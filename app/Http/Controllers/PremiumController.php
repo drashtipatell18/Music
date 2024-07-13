@@ -10,4 +10,10 @@ class PremiumController extends Controller
     {
         return view('premiums.view_premium');
     }
+    public function premiumsInsert(){
+
+    }
+    public function premiumsUpdate(){
+
+    }
 }

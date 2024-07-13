@@ -6,6 +6,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PremiumController;
+use App\Http\Controllers\MusicVideoController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,6 +46,19 @@ Route::get('/resend-otp', [DashboardController::class, 'resend'])->name('resend.
 Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+// Premium
+
+Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
+Route::post('/premiums/insert',[PremiumController::class,'premiumsInsert'])->name('insert.premiums');
+Route::post('/premiums/update/{id}', [PremiumController::class, 'premiumsUpdate'])->name('update.premiums');
+
+// Music & Video
+
+Route::get('/music_videos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
+Route::post('/music_videos/insert',[MusicVideoController::class,'musicVideosInsert'])->name('insert.music_videos');
+Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
+
 
 Auth::routes([
     'register' => true,
