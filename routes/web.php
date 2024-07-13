@@ -21,7 +21,7 @@ Route::get('/', function () {
     // return redirect()->route('dashboard');
 });
 Auth::routes([
-    'register' => true,
+    'register' => false,
     'reset' => false,
     'verify' => false
 ]);

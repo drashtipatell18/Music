@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,28 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+    public function Login(){
+
+        return view('auth.login');
+    }
+
+    // public function loginStore(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     // Attempt to authenticate using the user's email
+    //     if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+    //         return redirect()->route('dashboard');
+    //     }
+
+    //     // If none of the attempts succeed, redirect back with an error message
+    //     return back()->withErrors(['email' => 'Invalid credentials'])->withInput($request->only('email'));
+    // }
 
     /**
      * Show the application dashboard.
