@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Language extends Model
+class Artist extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'languages';
-    protected $fillable = ['name', 'status', 'image'];
+    protected $table = 'artists';
+    protected $fillable = ['name','description', 'status', 'image'];
+
 }
