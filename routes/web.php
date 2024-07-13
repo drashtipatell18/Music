@@ -15,16 +15,12 @@ use App\Http\Controllers\AlbumController;
 
 
 Route::get('/', function () {
-    // if(Auth::check()) {
+    if(Auth::check()) {
         return redirect()->route('login');
-    // }
-    // return redirect()->route('dashboard');
+    }
+    return redirect()->route('dashboard');
 });
-Auth::routes([
-    'register' => false,
-    'reset' => false,
-    'verify' => false
-]);
+
 
 // Login & Register Route
 
@@ -89,3 +85,9 @@ Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate
 Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
 Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
 Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.category');
+
+Auth::routes([
+    'register' => true,
+    'reset' => false,
+    'verify' => false
+]);

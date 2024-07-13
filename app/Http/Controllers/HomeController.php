@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -17,11 +19,30 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-
-    public function Login(){
-
-        return view('auth.login');
+    public function Register()
+    {
+        return view('auth.register');
     }
+
+    public function RegisterStore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'confirm_password' => 'required|same:password'
+        ]);
+
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => Hash::make($validatedData['password']),
+        ]);
+    }
+
+    // public function Login(){
+    //     return view('auth.login');
+    // }
 
     // public function loginStore(Request $request)
     // {
@@ -39,13 +60,12 @@ class HomeController extends Controller
     //     return back()->withErrors(['email' => 'Invalid credentials'])->withInput($request->only('email'));
     // }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function logout(Request $request)
     {
-        return view('home');
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('login');
     }
+
 }
