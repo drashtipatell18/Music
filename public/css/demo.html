@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grouped Bar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #myChart2 {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myChart2"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Premium User',
+                    backgroundColor: '#264C82',
+                    data: [50, 50, 70, 55, 54, 52, 54,73,52,78,62,64],
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.6
+                }, {
+                    label: 'Non Normal User',
+                    backgroundColor: '#3382DD',
+                    data: [72, 72, 88, 69, 65, 63,62,89,65,60,91,73],
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.6
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                        stacked: false,
+                    },
+                    y: {
+                        stacked: false,
+                        ticks: {
+                            stepSize: 30,
+                            beginAtZero: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Users',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

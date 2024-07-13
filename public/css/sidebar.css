@@ -1,0 +1,368 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.gfg {
+  height: 50px;
+  width: 50px;
+}
+
+/* Base styles for the sidebar */
+#bdSidebar {
+  height: 100%;
+  position: fixed;
+  background: #162640;
+  width: 20%;
+}
+
+.mynav {
+  color: #fff;
+}
+
+.m_svg {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(37%) saturate(611%) hue-rotate(174deg) brightness(94%) contrast(105%);
+}
+
+/* -----------------Meera's css start----------------- */
+.mynav li a {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 24px;
+  color: #fff;
+  line-height: 30px;
+  text-decoration: none;
+  width: 100%;
+  margin: 0 20px;
+  border-radius: 5px;
+}
+
+.mynav li a img {
+  margin-right: 15px;
+  height: 19px;
+}
+
+.m_logo {
+  font-weight: 500;
+  margin: 22px 0 !important;
+}
+
+.sidebar {
+  background-color: #162640 !important;
+  height: 100vh;
+  width: 300px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.k_modal-body{
+  text-align: center;
+  padding: 70px;
+}
+.k_lob button{
+  flex: 1;
+  color: black;
+  /* margin: 5px; */
+  border: 1px solid black;
+  background: white;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+.k_lob a{
+  flex: 1;
+  background-color: #162640;
+  color: white;
+  /* margin: 5px; */
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #162640;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+/* -----------------Meera's css end------------------- */
+
+.mynav li a.active,
+.mynav li.sideBar_active a {
+  background: white;
+  color: #030030;
+}
+
+.mynav li a:hover {
+  background: white;
+  color: #030030;
+}
+
+.mynav li a.active img,
+.mynav li.sideBar_active a img,
+.mynav li a:hover img {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(37%) saturate(611%) hue-rotate(174deg) brightness(94%) contrast(105%);
+}
+
+.mynav li a i {
+  width: 45px;
+  text-align: center;
+}
+
+
+.notification-badge {
+  background-color: rgba(255, 255, 255, 0.7);
+  float: right;
+  color: #222;
+  font-size: 14px;
+  padding: 0px 8px;
+  border-radius: 2px;
+}
+
+.bg-success {
+  background-color: #102f50 !important;
+}
+
+.offcanvas-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+}
+#addModal , #chngPassModal, #logoutModal{
+  padding-right: 0 !important;
+}
+
+/* .content{
+    background-color: #EFEFF6;
+  } */
+.top-user {
+  display: flex;
+  justify-content: end;
+  line-height: 50px;
+  border: white;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.k_usr{
+  color: #1e3150;
+  font-size: 25px;
+}
+.btn .dropdown-toggle {
+  padding: 0 15px 0 5px !important;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 0%;
+  border: none;
+  min-width: 160px;
+  top: 123%;
+  right: 0%;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  padding-left: 10px;
+  color: black;
+  text-decoration: none;
+  font-weight: 200;
+  display: block;
+  line-height: 2;
+  width: 200px;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-toggle {
+  background-color: white !important;
+  color: #102f50 !important;
+  border: none !important;
+}
+
+.dropdown-toggle .caret {
+  border-top-color: #030030 !important;
+  border-bottom-color: #030030 !important;
+}
+
+.dropdown-menu {
+  border: none;
+}
+
+.top-user-responsive {
+  display: none;
+}
+
+/* jay start  */
+/* .account-droppp{
+  padding-left: 24px;
+  color: #fff;
+  line-height: 40px;
+  text-decoration: none;
+  width: 100%;
+  display: block;
+ } */
+.dropdown-btnnn {
+  font-size: 16px !important;
+}
+
+.account-droppp .a_dwn,
+.dropdown-btnnn {
+  /* padding: 10px 15px; */
+  text-decoration: none;
+  font-size: 14px;
+  width: 100%;
+  color: #fff;
+  background-color: #030030;
+  display: block;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  padding-left: 24px;
+  color: #fff;
+  line-height: 40px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.dropdown-containerrr {
+  display: none;
+  list-style: none;
+  background-color: #201b5f;
+  padding-left: 0px;
+  width: max-content;
+  margin-left: 40px;
+}
+
+.fa-caret-down {
+  padding-left: 10px;
+}
+
+.g_active {
+  background-color: white !important;
+}
+
+/* ....end  */
+@media (max-width: 2560px) {
+  #bdSidebar {
+    width: 15%;
+  }
+}
+
+@media (max-width: 1440px) {
+  #bdSidebar {
+    width: 20%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #bdSidebar {
+    width: 25%;
+  }
+
+  .mynav li a {
+    /* line-height: 33px; */
+    font-size: 15px;
+    padding: 0px 0px 0px 30px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  #bdSidebar {
+    width: 35%;
+  }
+
+  .mynav li a {
+    padding: 0px 0px 0px 20px;
+  }
+
+  .top-user {
+    display: none;
+  }
+
+  .top-user-responsive {
+    display: flex;
+    justify-content: end;
+    line-height: 34px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-left: auto;
+  }
+
+  .dropdown-toggle {
+    background-color: transparent !important;
+    color: white !important;
+    border: none !important;
+  }
+}
+
+@media (max-width: 425px) {
+  #bdSidebar {
+    width: 70%;
+  }
+
+  /* .top-user {
+        display: none;
+      }
+    
+      .top-user-responsive {
+        display: flex;
+        justify-content: end;
+        line-height: 34px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        margin-left: auto;
+      } */
+
+  .dropdown-content {
+    position: absolute;
+    top: 124%;
+    right: 0;
+  }
+
+  .dropdown-toggle {
+    color: white !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .dropdown-content a {
+    /* line-height: 58px; */
+  }
+}
+
+@media (max-width: 375px) {
+  #bdSidebar {
+    width: 63%;
+  }
+}
+
+@media (max-width: 320px) {
+  #bdSidebar {
+    width: 60%;
+  }
+}

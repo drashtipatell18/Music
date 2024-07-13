@@ -1,0 +1,577 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.daily_price {
+  /* margin-left: 289px; */
+  width: 85%;
+}
+
+.btn-clr h3 {
+  font-size: 31px;
+}
+
+.info {
+  overflow-x: scroll;
+}
+
+.btn-clr button {
+  background-color: #162640;
+  border: none;
+  font-size: 18px;
+  /* float: left; */
+}
+
+td {
+  text-align: center;
+}
+
+.t-head span {
+  font-size: 18px;
+  color: #464255;
+}
+
+.t-head p {
+  font-size: 19px;
+  color: #464255;
+}
+
+.actions-btn img {
+  /* height: 42px !important; */
+}
+
+.addBtn {
+  top: 6.5%;
+  left: 92%;
+}
+
+.search-icon span {
+  top: 12.5%;
+  left: 39%;
+}
+
+.wareHouse_form form input {
+  height: 45px;
+  border: 1px solid black !important;
+}
+
+.wareHouse_form form input:focus {
+  box-shadow: none;
+}
+
+/* y table  */
+.background-color {
+  background-color: #030030;
+  color: white;
+}
+
+.table_bottom_border {
+  background: #162640;
+  color: white;
+}
+
+.table_new {
+  width: 100%;
+}
+
+.daily_table th {
+  text-align: center;
+  padding: 15px 7px;
+  white-space: nowrap;
+}
+
+.daily_table .actions-btn {
+  justify-content: center;
+  display: flex;
+}
+
+.k_modalWide {
+  max-width: 900px !important;
+}
+
+.scrollTable {
+  overflow-x: auto !important;
+
+}
+
+.scrollTable2 {
+  overflow-x: auto !important;
+  background-color: #e3e3e3;
+
+}
+
+/* y tablr end  */
+.add_btn_margin {
+  margin-top: 32px;
+}
+
+.add_btn {
+  margin-top: 40px;
+}
+
+.k_status_active {
+  padding: 9px 25px;
+  border-radius: 3px;
+  background-color: #148749;
+  color: #F3F3F3;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.k_status_block {
+  padding: 9px 26px;
+  border-radius: 3px;
+  background-color: #DA0101;
+  color: #dfdfdf;
+  font-weight: 400;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.k_status_active:hover,
+.k_status_block:hover {
+  color: white;
+}
+
+.k_eye {
+  background: #162640 !important;
+  /* border: 1px solid #f5b802; */
+  padding: 10px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  color: white;
+  margin-right: 10px;
+}
+
+.k_eye:hover {
+  /* background: #fad565 !important; */
+}
+
+.k_edit {
+  background: #162640 !important;
+  padding: 10px !important;
+  color: white;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+}
+
+.k_edit:hover {
+  background: #2c456c !important;
+}
+
+.k_delet {
+  background: #ff8f8f !important;
+  border: 1px solid #f87171;
+  padding: 4px 10px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  color: black;
+
+}
+
+.k_delet:hover {
+
+  background: #f87171 !important;
+}
+
+.k_user_img img {
+  height: 35px;
+}
+
+.table_new select {
+  border: none;
+}
+
+.k_audio {
+  color: black;
+}
+
+.k_audio i {
+  font-size: 18px;
+}
+
+.k_modal-dialog {
+  max-width: 880px !important;
+  height: 60% !important;
+}
+
+.form-image {
+  height: 250px;
+}
+
+.k_closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.modal-backdrop.show {
+  width: 100%;
+  height: 100%;
+}
+
+.form-image {
+  margin-top: 20px;
+}
+
+.k_mdl_tbl {
+  padding: 2rem;
+}
+
+.k_changePassForm .form-control {
+  border-bottom: 1px solid #0d6efd;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.k_changePassForm .form-control:focus {
+  box-shadow: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+#myDropdown img, #myDropdownR img{
+  margin-right: 5px;
+}
+[data-bs-target="#logoutModal"]{
+  margin-left: 4px;
+}
+
+@media screen and (min-width: 1440px) {
+  .popup-form {
+    max-width: 100rem;
+    margin: auto;
+  }
+
+  .pageTitleHeading {
+    max-width: 100rem;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+
+}
+
+/* salakhana yatri css end  */
+@media (min-width: 2560px) {
+
+  .daily_price {
+    /* margin-left: 398px; */
+  }
+
+  .add_btn_margin {
+    margin-top: 32px;
+  }
+}
+
+/*   b Chage ............................. */
+@media (min-width: 1440px) {
+  .add_box {
+    margin-left: 100px !important;
+  }
+
+}
+
+@media (max-width: 1440px) {
+  .add_btn_margin {
+    margin-top: 45px;
+  }
+
+  .add_box {
+    margin-left: 0 !important;
+  }
+
+  .add_box {
+    margin-left: 0 !important;
+  }
+
+  .daily_price {
+    /* margin-left: 304px; */
+    width: 80%;
+  }
+}
+
+/* ............................... */
+
+
+@media (max-width: 1024px) {
+  .btn-clr h3 {
+    font-size: 26px !important;
+  }
+
+  .btn-clr button {
+    font-size: 17px !important;
+  }
+
+  .t-head span {
+    font-size: 15px !important;
+  }
+
+  .t-head p {
+    font-size: 15px !important;
+  }
+
+  .actions-btn img {
+    height: 34px !important;
+    margin: 0 2px !important;
+  }
+
+  .k_modalWide {
+    /* max-width: 90% !important; */
+  }
+
+  .addBtn {
+    top: 6.5%;
+    left: 89%;
+  }
+
+  .search-icon span {
+    top: 13%;
+    left: 42%;
+  }
+
+  .daily_price {
+    /* margin-left: 267px !important; */
+    width: 75%;
+  }
+
+  .form-image {
+    height: 200px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  /* y change table  */
+  .scrollTable {
+    width: 500px;
+
+  }
+
+  .scrollTable2 {
+    width: 98%;
+
+  }
+
+  .daily_table table {
+    width: 100%;
+  }
+
+  /* y change table end  */
+  .pageTitle {
+    margin-left: 1em;
+  }
+
+  .btn-clr h3 {
+    font-size: 22px !important;
+  }
+
+  .btn-clr button {
+    font-size: 15px !important;
+  }
+
+  .t-head span {
+    font-size: 16px !important;
+  }
+
+  .t-head p {
+    font-size: 16px !important;
+  }
+
+  .actions-btn img {
+    height: 36px !important;
+    margin: 0 !important;
+    padding: 1px;
+  }
+
+  .addBtn {
+    top: 6.5%;
+    left: 87%;
+  }
+
+  .k_modalContainer {
+    padding-right: 0 !important;
+  }
+
+  .search-icon span {
+    top: 12.5%;
+    left: 55%;
+  }
+
+  .search-icon input {
+    width: 40% !important;
+  }
+
+  .daily_price {
+    /* margin-left: 0px !important; */
+    width: 70%;
+  }
+
+  .daily_price button {
+    margin-top: 0px !important;
+  }
+
+  .form-image {
+    height: 175px;
+  }
+
+  .city-block {
+    flex-direction: column;
+  }
+
+  .state-margin {
+    margin-left: 0 !important;
+  }
+
+  .k_modal-dialog {
+    max-width: 96% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .daily_price {
+    /* margin-left: 0px !important; */
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .font-clr {
+    font-size: small;
+  }
+
+  .text-size {
+    font-size: smaller;
+  }
+
+  .scrollTable2 {
+    width: 400px;
+
+  }
+
+  .k_modal-dialog {
+    height: 40% !important;
+  }
+
+  .btn-clr h3 {
+    font-size: 22px !important;
+  }
+
+  .btn-clr button {
+    font-size: 13px !important;
+  }
+
+  .t-head span {
+    font-size: 14px !important;
+  }
+
+  .t-head p {
+    font-size: 12px !important;
+  }
+
+  .actions-btn img {
+    /* height: 25px !important; */
+  }
+
+  .addBtn {
+    top: 6.5%;
+    left: 77% !important;
+  }
+
+  .search-icon span {
+    top: 12.5%;
+    left: 35%;
+  }
+
+  .form-image {
+    height: 150px;
+  }
+
+  .k_mdl_tbl {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .t-head span {
+    font-size: 14px !important;
+  }
+
+  .t-head p {
+    font-size: 13px !important;
+  }
+
+  .actions-btn img {
+    /* height: 21px !important; */
+  }
+
+  .addBtn {
+    top: 9% !important;
+    left: 74% !important;
+  }
+
+  .search-icon span {
+    top: 12.5%;
+    left: 35%;
+  }
+}
+
+@media (max-width: 320px) {
+  .font-clr {
+    font-size: smaller;
+  }
+
+  .text-size {
+    font-size: x-small;
+  }
+
+  .scrollTable2 {
+    width: 300px;
+
+  }
+
+  .btn-clr h3 {
+    font-size: 18px !important;
+  }
+
+  .btn-clr button {
+    font-size: 13px !important;
+    /* margin-top: 19px !important; */
+  }
+
+  .t-head span {
+    font-size: 12px !important;
+  }
+
+  .t-head p {
+    font-size: 12px !important;
+  }
+
+  .actions-btn img {
+    /* height: 18px !important; */
+  }
+
+  .addBtn {
+    top: 9% !important;
+    left: 70% !important;
+  }
+
+  .search-icon span {
+    display: none;
+  }
+}

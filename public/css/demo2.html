@@ -1,0 +1,109 @@
+<div class="k_chart">
+    <div class="legend">
+      <div class="legend-item">
+        <div style="background-color: #264C82;"></div> <span>English</span>
+      </div>
+      <div class="legend-item">
+        <div style="background-color: #3382DD;"></div> <span>Hindi</span>
+      </div>
+      <div class="legend-item">
+        <div style="background-color: #9BD3F5;"></div> <span>Gujarati</span>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="myChart" width="300px" height="300"></canvas>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // script.js
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctx = document.getElementById('myChart').getContext('2d');
+  
+      const circles = [
+        { percentage: 90, radius: 100, color: '#264C82', label: 'English' },
+        { percentage: 85, radius: 70, color: '#3382DD', label: 'Hindi' },
+        { percentage: 75, radius: 40, color: '#9BD3F5', label: 'Gujarati' },
+      ];
+  
+      const createConcentricCircle = (ctx, percentage, radius, lineWidth, color) => {
+        const startAngle = -0.5 * Math.PI;
+        const endAngle = startAngle + (2 * Math.PI * (percentage / 100));
+        const centerX = ctx.canvas.width / 2;
+        const centerY = ctx.canvas.height / 2;
+  
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.lineWidth = lineWidth;
+        ctx.strokeStyle = color;
+        ctx.stroke();
+      };
+  
+      const animateCircles = () => {
+        let currentPercentage = 0;
+        const animationDuration = 1000; // in milliseconds
+        const updateInterval = 10; // in milliseconds
+        const step = 1 / (animationDuration / updateInterval);
+  
+        const animate = () => {
+          if (currentPercentage <= 1) {
+            requestAnimationFrame(animate);
+          }
+  
+          ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+          circles.forEach(circle => {
+            const fillPercentage = Math.min(currentPercentage, circle.percentage) * 100;
+            createConcentricCircle(ctx, fillPercentage, circle.radius, 15, circle.color); // Decrease thickness to 15
+          });
+  
+          currentPercentage += step;
+        };
+  
+        animate();
+      };
+  
+      animateCircles();
+    });
+  </script>
+  <style>
+    .k_chart {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .k_sec {
+      padding: 35px;
+      background: white;
+      border-radius: 7px;
+    }
+    .myChart {
+      height: 400px;
+      width: 400px;
+    }
+  
+    .chart-container {
+      position: relative;
+      max-width: 400px;
+    }
+    
+    .legend {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; 
+      margin-top: 20px;
+    }
+  
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  
+    .legend-item div {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%; 
+      margin-right: 5px;
+    }
+  </style>
+  

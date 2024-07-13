@@ -1,0 +1,165 @@
+body{
+  background-color: whitesmoke !important;
+}
+a{
+  text-decoration: none;
+}
+.k_dash{
+  width: 85%;
+}
+.k_dash .card{
+  box-shadow: 2px 2px 6px 1px #b1b1b14a;
+  border: none;
+  padding: 35px;
+  background: white ;
+}
+.k_dash .btn-clr{
+  /* margin-left: 90px !important;  */
+}
+.k_dash>.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.k_db_name{
+  font-size: 25px;
+  color: black;
+  font-weight: 500;
+}
+.k_db_num{
+  font-size: 19px;
+  margin-bottom: 0;
+  color: #313131;
+}
+.k_db_icon{
+  font-size: 35px;
+  padding: 15px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #2A6CCB 0%, #162640 100%);
+  -webkit-text-fill-color: transparent; 
+ -webkit-background-clip: text; 
+
+}
+.k_bdIcon{
+  height: 50px;
+}
+
+.modal-backdrop.show {
+  width: 100% !important;
+  height: 100% !important;
+}
+#chngPassModal{
+  padding-right: 0 !important;
+}
+/* Chart 1 */
+.k_chart {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.k_sec {
+  padding: 35px;
+  background: white;
+  border-radius: 7px;
+  height: 100%;
+  box-shadow: 2px 2px 6px 1px #b1b1b14a;
+}
+.myChart {
+  height: 400px;
+  width: 400px;
+}
+
+.chart-container {
+  position: relative;
+  /* width: 50%; */
+  max-width: 400px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start */
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.legend-item div {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; /* Make the square a circle */
+  margin-right: 5px;
+}
+/* chart 2 */
+.k_db_ch2  section{
+  padding: 35px;
+    background: white;
+    border-radius: 7px;
+    height: 100%;
+    box-shadow: 2px 2px 6px 1px #b1b1b14a;
+}
+#myChart2 {
+  width: 400px;
+  height: 400px;
+}
+@media screen and (max-width: 1441px) {
+  .k_dash .card{
+    padding: 25px;
+    margin: 0.5rem !important;
+  }
+  .k_db_name{
+    font-size: 20px;
+  }
+  .k_db_num{
+    font-size: 15px;
+  }
+  .k_db_icon{
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .k_dash {
+    width: 80%;
+}
+}
+@media screen and (max-width: 1025px) {
+  .k_dash .card{
+    padding: 15px;
+    margin: 0.5rem !important;
+  }
+  .k_db_name{
+    font-size: 18px;
+  }
+  .k_db_num{
+    font-size: 15px;
+  }
+  .k_db_icon{
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .k_dash {
+    width: 75%;
+}
+}
+@media screen and (max-width: 768px) {
+  .k_dash {
+    width: 70%;
+}
+}
+@media screen and (max-width: 767px) {
+  .k_dash {
+    width: 100%;
+}
+}
+@media screen and (max-width: 450px){
+  .k_fw, .k_db_f{
+    flex-direction: column;
+  }
+  .chart-container, .pie {
+    margin: 0 ;
+}
+}

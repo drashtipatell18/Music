@@ -1,0 +1,916 @@
+body {
+    background-color: whitesmoke;
+}
+
+.owl-item:active {
+    background-color: white !important;
+}
+
+.background_clr {
+    background-color: white !important;
+    color: #000;
+}
+
+input, form select{
+    background-color: #B2C1D9 !important;
+    border: 1px solid #B2C1D9 !important;
+}
+.form-select:focus, form .form-control:focus {
+    box-shadow:none !important;
+}
+.k_loginBtn{
+    background: #162640;
+    width: 100%;
+}
+#bdSidebar {
+    /*  */
+    height: 100%;
+    position: fixed;
+}
+
+.content {
+    /* width: 100%; */
+    /* height: 100%; */
+    background-color: #F3F3F3;
+}
+
+.popup-form {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 70rem;
+    box-shadow: 0px 0px 4px 1px #a1a1a18f;
+}
+
+.userProfileformContainer {
+    padding: 40px;
+    width: 80%;
+}
+
+.pageTitleHeading {
+    margin-left: 1%;
+    color: #464255;
+    font-size: 26px;
+    font-weight: 600;
+}
+.modal-header{
+    border-bottom: none !important;
+}
+.k_fclr{
+    background-color: #B2C1D9 !important;
+    border: 1px solid #B2C1D9 !important ;
+}
+.k_fclr:focus{
+    border: 1px solid #B2C1D9 !important ;
+}
+.userProfileformContainer form {
+    padding: 40px;
+}
+
+.userProfileformContainer label {
+    color: #464255;
+    font-size: 14px;
+    font-weight: 400px;
+    font: poppins;
+}
+
+.userProfileformContainer .form-control:focus,
+.userProfileformContainer .form-select:focus {
+    border-color: #525252;
+    box-shadow: none;
+}
+
+.userProfileformContainer .form-control,
+.userProfileformContainer select {
+    border-color: #7D7D7D;
+}
+
+.submit_button button {
+    color: white;
+    background-color: #162640 !important;
+    border-color: #162640 !important;
+    font-size: 19px;
+    font-weight: 500;
+    padding: 5px 65px;
+}
+
+.submit_button button:hover {
+    background-color: #162640 !important;
+    border-color: #162640 !important;
+}
+
+.button_save {
+    color: white;
+    background-color: #030030 !important;
+    border-color: #030030 !important;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 5px 100px;
+}
+
+.Invoice_button button {
+    color: white;
+    background-color: #030030 !important;
+    border-color: #030030 !important;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 5px 50px;
+}
+
+legend {
+    display: block;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+    unicode-bidi: isolate;
+    border-width: initial;
+    border-style: none;
+    border-color: #7D7D7D;
+    border-image: initial;
+    float: unset !important;
+    width: auto !important;
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+    border-radius: 3px;
+}
+
+
+.form-check-input {
+    border: 1px solid #adadad;
+}
+
+.form-check-input:focus {
+    box-shadow: none;
+}
+
+.sub_title {
+    color: #464255;
+    font-weight: bold;
+
+}
+
+.k_back {
+    color: white;
+    background-color: #2691ff !important;
+    border-color: #2691ff !important;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 5px 18px;
+    text-decoration: none;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.k_back:hover {
+    color: white;
+    background-color: #107ce9 !important;
+    border-color: #2691ff !important;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.k_changePassForm .form-control {
+    border-bottom: 1px solid #0d6efd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
+
+.k_changePassForm .form-control:focus {
+    box-shadow: none;
+}
+
+/*--------------------------- Meera's css start--------------------------- */
+.container-center {
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.R_img {
+    position: absolute;
+    top: -10px;
+    align-items: center;
+}
+
+.textset11 {
+    font-size: 14px;
+    left: -36px;
+    top: 35px;
+}
+
+.textset12 {
+    font-size: 14px;
+    left: 48%;
+    top: 35px;
+}
+
+.textset13 {
+    font-size: 13px;
+    right: -14%;
+    top: 35px;
+}
+
+.textgray {
+    color: #848484;
+}
+
+.textnavy {
+    color: #030030;
+}
+
+a.disabled {
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+/* .....................................end  */
+
+
+/* .............................y change  */
+.img_text a {
+    color: #000;
+    text-decoration: none;
+}
+
+.img_div img {
+    position: absolute;
+    width: 4%;
+}
+
+.img_div {
+    position: relative;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.line {
+    border: none;
+    border-top: 2px solid black;
+    margin: 20px 0;
+}
+
+
+
+#image1 {
+    top: -26px;
+    left: 0;
+}
+
+#image2 {
+    top: -26px;
+    left: 25%;
+}
+
+#image3 {
+    top: -26px;
+    left: 50%;
+}
+
+#image4 {
+    top: -26px;
+    left: 75%;
+}
+
+#image5 {
+    top: -26px;
+    right: 0;
+}
+
+
+#text1 {
+    top: 38px;
+    position: absolute;
+    left: 0;
+}
+
+#text2 {
+    top: 38px;
+    position: absolute;
+    left: 23%;
+}
+
+#text3 {
+    top: 38px;
+    position: absolute;
+    left: 49%;
+}
+
+#text4 {
+    top: 38px;
+    position: absolute;
+    left: 74%;
+}
+
+#text5 {
+    top: 38px;
+    position: absolute;
+    right: -20px;
+    text-align: center;
+}
+
+.border_top {
+    border-top: 1px solid black;
+}
+
+.table_bottom_border {
+    border-bottom: 1px solid;
+}
+
+.table_new {
+    width: 100%;
+}
+
+.daily_table th,
+td {
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 400;
+}
+.daily_table th{
+    padding: 12px 8px ;
+}
+td{
+    padding: 7px ;
+    color: black;
+}
+
+.daily_table .actions-btn {
+    justify-content: center;
+    display: flex;
+}
+
+.scrollTable {
+    overflow-x: auto !important;
+
+}
+
+.scrollTable2 {
+    /* overflow-x: auto !important; */
+
+}
+
+/* y tablr end  */
+
+.d_btn {
+    background-color: #C5C3C3 !important;
+    color: #000 !important;
+}
+
+.bl_box {
+    background-color: #092B6D;
+    background: linear-gradient(direction, #0E4896 60%, #0B065A 60%);
+    color: white;
+    padding: 10px 10px !important;
+}
+
+.text_boder {
+    border: 1px solid white;
+    margin-bottom: 5px !important;
+}
+
+.popup-form {
+    background-color: #e3e3e3;
+    max-width: 60rem;
+}
+
+.pageTitleHeading {
+    text-align: center;
+}
+
+.k_form_cont form {
+    position: relative;
+}
+
+.k_back_arrow i {
+    color: #9f9d9d;
+    position: absolute;
+    top: 7px;
+    left: 0;
+}
+
+.popup-form {
+    margin: auto;
+}
+
+@media screen and (min-width: 2560px) {
+    .textset11 {
+        font-size: 14px;
+        left: -33px;
+        top: 35px;
+    }
+
+    .textset12 {
+        font-size: 14px;
+        left: 49%;
+        top: 35px;
+    }
+
+    .textset13 {
+        font-size: 13px;
+        right: -10%;
+        top: 35px;
+    }
+
+    .userProfileformContainer {
+        /* margin-left: 380px !important; */
+
+    }
+
+    .img_div {
+        margin-bottom: 120px;
+    }
+
+    #text1 {
+        top: 39px;
+        font-size: x-large;
+    }
+
+    #text2 {
+        top: 39px;
+        font-size: x-large;
+    }
+
+    #text3 {
+        top: 39px;
+        font-size: x-large;
+    }
+
+    #text4 {
+        top: 39px;
+        font-size: x-large;
+    }
+
+    #text5 {
+        top: 39px;
+        font-size: x-large;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+
+    .A_box {
+        max-width: 94rem;
+        margin: auto !important;
+    }
+
+
+    .pageTitleHeading {
+        max-width: 100rem;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .A_dropdown {
+        max-width: 100rem;
+        margin: auto;
+    }
+
+    .A_box {
+        max-width: 60rem;
+        margin: auto !important;
+    }
+
+    .userProfileformContainer {
+        /* margin-left: 298px !important; */
+        padding: 27px;
+    }
+
+    .img_div {
+        margin-bottom: 100px;
+    }
+
+    #text1 {
+        top: 25px;
+    }
+
+    #text2 {
+        top: 25px;
+    }
+
+    #text3 {
+        top: 25px;
+    }
+
+    #text4 {
+        top: 25px;
+    }
+
+    #text5 {
+        top: 25px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .userProfileformContainer {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .textset11 {
+        font-size: 14px;
+        left: -33px;
+        top: 35px;
+    }
+
+    .textset12 {
+        font-size: 14px;
+        left: 43%;
+        top: 35px;
+    }
+
+    .textset13 {
+        font-size: 13px;
+        right: -39%;
+        top: 35px;
+    }
+
+    .A_box {
+        max-width: 42rem;
+        margin: auto !important;
+    }
+
+    /* meera  */
+
+    /* end  */
+    .userProfileformContainer {
+        /* margin-left: 258px !important; */
+        padding: 27px;
+        width: 75%;
+    }
+
+    .img_div {
+        margin-bottom: 80px;
+    }
+
+    #image1 {
+        top: -12px;
+        left: 0;
+    }
+
+    #image2 {
+        top: -12px;
+        left: 25%;
+    }
+
+    #image3 {
+        top: -12px;
+        left: 50%;
+    }
+
+    #image4 {
+        top: -12px;
+        left: 75%;
+    }
+
+    #image5 {
+        top: -12px;
+        right: 0;
+    }
+
+
+    #text1 {
+        top: 25px;
+        font-size: smaller;
+    }
+
+    #text2 {
+        top: 25px;
+        font-size: smaller;
+    }
+
+    #text3 {
+        top: 25px;
+        font-size: smaller;
+    }
+
+    #text4 {
+        top: 25px;
+        font-size: smaller;
+    }
+
+    #text5 {
+        top: 25px;
+        font-size: smaller;
+    }
+
+}
+
+/* meera  */
+@media screen and (max-width: 768px) {
+    .textset11 {
+        font-size: 11px;
+        left: -26px;
+        top: 35px;
+    }
+
+    .textset12 {
+        font-size: 11px;
+        left: 48%;
+        top: 35px;
+    }
+
+    .textset13 {
+        font-size: 11px;
+        right: -19%;
+        top: 35px;
+    }
+
+    /* y change table  */
+    .scrollTable {
+        width: 500px;
+
+    }
+
+    .scrollTable2 {
+        /* width: 476px; */
+
+    }
+
+    .daily_table table {
+        width: 100%;
+    }
+
+    /* y change table end  */
+    .A_box {
+        max-width: 32rem !important;
+    }
+
+    .Invoice_button button {
+        padding: 5px 10px;
+    }
+
+    .btn_font_size {
+        font-size: x-small;
+    }
+
+    .sr_11 {
+        font-size: small;
+    }
+
+    .userProfileformContainer {
+        /* margin-left: 0px !important; */
+        width: 70%;
+    }
+
+    .submit_button {
+        margin-top: 20px;
+    }
+
+    .submit_button button {
+        font-size: 20px;
+    }
+
+    .button_save {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .userProfileformContainer form {
+        padding: 0px;
+    }
+
+    .Invoice_button button {
+        font-size: 13px;
+    }
+
+    .img_div {
+        margin-bottom: 60px;
+    }
+
+    #image1 {
+        top: -8px;
+        left: 0;
+    }
+
+    #image2 {
+        top: -8px;
+        left: 25%;
+    }
+
+    #image3 {
+        top: -8px;
+        left: 50%;
+    }
+
+    #image4 {
+        top: -8px;
+        left: 75%;
+    }
+
+    #image5 {
+        top: -8px;
+        right: 0;
+    }
+
+    #text1 {
+        top: 13px;
+        font-size: x-small;
+        width: min-content;
+    }
+
+    #text2 {
+        top: 13px;
+        font-size: x-small;
+        width: min-content;
+    }
+
+    #text3 {
+        top: 13px;
+        font-size: x-small;
+        width: min-content;
+    }
+
+    #text4 {
+        top: 13px;
+        font-size: x-small;
+        width: min-content;
+    }
+
+    #text5 {
+        top: 13px;
+        font-size: x-small;
+        width: min-content;
+    }
+
+    /* meera  */
+    .container-center {
+        width: 100%;
+    }
+
+    /* end  */
+
+}
+
+@media screen and (max-width: 767px) {
+    .userProfileformContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .scrollTable2 {
+        /* width: 317px; */
+
+    }
+    .pageTitleHeading {
+        font-size: 24px;
+    }
+    .submit_button button {
+        font-size: 17px;
+    }
+
+    .A_box {
+        max-width: 22rem !important;
+    }
+
+    .sr_11,
+    .btn_font_size {
+        font-size: x-small;
+    }
+
+    .userProfileformContainer {
+        /* margin-left: 0% !important; */
+    }
+
+    #image1 {
+        top: -5px;
+        left: 0;
+    }
+
+    #image2 {
+        top: -5px;
+        left: 25%;
+    }
+
+    #image3 {
+        top: -5px;
+        left: 50%;
+    }
+
+    #image4 {
+        top: -5px;
+        left: 75%;
+    }
+
+    #image5 {
+        top: -5px;
+        right: 0;
+    }
+
+    #text1 {
+        top: 13px;
+        font-size: xx-small;
+        width: min-content;
+    }
+
+    #text2 {
+        top: 13px;
+        font-size: xx-small;
+        width: min-content;
+        left: 20%;
+    }
+
+    #text3 {
+        top: 13px;
+        font-size: xx-small;
+        width: min-content;
+        left: 45%;
+    }
+
+    #text4 {
+        top: 13px;
+        font-size: xx-small;
+        width: min-content;
+        left: 70%;
+    }
+
+    #text5 {
+        top: 13px;
+        font-size: xx-small;
+        width: min-content;
+    }
+
+    /* MEERA  */
+    .mg {
+        margin-left: 10px;
+    }
+
+    .textset11 {
+        font-size: 9px;
+    }
+
+    .textset12 {
+        left: 47%;
+        font-size: 9px;
+    }
+
+    .textset13 {
+        right: -50px;
+        font-size: 9px;
+    }
+
+    /* END  */
+}
+
+/* MEERA  */
+
+@media screen and (max-width: 375px) {
+    .scrollTable2 {
+        /* width: 253px; */
+
+    }
+
+    .A_box {
+        max-width: 18rem !important;
+    }
+
+    .mg {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .scrollTable2 {
+        /* width: 189px; */
+
+    }
+
+    .A_box {
+        max-width: 14rem !important;
+    }
+
+    .textset11 {
+        font-size: 8px;
+    }
+
+    .textset12 {
+        left: 47%;
+        font-size: 8px;
+    }
+
+    .textset13 {
+        right: -50px;
+        font-size: 8px;
+    }
+}
+
+/* END  */
