@@ -118,264 +118,42 @@
             <div class="container-fluid">
                 <div class=" daily_table">
                     <table class="table_new">
-                        <tr class="table_bottom_border">
-                            <th>No.</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">1</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_hi.png" alt="user">
-                            </td>
-                            <td>Hindi</td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">2</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_guj.png" alt="user">
-                            </td>
-                            <td>Gujarati</td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">3</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_pun.png" alt="user">
-                            </td>
-                            <td>Punjabi</td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">4</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_eng.png" alt="user">
-                            </td>
-                            <td>English </td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">5</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_mar.png" alt="user">
-                            </td>
-                            <td>Marathi</td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">6</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_tam.png" alt="user">
-                            </td>
-                            <td>Tamil</td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">7</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_ba.png" alt="user">
-                            </td>
-                            <td>Bengal</td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">8</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_urd.png" alt="user">
-                            </td>
-                            <td>Urdu</td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">9</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_sin.png" alt="user">
-                            </td>
-                            <td>Sindhi</td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">10</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/l_nep.png" alt="user">
-                            </td>
-                            <td>Nepali</td>
-                            <td>
-                                <span class="me-1 k_status_active">Active</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                    <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr class="table_bottom_border">
+                                <th>No.</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="languagesList">
+                            <tr>
+                                <td>
+                                    <span class="text-dark text-decoration-none">1</span>
+                                </td>
+                                <td class="k_user_img">
+                                    <img src="image/l_hi.png" alt="user">
+                                </td>
+                                <td>Hindi</td>
+                                <td>
+                                    <span class="me-1 k_status_block">Block</span>
+                                </td>
+                                <td>
+                                    <div class="actions-btn d-flex ">
+                                        <!-- <a href="" class="me-1 pt-3">
+                                            <i class="fa-solid fa-eye k_eye" title="View"></i>
+                                        </a>                                         -->
+                                        <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
+                                            <img src="image/edit.svg" class="k_edit" alt="">
+                                        </span>
+                                        <!-- <a href="" class=" pt-3">
+                                            <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
+                                        </a> -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
 
                     </table>
                 </div>
@@ -421,3 +199,55 @@
         </div>
     </section>
 @endsection
+@push('script')
+<script>
+    $(document).ready(function() {
+        // Function to load languages
+        function loadLanguages() {
+            $.ajax({
+                url: "{{ route('language') }}",
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    var languagesList = $('#languagesList');
+                    languagesList.empty(); // Clear existing data
+
+                    if (response.success) {
+                        $.each(response.result, function(index, language) {
+                            languagesList.append(`
+                                <tr>
+                                    <td>
+                                        <span class="text-dark text-decoration-none">${index + 1}</span>
+                                    </td>
+                                    <td class="k_user_img">
+                                        <img src="${language.image}" alt="${language.name}">
+                                    </td>
+                                    <td>${language.name}</td>
+                                    <td>
+                                        <span class="me-1 k_status_block">${language.status}</span>
+                                    </td>
+                                    <td>
+                                        <div class="actions-btn d-flex">
+                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <img src="image/edit.svg" class="k_edit" alt="">
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `);
+                        });
+                    } else {
+                        languagesList.append('<tr><td colspan="5">No languages found.</td></tr>');
+                    }
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        }
+
+        // Load languages on page load
+        loadLanguages();
+    });
+</script>
+@endpush
