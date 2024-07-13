@@ -1,6 +1,5 @@
-
 @extends('layouts.app')
-
+@section('title', 'Register: Music App Management')
 @section('content')
     <section class="Login_form">
         <div class="bg">
@@ -9,7 +8,7 @@
                     <div class="inner-box rounded-3 border-light text-dark m-0 k_bg">
                         <h2 class="login_title text-center">Register</h2>
                         <p class="text-center k_rtxt">Welcome onboard with us!</p>
-                        <form method="POST" action="{{ route('create.register') }}">
+                        <form method="POST" action="{{ route('store.register') }}">
                             @csrf
                             <div class="field">
                                 <label for="name" class="form-label mb-0 mt-3">{{ __('Name') }}</label>

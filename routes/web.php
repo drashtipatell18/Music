@@ -25,7 +25,7 @@ Route::get('/', function () {
 // Login & Register Route
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
+Route::post('/register/store', [RegisterController::class, 'register'])->name('store.register');
 
 Route::get('/login', [HomeController::class, 'Login'])->name('login');
 Route::post('/loginstore', [HomeController::class, 'loginStore'])->name('loginstore');
@@ -41,25 +41,6 @@ Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->na
 // Dashboard
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-
-// Premium
-
-Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
-Route::post('/premiums/insert',[PremiumController::class,'premiumsInsert'])->name('insert.premiums');
-Route::post('/premiums/update/{id}', [PremiumController::class, 'premiumsUpdate'])->name('update.premiums');
-
-// Music & Video
-
-Route::get('/music_videos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
-Route::post('/music_videos/insert',[MusicVideoController::class,'musicVideosInsert'])->name('insert.music_videos');
-Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
-
-
-// Album
-
-Route::get('/albums', [AlbumController::class, 'albums'])->name('albums');
-Route::post('/albums/store', [AlbumController::class, 'storeAlbum'])->name('albums.store');
-Route::post('/albums/update/{id}', [AlbumController::class, 'updateAlbum'])->name('update.albums');
 
 // User
 
@@ -85,6 +66,30 @@ Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate
 Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
 Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
 Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.category');
+
+
+// Album
+
+Route::get('/albums', [AlbumController::class, 'albums'])->name('albums');
+Route::post('/albums/store', [AlbumController::class, 'storeAlbum'])->name('albums.store');
+Route::post('/albums/update/{id}', [AlbumController::class, 'updateAlbum'])->name('update.albums');
+
+
+// Music & Video
+
+Route::get('/music_videos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
+Route::post('/music_videos/insert',[MusicVideoController::class,'musicVideosInsert'])->name('insert.music_videos');
+Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
+
+// Premium
+
+Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
+Route::post('/premiums/insert',[PremiumController::class,'premiumsInsert'])->name('insert.premiums');
+Route::post('/premiums/update/{id}', [PremiumController::class, 'premiumsUpdate'])->name('update.premiums');
+
+
+
+
 
 Auth::routes([
     'register' => true,
