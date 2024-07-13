@@ -25,25 +25,25 @@
           </a>
           <ul class="mynav nav nav-pills flex-column mb-auto">
             <li class="nav-item d-flex align-items-center mb-2 sideBar_active">
-              <a href="Dashboard.html" class="active">
+              <a href="{{ route('dashboard') }}" class="active">
                 <img src="image/sb_db.svg" class="m_svg">
                 Dashboard
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="">
+              <a href="{{ route('user') }}">
                 <img src="image/sb_user.svg">
                 User
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="language.html">
+              <a href="{{ route('language') }}">
                 <img src="image/sb_lang.svg">
                 Language
               </a>
             </li>
             <li class="nav-item d-flex align-items-center mb-2">
-              <a href="category.html">
+              <a href="{{ route('category') }}">
                 <img src="image/sb_cat.svg">
                 category
               </a>
@@ -333,18 +333,10 @@
           }
         });
       </script>
-
-
-
-
       <script src="../bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-
-
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
       @stack('script')
 </body>
 </html>

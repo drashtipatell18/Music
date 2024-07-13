@@ -130,165 +130,159 @@
             </div>
         </div>
     </section>
-
-    @push('script')
-        <script>
-            function myFunctionR() {
-                document.getElementById("myDropdownR").classList.toggle("show");
-            }
-
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-            }
-
-            window.onclick = function(event) {
-                if (!event.target.matches(".dropbtn")) {
-                    var dropdowns = document.getElementsByClassName("dropdown-content");
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                        var openDropdown = dropdowns[i];
-                        if (openDropdown.classList.contains("show")) {
-                            openDropdown.classList.remove("show");
-                        }
-                    }
-                }
-            };
-        </script>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var dropdown = document.getElementsByClassName("dropdown-btnnn");
-
-                for (var i = 0; i < dropdown.length; i++) {
-                    dropdown[i].addEventListener("click", function() {
-                        this.classList.toggle("active");
-                        var dropdownContent = this.nextElementSibling;
-                        if (dropdownContent.style.display === "block") {
-                            dropdownContent.style.display = "none";
-                        } else {
-                            dropdownContent.style.display = "block";
-                        }
-                    });
-                }
-            });
-        </script>
-
-        <!-- Chart 1 script -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            // script.js
-            document.addEventListener('DOMContentLoaded', () => {
-                const ctx = document.getElementById('myChart').getContext('2d');
-
-                const circles = [{
-                        percentage: 90,
-                        radius: 120,
-                        color: '#264C82',
-                        label: 'English'
-                    },
-                    {
-                        percentage: 85,
-                        radius: 95,
-                        color: '#3382DD',
-                        label: 'Hindi'
-                    },
-                    {
-                        percentage: 75,
-                        radius: 70,
-                        color: '#9BD3F5',
-                        label: 'Gujarati'
-                    },
-                ];
-
-                const createConcentricCircle = (ctx, percentage, radius, lineWidth, color) => {
-                    const startAngle = -0.5 * Math.PI;
-                    const endAngle = startAngle + (2 * Math.PI * (percentage / 100));
-                    const centerX = ctx.canvas.width / 2;
-                    const centerY = ctx.canvas.height / 2;
-
-                    // Draw the gray portion
-                    ctx.beginPath();
-                    ctx.arc(centerX, centerY, radius, endAngle, startAngle + 2 * Math.PI);
-                    ctx.lineWidth = lineWidth;
-                    ctx.strokeStyle = '#ededed';
-                    ctx.stroke();
-
-                    // Draw the filled portion
-                    ctx.beginPath();
-                    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-                    ctx.lineWidth = lineWidth;
-                    ctx.strokeStyle = color;
-                    ctx.lineCap = 'round';
-                    ctx.stroke();
-                };
-
-                const drawChart = () => {
-                    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-                    circles.forEach(circle => {
-                        createConcentricCircle(ctx, circle.percentage, circle.radius, 15, circle
-                        .color); // Decrease thickness to 15
-                    });
-                };
-
-                drawChart();
-            });
-        </script>
-
-        <!-- Chart script 2 -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            var ctx = document.getElementById('myChart2').getContext('2d');
-            var myChart2 = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [{
-                        label: 'Premium User',
-                        backgroundColor: '#264C82',
-                        data: [50, 50, 70, 55, 54, 52, 54, 73, 52, 78, 62, 64],
-                        barPercentage: 0.7,
-                        categoryPercentage: 0.6
-                    }, {
-                        label: 'Non Normal User',
-                        backgroundColor: '#3382DD',
-                        data: [72, 72, 88, 69, 65, 63, 62, 89, 65, 60, 91, 73],
-                        barPercentage: 0.7,
-                        categoryPercentage: 0.6
-                    }]
-                },
-                options: {
-                    scales: {
-                        x: {
-                            grid: {
-                                display: false,
-                            },
-                            stacked: false,
-                        },
-                        y: {
-                            stacked: false,
-                            ticks: {
-                                stepSize: 30,
-                                beginAtZero: true
-                            },
-                            title: {
-                                display: true,
-                                text: 'Users',
-                                font: {
-                                    size: 14
-                                }
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                usePointStyle: true,
-                                pointStyle: 'circle'
-                            }
-                        }
-                    }
-                }
-            });
-        </script>
-    @endpush
 @endsection
+
+@push('script')
+    <script>
+        function myFunctionR() {
+            document.getElementById("myDropdownR").classList.toggle("show");
+        }
+
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches(".dropbtn")) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains("show")) {
+                        openDropdown.classList.remove("show");
+                    }
+                }
+            }
+        };
+        document.addEventListener("DOMContentLoaded", function() {
+            var dropdown = document.getElementsByClassName("dropdown-btnnn");
+
+            for (var i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Chart 1 script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // script.js
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            const circles = [{
+                    percentage: 90,
+                    radius: 120,
+                    color: '#264C82',
+                    label: 'English'
+                },
+                {
+                    percentage: 85,
+                    radius: 95,
+                    color: '#3382DD',
+                    label: 'Hindi'
+                },
+                {
+                    percentage: 75,
+                    radius: 70,
+                    color: '#9BD3F5',
+                    label: 'Gujarati'
+                },
+            ];
+
+            const createConcentricCircle = (ctx, percentage, radius, lineWidth, color) => {
+                const startAngle = -0.5 * Math.PI;
+                const endAngle = startAngle + (2 * Math.PI * (percentage / 100));
+                const centerX = ctx.canvas.width / 2;
+                const centerY = ctx.canvas.height / 2;
+
+                // Draw the gray portion
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, endAngle, startAngle + 2 * Math.PI);
+                ctx.lineWidth = lineWidth;
+                ctx.strokeStyle = '#ededed';
+                ctx.stroke();
+
+                // Draw the filled portion
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.lineWidth = lineWidth;
+                ctx.strokeStyle = color;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+            };
+
+            const drawChart = () => {
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                circles.forEach(circle => {
+                    createConcentricCircle(ctx, circle.percentage, circle.radius, 15, circle
+                        .color); // Decrease thickness to 15
+                });
+            };
+
+            drawChart();
+        });
+   
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Premium User',
+                    backgroundColor: '#264C82',
+                    data: [50, 50, 70, 55, 54, 52, 54, 73, 52, 78, 62, 64],
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.6
+                }, {
+                    label: 'Non Normal User',
+                    backgroundColor: '#3382DD',
+                    data: [72, 72, 88, 69, 65, 63, 62, 89, 65, 60, 91, 73],
+                    barPercentage: 0.7,
+                    categoryPercentage: 0.6
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                        },
+                        stacked: false,
+                    },
+                    y: {
+                        stacked: false,
+                        ticks: {
+                            stepSize: 30,
+                            beginAtZero: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Users',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+@endpush
