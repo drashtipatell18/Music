@@ -96,27 +96,28 @@
                             <div class="modal-body">
                                 <h2 class="pageTitleHeading">Add Music & Video</h2>
                                 <form class="row g-3">
+                                    @csrf
                                     <div class="col-md-12">
                                         <label for="fname" class="form-label">Name :</label>
-                                        <input type="text" class="form-control" id="fname">
+                                        <input type="text" class="form-control" id="fname" name="name">
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="arname" class="form-label">Artist name :</label><br>
-                                        <select id="arname" class="form-select">
+                                        <select id="artist_id" name="artist_id" class="form-select">
                                             <option>Arman Malik</option>
                                             <option>Camila Cabello</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="alname" class="form-label">Album name :</label>
-                                        <select id="alname" class="form-select">
+                                        <select id="album_id" name="album_id" class="form-select">
                                             <option>Wonder</option>
                                             <option>Camila Cabello</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="category" class="form-label">Category :</label>
-                                        <select id="category" class="form-select">
+                                        <select id="category_id" name="category_id" class="form-select">
                                             <option>Trending</option>
                                             <option>Mood</option>
                                             <option>Party</option>
@@ -124,7 +125,7 @@
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="language" class="form-label">Language :</label>
-                                        <select id="language" class="form-select">
+                                        <select id="language_id" name="language_id" class="form-select">
                                             <option>English</option>
                                             <option>Hindi</option>
                                             <option>Gujarati</option>
@@ -133,25 +134,25 @@
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="sstatus" class="form-label">Type :</label>
-                                        <select id="sstatus" class="form-select">
+                                        <select id="type" name="type" class="form-select">
                                             <option>Audio</option>
                                             <option>Video</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="status" class="form-label">Status :</label>
-                                        <select id="status" class="form-select">
+                                        <select id="status" name="status" class="form-select">
                                             <option selected>Active</option>
                                             <option>Block</option>
                                         </select>
                                     </div>
                                     <div class="col-xl-6 ">
                                         <label for="inputImage" class="form-label">Choose Image</label>
-                                        <input type="file" class="form-control" id="inputImage">
+                                        <input type="file" class="form-control" id="icons" name="icons">
                                     </div>
                                     <div class="col-xl-6">
                                         <label for="url" class="form-label">URL :</label>
-                                        <input type="text" class="form-control" id="url">
+                                        <input type="text" class="form-control" id="url" name="url">
                                     </div>
                                     <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                                         <button type="submit" class="btn btn-primary">Save</button>

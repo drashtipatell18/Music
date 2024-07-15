@@ -1,15 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ArtistController;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -71,7 +62,7 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 // User
 
 Route::get('/user', [UserController::class, 'users'])->name('user');
-Route::post('/user/insert',[UserController::class,'userInsert'])->name('insert.user');
+Route::post('/user/insert',[UserController::class,'userInsert'])->name('insert.user')->middleware('auth.api');
 Route::post('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update.user');
 Route::get('/user/destroy/{id}',[UserController::class,'userDestroy'])->name('destroy.user');
 
@@ -87,39 +78,13 @@ Route::post('/language/status/{id}', [LanguageController::class, 'UpdateStatus']
 Route::get('/category', [CategoryController::class, 'category'])->name('category');
 Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
 Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
+Route::post('/category/status/{id}', [CategoryController::class, 'UpdateStatus'])->name('updatestatus.category');
 
 // Artist
 
 Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
 Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
 Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.artist');
-// Premium
-
-// User
-
-Route::get('/users', [UserController::class, 'users'])->name('user');
-Route::post('/user/insert',[UserController::class,'userInsert'])->name('insert.user');
-Route::post('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update.user');
-Route::get('/user/destroy/{id}',[UserController::class,'userDestroy'])->name('destroy.user');
-
-// Language
-
-Route::get('/language', [LanguageController::class, 'language'])->name('language');
-Route::post('/language/insert',[LanguageController::class,'languageInsert'])->name('insert.language');
-Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate'])->name('update.language');
-
-// Category
-
-Route::get('/category', [CategoryController::class, 'category'])->name('category');
-Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
-Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
-
-// Artist
-
-Route::get('/artist', [ArtistController::class, 'artist'])->name('artist');
-Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
-Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.category');
-
 
 
 // Album
@@ -131,9 +96,10 @@ Route::post('/albums/update/{id}', [AlbumController::class, 'updateAlbum'])->nam
 
 // Music & Video
 
-Route::get('/music_videos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
-Route::post('/music_videos/insert',[MusicVideoController::class,'musicVideosInsert'])->name('insert.music_videos');
-Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
+Route::get('/musicvideos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
+Route::post('/musicvideos/insert',[MusicVideoController::class,'musicVideosInsert'])->name('insert.music_videos');
+Route::post('/musicvideos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
+Route::post('/musicvideos/status/{id}', [MusicVideoController::class, 'UpdateStatus'])->name('updatestatus.music_videos');
 
 // Premium
 
@@ -147,6 +113,3 @@ Auth::routes([
     'reset' => false,
     'verify' => false
 ]);
-Route::get('/language', [LanguageController::class, 'language'])->name('language');
-Route::post('/language/insert',[LanguageController::class,'languageInsert'])->name('insert.language');
-Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate'])->name('update.language');
