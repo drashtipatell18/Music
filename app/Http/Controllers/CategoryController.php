@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -14,9 +15,17 @@ class CategoryController extends Controller
 
     public function storeCategory(Request $request)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'category_name' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         $filename = '';
 
@@ -34,9 +43,17 @@ class CategoryController extends Controller
     
     public function categoryUpdate(Request $request, $id)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'category_name' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
     
         $category = Category::find($id);
         if ($request->hasFile('image')) {

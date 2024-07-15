@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -26,39 +27,27 @@ class HomeController extends Controller
 
     public function RegisterStore(Request $request)
     {
-        $validatedData = $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'confirm_password' => 'required|same:password'
         ]);
 
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
+
         $user = User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
+            'name' => $validateRequest['name'],
+            'email' => $validateRequest['email'],
+            'password' => Hash::make($validateRequest['password']),
         ]);
     }
-
-    // public function Login(){
-    //     return view('auth.login');
-    // }
-
-    // public function loginStore(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ]);
-
-    //     // Attempt to authenticate using the user's email
-    //     if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
-    //         return redirect()->route('dashboard');
-    //     }
-
-    //     // If none of the attempts succeed, redirect back with an error message
-    //     return back()->withErrors(['email' => 'Invalid credentials'])->withInput($request->only('email'));
-    // }
 
     public function logout(Request $request)
     {

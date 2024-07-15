@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Artist;
 
 class ArtistController extends Controller
@@ -19,10 +20,18 @@ class ArtistController extends Controller
 
     public function storeArtist(Request $request)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'status' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         // Handle file upload
         $filename = '';
@@ -49,10 +58,19 @@ class ArtistController extends Controller
 
     public function ArtistUpdate(Request $request, $id)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'status' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
+        
         $artist = Artist::find($id);
 
         $filename = $artist->image;

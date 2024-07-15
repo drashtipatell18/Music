@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -15,12 +16,20 @@ class UserController extends Controller
   
     public function userInsert(Request $request)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
             'mobile_no' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         $user = User::create([
             'name'      => $request->input('name'),
@@ -41,12 +50,20 @@ class UserController extends Controller
 
     public function userUpdate(Request $request, $id)
     {
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
             'mobile_no' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         $users = User::find($id);
 
@@ -89,13 +106,20 @@ class UserController extends Controller
 
     public function Profileupdate(Request $request, $id)
     {
-
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required',
             'address' => 'required',
             'mobile_no' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         $users = User::find($id);
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Albums;
 
 class AlbumController extends Controller
@@ -16,11 +17,19 @@ class AlbumController extends Controller
         ], 200);    }
 
     public function storeAlbum(Request $request){
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'artist_name' => 'required|string|max:255',
             'albums_name' => 'required|string|max:255',
             'status' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
 
         // Handle file upload
         $filename = '';
@@ -46,11 +55,19 @@ class AlbumController extends Controller
     }
 
     public function updateAlbum(Request $request, $id){
-        $request->validate([
+        $validateRequest = Validator::make($request->all(), [
             'artist_name' => 'required|string|max:255',
             'albums_name' => 'required|string|max:255',
             'status' => 'required',
         ]);
+
+        if ($validateRequest->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation error',
+                'errors' => $validateRequest->errors()
+            ], 403);
+        }
         $album = Albums::find($id);
 
         $filename = $album->image;
