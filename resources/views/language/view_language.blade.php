@@ -94,13 +94,13 @@
                                 <label for="fname" class="form-label">Name :</label>
                                 <input type="text" class="form-control" id="fname">
                             </div>
-                            <div class="col-12">
+                            {{-- <div class="col-12">
                                 <label for="inputState" class="form-label">Status :</label>
                                 <select id="inputState" class="form-select">
                                     <option selected>Active</option>
                                     <option>Block</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="col-12 ">
                                 <label for="inputImage" class="form-label">Choose Image</label>
                                 <input type="file" class="form-control" id="inputImage">
@@ -175,13 +175,13 @@
                                         <label for="fname" class="form-label">Name :</label>
                                         <input type="text" class="form-control" id="fname">
                                     </div>
-                                    <div class="col-12">
+                                    {{-- <div class="col-12">
                                         <label for="inputState" class="form-label">Status :</label>
                                         <select id="inputState" class="form-select">
                                             <option selected>Active</option>
                                             <option>Block</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-12 ">
                                         <label for="inputImage" class="form-label">Choose Image</label>
                                         <input type="file" class="form-control" id="inputImage">

@@ -109,13 +109,13 @@
                                         <input type="text" class="form-control" id="time">
                                     </div>
 
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <label for="status" class="form-label">Status :</label>
                                         <select id="status" class="form-select">
                                             <option selected>Active</option>
                                             <option>Block</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-12">
                                         <label for="description" class="form-label">Description :</label>
@@ -526,13 +526,13 @@
                                                     <input type="text" class="form-control" id="time">
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                {{-- <div class="col-md-6">
                                                     <label for="status" class="form-label">Status :</label>
                                                     <select id="status" class="form-select">
                                                         <option selected>Active</option>
                                                         <option>Block</option>
                                                     </select>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="col-12">
                                                     <label for="description" class="form-label">Description :</label>

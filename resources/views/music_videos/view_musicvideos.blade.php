@@ -139,13 +139,13 @@
                                             <option>Video</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6 col-xl-4">
+                                    {{-- <div class="col-md-6 col-xl-4">
                                         <label for="status" class="form-label">Status :</label>
                                         <select id="status" name="status" class="form-select">
                                             <option selected>Active</option>
                                             <option>Block</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-xl-6 ">
                                         <label for="inputImage" class="form-label">Choose Image</label>
                                         <input type="file" class="form-control" id="icons" name="icons">
@@ -582,13 +582,13 @@
                                                 <option>Video</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-6 col-xl-4">
+                                        {{-- <div class="col-md-6 col-xl-4">
                                             <label for="status" class="form-label">Status :</label>
                                             <select id="status" class="form-select">
                                                 <option selected>Active</option>
                                                 <option>Block</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-xl-6 ">
                                             <label for="inputImage" class="form-label">Choose Image</label>
                                             <input type="file" class="form-control" id="inputImage">
