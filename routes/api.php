@@ -8,7 +8,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArtistController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\Auth\LoginController;
@@ -28,7 +27,7 @@ use App\Http\Controllers\MusicVideoController;
 */
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth.api')->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
 
@@ -95,8 +94,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
 
     // Premium
-
     Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
     Route::post('/premiums/insert', [PremiumController::class, 'premiumsInsert'])->name('insert.premiums');
     Route::post('/premiums/update/{id}', [PremiumController::class, 'premiumsUpdate'])->name('update.premiums');
+
+
 });
+
+
