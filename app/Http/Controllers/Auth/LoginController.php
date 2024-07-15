@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 
-class   LoginController extends Controller
+class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -82,3 +82,4 @@ class   LoginController extends Controller
         return redirect('login');
     }
 }
+
