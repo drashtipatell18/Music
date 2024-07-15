@@ -20,16 +20,16 @@ class CategoryController extends Controller
 
     public function storeCategory(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        if ($validateRequest->fails()) {
+        if ($validator->fails()) {
             return response()->json([
                 'success' => false,
                 'message' => 'Validation error',
-                'errors' => $validateRequest->errors()
+                'errors' => $validator->errors()
             ], 403);
         }
 
