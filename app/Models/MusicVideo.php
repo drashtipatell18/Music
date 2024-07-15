@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MusicVideo extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "music_videos";
+    protected $table = "musicvideo";
     protected $fillable = ['name', 'album_id', 'artist_id', 'category_id', 'language_id', 'icons','type','url','status'];
 }
