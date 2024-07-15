@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Forgot Password: Music App Management')
 @section('content')
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>@yield('title', 'Music App Management')</title>
     <link rel="stylesheet" href="./bootstrap-5.2.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css" />
     <link rel="stylesheet" href="./css/table.css" />

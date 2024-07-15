@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'OTP Verification: Music App Management')
 @section('content')
     <section class="Login_form">
         <div class="bg">

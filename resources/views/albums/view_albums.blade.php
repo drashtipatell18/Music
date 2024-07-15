@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Albums: Music App Management')
 @section('content')
 
 

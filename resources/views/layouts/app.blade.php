@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset ('bootstrap-5.2.3/dist/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('fontawesome-free-6.5.2-web/fontawesome-free-6.5.2-web/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/Login.css') }}" />
-    <title>Log in</title>
+    <title>@yield('title', 'Music App Management')</title>
 
 </head>
 

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Category: Music App Management')
 @section('content')
  <!-- main section -->
  <section class="daily_price">
@@ -10,7 +11,7 @@
         </button>
     </div>
 
-    
+
     <!-- Change password Modal Start -->
     <div class="modal fade" id="chngPassModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -205,7 +206,7 @@
                             </div>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>
                             <span class="text-dark text-decoration-none">4</span>
@@ -302,5 +303,5 @@
 </section>
 @endsection
 @push('script')
-   
+
 @endpush
