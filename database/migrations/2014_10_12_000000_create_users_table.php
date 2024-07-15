@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('otp')->nullable();
             $table->string('password')->nullable();
             $table->string('image')->nullable();
+            $table->integer('api_token');
+            $table->string('status')->nullable()->default('active');
+            $table->string('phone')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

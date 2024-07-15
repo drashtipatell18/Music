@@ -53,6 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/user/insert', [UserController::class, 'userInsert'])->name('insert.user');
     Route::post('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update.user');
     Route::get('/user/destroy/{id}', [UserController::class, 'userDestroy'])->name('destroy.user');
+    Route::post('/user/{id}/status-update', [UserController::class, 'statusUpdate']);
 
     // Language
 

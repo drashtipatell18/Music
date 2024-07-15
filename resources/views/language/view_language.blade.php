@@ -1,3 +1,6 @@
+@php
+    $page = "language";
+@endphp
 @extends('layouts.main')
 @section('title', 'Languages: Music App Management')
 @section('content')
@@ -208,6 +211,9 @@
             $.ajax({
                 url: "{{ route('language') }}",
                 type: 'GET',
+                headers: {
+                    'Authorization': sessionStorage.getItem('token')
+                },
                 dataType: 'json',
                 success: function(response) {
                     var languagesList = $('#languagesList');
@@ -221,7 +227,7 @@
                                         <span class="text-dark text-decoration-none">${index + 1}</span>
                                     </td>
                                     <td class="k_user_img">
-                                        <img src="${language.image}" alt="${language.name}">
+                                        <img src="/images/${language.image}" alt="${language.name}">
                                     </td>
                                     <td>${language.name}</td>
                                     <td>
