@@ -61,6 +61,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/language/insert', [LanguageController::class, 'languageInsert'])->name('insert.language');
     Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate'])->name('update.language');
     Route::post('/language/status/{id}', [LanguageController::class, 'UpdateStatus'])->name('updatestatus.language');
+    Route::get('/language/{id}', [LanguageController::class, 'getLanguage']);
 
     // Category
 
