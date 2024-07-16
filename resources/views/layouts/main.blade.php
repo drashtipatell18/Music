@@ -57,8 +57,13 @@
                 Language
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center mb-2">
-              <a href="{{ route('category') }}">
+            <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "category")
+                {
+                    echo 'sideBar_active';
+                }
+            @endphp">
+              <a href="/category">
                 <img src="image/sb_cat.svg">
                 category
               </a>

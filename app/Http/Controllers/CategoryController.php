@@ -7,6 +7,28 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+    public function categoryGet($id)
+    {
+        $category = Category::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'category fetched successfully',
+            'result' => $category
+        ], 200);
+    }
+    public function categoryUpdateStatus($id, Request $request)
+    {
+        $category = Category::find($id);
+        $category->update([
+            'status' => $request->input('status'),
+         ]);
+
+         return response()->json([
+            'success' => true,
+            'message' => 'Language status updated successfully',
+            'result' => $category
+        ], 200);
+    }
     public function category()
     {
         $categorys = Category::all();

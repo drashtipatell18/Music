@@ -25,3 +25,6 @@ Route::get('/users', function(){
 Route::get('/language', function(){
     return view('language.view_language');
 });
+Route::get('/category', function(){
+    return view('category.view_category');
+});

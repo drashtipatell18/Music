@@ -66,8 +66,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Category
 
     Route::get('/category', [CategoryController::class, 'category'])->name('category');
+    Route::get('/category/{id}', [CategoryController::class, 'categoryGet']);
     Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
     Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
+    Route::post('/category/updateStatus/{id}', [CategoryController::class, 'categoryUpdateStatus'])->name('update.category');
 
     // Artist
 
@@ -75,12 +77,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
     Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.artist');
     Route::post('/artist/status/{id}', [ArtistController::class, 'ArtistUpdateStatus'])->name('updatestatus.artist');
-
-    // Category
-
-    Route::get('/category', [CategoryController::class, 'category'])->name('category');
-    Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
-    Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
 
     // Album
 
