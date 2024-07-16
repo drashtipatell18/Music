@@ -24,133 +24,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbody">
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">1</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_active">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">2</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_block">Block</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">3</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_active">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">4</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_block">Block</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">5</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_active">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">6</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_block">Block</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">7</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_active">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">8</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_block">Block</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">9</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_active">Active</span>
-                                </td>
-                            </tr>
-                            <tr>
+                            {{-- <tr>
                                 <td>
                                     <span class="text-dark text-decoration-none">10</span>
                                 </td>
@@ -163,7 +37,7 @@
                                 <td>
                                     <span class="me-1 k_status_block">Block</span>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
