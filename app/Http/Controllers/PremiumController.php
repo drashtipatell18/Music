@@ -87,6 +87,15 @@ class PremiumController extends Controller
             'result' => $premiums
         ], 200);
     }
+    public function UpdateStatus(Request $request, $id)
+    {
+        $premiums = Premium::findOrFail($id);
+        $premiums->status = $request->input('status');
+        $premiums->save();
+
+        // You can return a response if needed
+        return response()->json(['message' => 'premium status updated successfully']);
+    }
 }
 
 
