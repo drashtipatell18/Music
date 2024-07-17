@@ -1,3 +1,6 @@
+@php
+    $page = 'artist';
+@endphp
 @extends('layouts.main')
 @section('title', 'Artist: Music App Management')
 @section('content')

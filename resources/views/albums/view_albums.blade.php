@@ -1,3 +1,6 @@
+@php
+    $page = 'albums';
+@endphp
 @extends('layouts.main')
 @section('title', 'Albums: Music App Management')
 @section('content')
@@ -97,17 +100,18 @@
                             </div>
                             <div class="modal-body">
                                 <h2 class="pageTitleHeading">Add Album</h2>
-                                <form class="row g-3">
+                                <form class="row g-3" id="insertArtist">
                                     <div class="col-12">
                                         <label for="arName" class="form-label">Artist name :</label>
-                                        <select id="arName" class="form-select">
-                                            <option>Camila Cabello</option>
-                                            <option>Shawn Mendes</option>
+                                        <select id="arName" name="arName" class="form-select">
+                                            <option value="">-Select Artist-</option>
+                                            {{-- <option>Camila Cabello</option>
+                                            <option>Shawn Mendes</option> --}}
                                         </select>
                                     </div>
                                     <div class="col-12">
                                         <label for="fname" class="form-label">Album name :</label>
-                                        <input type="text" class="form-control" id="fname">
+                                        <input type="text" name="fname" class="form-control" id="fname">
                                     </div>
                                     {{-- <div class="col-12">
                                         <label for="inputState" class="form-label">Status :</label>
@@ -118,7 +122,7 @@
                                     </div> --}}
                                     <div class="col-12 ">
                                         <label for="inputImage" class="form-label">Choose Image</label>
-                                        <input type="file" class="form-control" id="inputImage">
+                                        <input type="file" name="inputImage" class="form-control" id="inputImage">
                                     </div>
                                     <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -134,15 +138,20 @@
                     <div class="container-fluid">
                         <div class=" daily_table">
                             <table class="table_new">
-                                <tr class="table_bottom_border">
-                                    <th>No.</th>
-                                    <th>Image</th>
-                                    <th>Album Name</th>
-                                    <th>Artist Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                <tr>
+                                <thead>
+                                    <tr class="table_bottom_border">
+                                        <th>No.</th>
+                                        <th>Image</th>
+                                        <th>Album Name</th>
+                                        <th>Artist Name</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+
+                                </tbody>
+                                {{-- <tr>
                                     <td>
                                         <span class="text-dark text-decoration-none">1</span>
                                     </td>
@@ -157,169 +166,12 @@
                                     </td>
                                     <td>
                                         <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
                                             <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
                                                 <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
+                                            </span>
                                         </div>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">2</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al2.png" alt="user">
-                                    </td>
-                                    <td> Lofi</td>
-                                    <td>Palak Machal </td>
-                                    <td>
-                                        <span class="me-1 k_status_block">Block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">3</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al3.png" alt="user">
-                                    </td>
-                                    <td> Love</td>
-                                    <td>Arijit Shing </td>
-                                    <td>
-                                        <span class="me-1 k_status_block">Block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">4</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al4.png" alt="user">
-                                    </td>
-                                    <td> Party</td>
-                                    <td>Badshah </td>
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">5</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al5.png" alt="user">
-                                    </td>
-                                    <td> Sad</td>
-                                    <td>Neha Kakkar </td>
-                                    <td>
-                                        <span class="me-1 k_status_block">Block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">6</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al3.png" alt="user">
-                                    </td>
-                                    <td> Love</td>
-                                    <td>Arijit Shing</td>
-                                    <td>
-                                        <span class="me-1 k_status_block">Block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">7</span>
-                                    </td>
-                                    <td class="k_user_img">
-                                        <img src="image/al2.png" alt="user">
-                                    </td>
-                                    <td> Mood</td>
-                                    <td>Palak Machal </td>
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <!-- <a href="" class="me-1 pt-3">
-                                                <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                            </a>                                         -->
-                                            <span class="me-1 " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-
+                                </tr> --}}
                             </table>
                         </div>
 
@@ -335,17 +187,21 @@
                                     </div>
                                     <div class="modal-body">
                                         <h2 class="pageTitleHeading">Edit Album</h2>
-                                        <form class="row g-3">
+                                        <form class="row g-3" id="updateAlbum">
                                             <div class="col-12">
-                                                <label for="arName" class="form-label">Artist name :</label>
-                                                <select id="arName" class="form-select">
-                                                    <option>Camila Cabello</option>
-                                                    <option>Shawn Mendes</option>
+                                                <label for="arName-edit" class="form-label">Artist name :</label>
+                                                <select id="arName-edit" name="arName-edit" class="form-select">
+                                                    <option value="">-Select Artist-</option>
+                                                    {{-- <option>Camila Cabello</option>
+                                                    <option>Shawn Mendes</option> --}}
                                                 </select>
                                             </div>
                                             <div class="col-12">
-                                                <label for="fname" class="form-label">Album name :</label>
-                                                <input type="text" class="form-control" id="fname">
+                                                <label for="fname-edit" class="form-label">Album name :</label>
+                                                <input type="text" class="form-control" id="fname-edit" name="fname-edit">
+                                            </div>
+                                            <div class="col-12">
+                                                <img src="" style="width: 100px" id="oldImg" alt="">
                                             </div>
                                             {{-- <div class="col-12">
                                                 <label for="inputState" class="form-label">Status :</label>
@@ -355,8 +211,8 @@
                                                 </select>
                                             </div> --}}
                                             <div class="col-12 ">
-                                                <label for="inputImage" class="form-label">Choose Image</label>
-                                                <input type="file" class="form-control" id="inputImage">
+                                                <label for="inputImage-edit" class="form-label">Choose Image</label>
+                                                <input type="file" class="form-control" id="inputImage-edit" name="inputImage-edit">
                                             </div>
                                             <div
                                                 class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
@@ -375,7 +231,7 @@
             </section>
         </div>
     </div>
-
+    @push('script')
     <script>
         function myFunctionR() {
             document.getElementById("myDropdownR").classList.toggle("show");
@@ -396,9 +252,6 @@
                 }
             }
         };
-    </script>
-    <script>
-
 
         document.addEventListener("DOMContentLoaded", function () {
             var dropdown = document.getElementsByClassName("dropdown-btnnn");
@@ -415,5 +268,269 @@
                 });
             }
         });
+
+        showLoading();
+        $.ajax({
+            "url": "http://127.0.0.1:8000/api/albums",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": sessionStorage.getItem('token')
+            },
+            "success": function(response){
+                hideLoading();
+                let i = 1;
+                $.each(response.result, function(){
+                    let tr = `
+                        <tr>
+                            <td>
+                                <span class="text-dark text-decoration-none">${i++}</span>
+                            </td>
+                            <td class="k_user_img">
+                                <img src="/images/${this.image}" alt="user">
+                            </td>
+                            <td>${this.album_name}</td>
+                            <td>${this.artist_name}</td>
+                            <td>
+                                <button data-status="${(this.status == 'Active')?'Block':'Active'}" data-id="${this.id}" class="updateStatus me-1 ${(this.status == 'Active')?'k_status_active':'k_status_block'}">${(this.status == 'Active')?'Active':'Block'}</button>
+                            </td>
+                            <td>
+                                <div class="actions-btn d-flex ">
+                                    <span data-id="${this.id}" class="me-1 getAlbum" data-bs-toggle="modal" data-bs-target="#editModal">
+                                        <img src="image/edit.svg" class="k_edit" alt="">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    $("#tbody").append(tr);
+                })
+            },
+            "error": function(err){
+                hideLoading();
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.responseText
+                })
+            }
+        });
+        $.ajax({
+            "url": "http://127.0.0.1:8000/api/artist",
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": sessionStorage.getItem('token')
+            },
+            "success": function(response){
+                $.each(response.result, function(){
+                    $("#arName-edit").append(`
+                        <option value="${this.name}">${this.name}</option>
+                    `);
+                    $("#arName").append(`
+                        <option value="${this.name}">${this.name}</option>
+                    `);
+                })
+            }
+        })
+
+        $("#insertArtist").validate({
+            rules: {
+                arName: {
+                    required: true
+                },
+                fname: {
+                    required: true
+                },
+                inputImage: {
+                    required: true
+                }
+            },
+            messages: {
+                arName: {
+                    required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
+                },
+                fname: {
+                    required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
+                },
+                inputImage: {
+                    required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
+                }
+            }
+        })
+        $("#insertArtist").submit(function(e){
+            e.preventDefault();
+            if($("#insertArtist").valid())
+            {
+                showLoading();
+                let form = new FormData();
+                form.append('artist_name', $("#arName").val())
+                form.append('album_name', $("#fname").val())
+                form.append('status', 'Active')
+                form.append('image', $("#inputImage")[0].files[0])
+
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/albums/store",
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Album stored successfully"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    },
+                    "error": function(err){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            }
+        })
+
+        $("#updateAlbum").validate({
+            rules: {
+                "arName-edit": {
+                    required: true
+                },
+                "fname-edit": {
+                    required: true
+                },
+                // "inputImage-edit": {
+                //     required: true
+                // }
+            },
+            messages: {
+                "arName-edit": {
+                    required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
+                },
+                "fname-edit": {
+                    required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
+                },
+                // "inputImage-edit": {
+                //     required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
+                // }
+            }
+        });
+        $("#updateAlbum").submit(function(e){
+            e.preventDefault();
+            if($("#updateAlbum").valid())
+            {
+                let id = $("#fname-edit").data('id');
+                let form = new FormData();
+
+                form.append('artist_name', $("#arName-edit").val())
+                form.append('album_name', $("#fname-edit").val())
+                form.append('image', $("#inputImage-edit")[0].files[0])
+                form.append('status', 'Active')
+
+                showLoading();
+
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/albums/update/1",
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Album Updated"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    },
+                    "error": function(err){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            }
+        })
+
+        $("#tbody").on('click', '.updateStatus', function(){
+            let id = $(this).data('id')
+            let status = $(this).data('status')
+            showLoading();
+            const form = new FormData();
+            form.append('status', status)
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/albums/status/" + id,
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form,
+                "success": function(response){
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Status updated successfully."
+                    }).then(()=>{
+                        window.location.reload();
+                    })
+                },
+                "error": function(err){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: err.responseText
+                    })
+                }
+            })
+        });
+
+        $("#tbody").on('click', '.getAlbum', function(){
+            showLoading();
+            let id = $(this).data("id");
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/albums/" + id,
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "success": function(response){
+                    $("#oldImg").attr('src', "/images/" + response.result.image)
+                    $("#fname-edit").val(response.result.album_name)
+                    $("#arName-edit").find(`option[value='${response.result.artist_name}']`).prop('selected', true)
+                    $("#fname-edit").attr('data-id', response.result.id);
+                    hideLoading()
+                },
+                "error": function(err){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: err.responseText
+                    })
+                }
+            })
+        })
     </script>
+    @endpush
   @endsection

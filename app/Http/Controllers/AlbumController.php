@@ -8,6 +8,14 @@ use App\Models\Albums;
 
 class AlbumController extends Controller
 {
+    public function getAlbums($id){
+        $artists = Albums::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Artist Data successfully',
+            'result' => $artists
+        ], 200);
+    }
     public function albums(){
         $artists = Albums::all();
         return response()->json([
@@ -19,7 +27,7 @@ class AlbumController extends Controller
     public function storeAlbum(Request $request){
         $validateRequest = Validator::make($request->all(), [
             'artist_name' => 'required|string|max:255',
-            'albums_name' => 'required|string|max:255',
+            'album_name' => 'required|string|max:255',
             'status' => 'required',
         ]);
 
@@ -42,7 +50,7 @@ class AlbumController extends Controller
         // Create a new language record
         $albums = Albums::create([
             'artist_name' => $request->input('artist_name'),
-            'albums_name' => $request->input('albums_name'),
+            'album_name' => $request->input('album_name'),
             'status' => $request->input('status'),
             'image' => $filename,
         ]);
@@ -57,7 +65,7 @@ class AlbumController extends Controller
     public function updateAlbum(Request $request, $id){
         $validateRequest = Validator::make($request->all(), [
             'artist_name' => 'required|string|max:255',
-            'albums_name' => 'required|string|max:255',
+            'album_name' => 'required|string|max:255',
             'status' => 'required',
         ]);
 
@@ -79,7 +87,7 @@ class AlbumController extends Controller
 
         $album->update([
             'artist_name' => $request->input('artist_name'),
-            'albums_name' => $request->input('albums_name'),
+            'album_name' => $request->input('album_name'),
             'status' => $request->input('status'),
             'image' => $filename,
         ]);

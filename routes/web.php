@@ -31,3 +31,6 @@ Route::get('/category', function(){
 Route::get('/artist', function(){
     return view('artist.view_artist');
 });
+Route::get('/albums', function(){
+    return view('albums.view_albums');
+});

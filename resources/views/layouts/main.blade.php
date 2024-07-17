@@ -73,7 +73,7 @@ if(isset($page) && $page == "category")
 
                 <li
                     class="nav-item d-flex align-items-center mb-2 @php
-if(isset($page) && $page == "category")
+if(isset($page) && $page == "artist")
             {
                 echo 'sideBar_active';
             } @endphp">
@@ -82,8 +82,12 @@ if(isset($page) && $page == "category")
                         Artist
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2">
-                    <a href="{{ route('albums') }}">
+                <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "albums")
+                {
+                    echo 'sideBar_active';
+                } @endphp">
+                    <a href="/albums">
                         <img src="image/sb_al.svg">
                         Album
 

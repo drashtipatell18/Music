@@ -81,6 +81,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Album
 
     Route::get('/albums', [AlbumController::class, 'albums'])->name('albums');
+    Route::get('/albums/{id}', [AlbumController::class, 'getAlbums']);
     Route::post('/albums/store', [AlbumController::class, 'storeAlbum'])->name('albums.store');
     Route::post('/albums/update/{id}', [AlbumController::class, 'updateAlbum'])->name('update.albums');
     Route::post('/albums/status/{id}', [AlbumController::class, 'AlbumUpdateStatus'])->name('updatestatus.albums');
