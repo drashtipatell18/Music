@@ -24,20 +24,7 @@
                             </tr>
                         </thead>
                         <tbody id="tbody">
-                            {{-- <tr>
-                                <td>
-                                    <span class="text-dark text-decoration-none">10</span>
-                                </td>
-                                <td class="k_user_img">
-                                    <img src="image/user.jpg" alt="user">
-                                </td>
-                                <td>Ketanbhai Jasani</td>
-                                <td>abc@gmail.com</td>
-                                <td>123456789</td>
-                                <td>
-                                    <span class="me-1 k_status_block">Block</span>
-                                </td>
-                            </tr> --}}
+                           
                         </tbody>
                     </table>
                 </div>
