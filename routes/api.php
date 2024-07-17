@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -76,6 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
     Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.artist');
     Route::post('/artist/status/{id}', [ArtistController::class, 'ArtistUpdateStatus'])->name('updatestatus.artist');
+    Route::get('/artist/{id}', [ArtistController::class, 'getArtist']);
 
     // Album
 

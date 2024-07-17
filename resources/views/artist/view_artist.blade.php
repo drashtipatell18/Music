@@ -9,75 +9,6 @@
                 + &nbsp;Add
             </button>
         </div>
-
-
-        <!-- Change password Modal Start -->
-        <div class="modal fade" id="chngPassModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h2 class="pageTitleHeading">Change password</h2>
-                        <div class="field">
-                            <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="oldPassword" />
-                                <span class="input-group-text k_igt">
-                                    <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="newPassword" />
-                                <span class="input-group-text k_igt">
-                                    <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
-                            <div class="input-group">
-                                <input type="password" class="form-control" id="confirmPassword" />
-                                <span class="input-group-text  k_igt">
-                                    <i class="fas fa-eye-slash toggle-password" data-toggle="#confirmPassword"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="password mb-4 fs-6 text-secondary">
-                            <p>Both passwords must match</p>
-                        </div>
-                        <div class="d-flex justify-content-center mt-5">
-                            <a href="Dashboard.html" type="submit"
-                                class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Change password Modal End -->
-
-        <!-- Logout Modal Start -->
-        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body k_modal-body">
-                        <p>Are you Sure to Logout?</p>
-                        <div class="k_lob d-flex">
-                            <button type="button" class="k_loClose" data-bs-dismiss="modal"
-                                aria-label="Close">Cancel</button>
-                            <a href="Login.html">Sure</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Logout Modal End -->
-
         <!-- Add Modal Start -->
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -87,14 +18,14 @@
                     </div>
                     <div class="modal-body">
                         <h2 class="pageTitleHeading">Add Artist</h2>
-                        <form class="row g-3">
+                        <form class="row g-3" id="addArtist">
                             <div class="col-12">
                                 <label for="fname" class="form-label">Name :</label>
-                                <input type="text" class="form-control" id="fname">
+                                <input type="text" class="form-control"name="fname" id="fname">
                             </div>
                             <div class="col-12">
                                 <label for="fname" class="form-label">Description :</label>
-                                <textarea style="width: 100%;" class="k_fclr"></textarea>
+                                <textarea style="width: 100%;" name="description" id="description" class="k_fclr"></textarea>
                             </div>
                             {{-- <div class="col-12">
                                 <label for="inputState" class="form-label">Status :</label>
@@ -121,293 +52,21 @@
             <div class="container-fluid">
                 <div class=" daily_table">
                     <table class="table_new">
-                        <tr class="table_bottom_border">
-                            <th>No.</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">1</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">2</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">3</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">4</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">5</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">6</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">7</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">8</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">9</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">10</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ar.png" alt="user">
-                            </td>
-                            <td>Lata Mangeshkar </td>
-                            <td style="width: 500px;">
-                                Lorem Ipsum.....
-                            </td>
-                            <td>
-                                <a href="" class="me-1 k_status_active">Active</a>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <!-- <a href="" class="me-1 pt-3">
-                                        <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                    </a>                                         -->
-                                    <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                        <!-- <a href="" class=" pt-3">
-                                        <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                    </a> -->
-                                </div>
-                            </td>
-                        </tr>
-
+                        <thead>
+                            <tr class="table_bottom_border">
+                                <th>No.</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="artistsList">
 
                     </table>
                 </div>
 
-                <!-- Edit Modal Start -->
                 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -418,25 +77,26 @@
                             </div>
                             <div class="modal-body">
                                 <h2 class="pageTitleHeading">Edit Artist</h2>
-                                <form class="row g-3">
+                                <form class="row g-3" id="editArtist">
                                     <div class="col-12">
                                         <label for="fname" class="form-label">Name :</label>
-                                        <input type="text" class="form-control" id="fname">
+                                        <input type="text" class="form-control" name="name" id="fname-edit">
                                     </div>
                                     <div class="col-12">
                                         <label for="fname" class="form-label">Description :</label>
-                                        <textarea style="width: 100%;" class="k_fclr"></textarea>
+                                        <textarea style="width: 100%;" name="description" id="edit-description" class="k_fclr"></textarea>
                                     </div>
-                                    {{-- <div class="col-12">
-                                        <label for="inputState" class="form-label">Status :</label>
-                                        <select id="inputState" class="form-select">
-                                            <option selected>Active</option>
-                                            <option>Block</option>
-                                        </select>
-                                    </div> --}}
-                                    <div class="col-12 ">
-                                        <label for="inputImage" class="form-label">Choose Image</label>
-                                        <input type="file" class="form-control" id="inputImage">
+                                    <div class="col-12">
+                                        <label for="inputImage-edit" class="form-label">Current Image</label>
+                                        <div>
+                                            <img id="current-image" src="" alt="Current Image"
+                                                style="width: 20%; max-height: 200px; object-fit: cover;">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputImage-edit" class="form-label">Choose New Image</label>
+                                        <input type="file" class="form-control" id="inputImage-edit"
+                                            name="inputImage-edit">
                                     </div>
                                     <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                                         <button type="submit" class="btn btn-primary">Update</button>
@@ -446,11 +106,277 @@
                         </div>
                     </div>
                 </div>
-                <!-- Edit Modal End -->
+
 
             </div>
         </div>
     </section>
 @endsection
 @push('script')
+    <script>
+        $(document).ready(function() {
+            // Function to load languages
+            function loadartists() {
+                showLoading();
+                $.ajax({
+                    url: "{{ route('artist') }}",
+                    type: 'GET',
+                    headers: {
+                        'Authorization': sessionStorage.getItem('token')
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        var artistsList = $('#artistsList');
+                        artistsList.empty(); // Clear existing data
+
+                        hideLoading();
+
+                        if (response.success) {
+                            $.each(response.result, function(index, artist) {
+                                artistsList.append(`
+                                <tr>
+                                    <td>
+                                        <span class="text-dark text-decoration-none">${index + 1}</span>
+                                    </td>
+                                    <td class="k_user_img">
+                                        <img src="/images/${artist.image}" alt="${artist.name}">
+                                    </td>
+                                    <td>${artist.name}</td>
+                                    <td>${artist.description}</td>
+                                    <td>
+                                        <button data-id="${this.id}" data-status="${(this.status == 'active')?'block':'active'}" class="artistStatusChange me-1 ${(this.status == 'active')?'k_status_active':'k_status_block'}">${(this.status == 'active')?'Active':'Block'}</button>
+                                    </td>
+                                    <td>
+                                        <div class="actions-btn d-flex">
+                                            <span data-id="${this.id}" class="me-1 pt-3 editArtist" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <img src="image/edit.svg" class="k_edit" alt="">
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            `);
+                            });
+                        } else {
+                            artistsList.append('<tr><td colspan="5">No languages found.</td></tr>');
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log('Error:', xhr);
+                    }
+                });
+            }
+
+            // Load languages on page load
+            loadartists();
+
+            $("#artistsList").on('click', '.editArtist', function() {
+                let id = $(this).data('id');
+                showLoading();
+                $.ajax({
+                    url: "http://127.0.0.1:8000/api/artist/" + id,
+                    method: "GET",
+                    timeout: 0,
+                    headers: {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    success: function(response) {
+                        console.log(response);
+                        hideLoading();
+                        $("#fname-edit").attr('data-id', id);
+                        $("#fname-edit").val(response.result.name);
+                        $("#edit-description").val(response.result.description);
+                        let currentImageUrl = response.result
+                            .image; // Ensure this URL is correct
+                        $("#current-image").attr('src', '/images/' + currentImageUrl);
+
+                        $('#editModal').modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error fetching artist data:', error);
+                        hideLoading();
+                    }
+                });
+            });
+
+            $('#inputImage-edit').on('change', function(event) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#current-image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            });
+
+            $("#artistsList").on('click', '.artistStatusChange', function() {
+                let id = $(this).data('id');
+                let status = $(this).data('status');
+                let formData = new FormData();
+                formData.append('status', status);
+                showLoading();
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/artist/status/" + id,
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": formData,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response) {
+                        hideLoading();
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Language status changed"
+                        }).then(function() {
+                            window.location.reload();
+                        })
+                    },
+                    "error": function(err) {
+                        hideLoading();
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            });
+
+            $("#editArtist").validate({
+                rules: {
+                    "name": {
+                        required: true
+                    },
+                    "description": {
+                        required: true
+                    },
+                    // "inputImage-edit": {
+                    //     required: true
+                    // }
+                },
+                messages: {
+                    "name": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
+                    },
+                    "description": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter description</span>"
+                    },
+                    // "inputImage-edit": {
+                    //     required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
+                    // }
+                }
+            })
+
+            $("#addArtist").validate({
+                rules: {
+                    "fname": {
+                        required: true
+                    },
+                    "description": {
+                        required: true
+                    },
+                    "inputImage": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "fname": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
+                    },
+                    "description": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter description</span>"
+                    },
+                    "inputImage": {
+                        required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
+                    }
+                }
+            })
+
+            $("#addArtist").submit(function(e) {
+                e.preventDefault();
+                if ($("#addArtist").valid()) {
+                    showLoading();
+                    const formData = new FormData();
+                    formData.append('name', $("#fname").val());
+                    formData.append('description', $("#description").val());
+                    formData.append('status', 'active');
+                    formData.append('image', $("#inputImage")[0].files[0]);
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/artist/store",
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token')
+                        },
+                        "processData": false,
+                        "mimeType": "multipart/form-data",
+                        "contentType": false,
+                        "data": formData,
+                        "success": function(response) {
+                            hideLoading();
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Artist Added Successfully."
+                            }).then(function() {
+                                window.location.reload();
+                            })
+                        },
+                        "error": function(err) {
+                            hideLoading();
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            })
+
+            $("#editArtist").submit(function(e) {
+                e.preventDefault();
+                if ($("#editArtist").valid()) {
+                    showLoading();
+                    let id = $("#fname-edit").data('id');
+                    const form = new FormData();
+                    form.append('name', $("#fname-edit").val())
+                    form.append('description', $("#edit-description").val())
+                    form.append('status', 'Active')
+                    form.append('image', $("#inputImage-edit")[0].files[0])
+
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/artist/update/" + id,
+                        "method": "POST",
+                        "timeout": 0,
+                        "processData": false,
+                        "mimeType": "multipart/form-data",
+                        "contentType": false,
+                        "data": form,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token')
+                        },
+                        "success": function(response) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Category Updated"
+                            }).then(function() {
+                                window.location.reload();
+                            })
+                        },
+                        "error": function(err) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            })
+        });
+    </script>
 @endpush
