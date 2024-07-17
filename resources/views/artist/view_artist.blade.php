@@ -87,7 +87,7 @@
                                         <textarea style="width: 100%;" name="description" id="edit-description" class="k_fclr"></textarea>
                                     </div>
                                     <div class="col-12">
-                                        <label for="inputImage-edit" class="form-label">Current Image</label>
+                                        <label for="inputImage-edit" class="form-label"> Image</label>
                                         <div>
                                             <img id="current-image" src="" alt="Current Image"
                                                 style="width: 20%; max-height: 200px; object-fit: cover;">
