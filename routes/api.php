@@ -27,6 +27,7 @@ use App\Http\Controllers\MusicVideoController;
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
+
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
 
