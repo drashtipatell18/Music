@@ -12,7 +12,7 @@ class CategoryController extends Controller
         $categorys = Category::all();
         return response()->json([
             'success' => true,
-            'message' => 'Cate Data successfully',
+            'message' => 'Category Data successfully',
             'result' => $categorys
         ], 200);
         // return view('category.view_category',compact('categorys'));
@@ -80,7 +80,7 @@ class CategoryController extends Controller
 
          return response()->json([
             'success' => true,
-            'message' => 'Language updated successfully',
+            'message' => 'Category updated successfully',
             'result' => $category
         ], 200);
 
