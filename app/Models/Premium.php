@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Premium extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = "premiums";
     protected $fillable = [
         'premium_name',
         'price',
