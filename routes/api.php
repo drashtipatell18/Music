@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
@@ -8,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArtistController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\Auth\LoginController;
@@ -77,6 +75,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
     Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.artist');
     Route::post('/artist/status/{id}', [ArtistController::class, 'ArtistUpdateStatus'])->name('updatestatus.artist');
+    Route::get('/artist/{id}', [ArtistController::class, 'getArtist']);
 
     // Album
 

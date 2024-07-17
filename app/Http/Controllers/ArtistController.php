@@ -8,6 +8,16 @@ use App\Models\Artist;
 
 class ArtistController extends Controller
 {
+    public function getArtist($id)
+    {
+        $artists = Artist::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Artist Data successfully',
+            'result' => $artists
+        ], 200);
+    }
+
     public function artist()
     {
         $artists = Artist::all();

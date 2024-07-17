@@ -28,3 +28,6 @@ Route::get('/language', function(){
 Route::get('/category', function(){
     return view('category.view_category');
 });
+Route::get('/artist', function(){
+    return view('artist.view_artist');
+});
