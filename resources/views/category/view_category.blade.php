@@ -1,3 +1,6 @@
+@php
+    $page = "category";
+@endphp
 @extends('layouts.main')
 @section('title', 'Category: Music App Management')
 @section('content')
@@ -94,10 +97,10 @@
                 </div>
                 <div class="modal-body">
                     <h2 class="pageTitleHeading">Add Category</h2>
-                    <form class="row g-3">
+                    <form class="row g-3" id="addfrm">
                         <div class="col-12">
                             <label for="fname" class="form-label">Name :</label>
-                            <input type="text" class="form-control" id="fname">
+                            <input type="text" class="form-control" id="fname" name="fname">
                         </div>
                         {{-- <div class="col-12">
                             <label for="inputState" class="form-label">Status :</label>
@@ -108,7 +111,7 @@
                         </div> --}}
                         <div class="col-12 ">
                             <label for="inputImage" class="form-label">Choose Image</label>
-                            <input type="file" class="form-control" id="inputImage">
+                            <input type="file" class="form-control" id="inputImage" name="inputImage">
                         </div>
                         <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                             <button type="submit" class="btn btn-primary">Save</button>
@@ -124,139 +127,37 @@
         <div class="container-fluid">
             <div class=" daily_table">
                 <table class="table_new">
-                    <tr class="table_bottom_border">
-                        <th>No.</th>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="text-dark text-decoration-none">1</span>
-                        </td>
-                        <td class="k_user_img">
-                            <img src="image/ca_mood.png" alt="user">
-                        </td>
-                        <td>Mood</td>
-                        <td>
-                            <span class="me-1 k_status_block">Block</span>
-                        </td>
-                        <td>
-                            <div class="actions-btn d-flex ">
-                                <!-- <a href="" class="me-1 pt-3">
-                                    <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                </a>                                         -->
-                                <span class="me-1 pt-3" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                    <img src="image/edit.svg" class="k_edit" alt="">
-                                    <!-- <a href="" class=" pt-3">
-                                    <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                </a> -->
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="text-dark text-decoration-none">2</span>
-                        </td>
-                        <td class="k_user_img">
-                            <img src="image/ca_tre.png" alt="user">
-                        </td>
-                        <td>Trending</td>
-                        <td>
-                            <span class="me-1 k_status_active">Active</span>
-                        </td>
-                        <td>
-                            <div class="actions-btn d-flex ">
-                                <!-- <a href="" class="me-1 pt-3">
-                                    <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                </a>                                         -->
-                                <span class="me-1 pt-3" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                    <img src="image/edit.svg" class="k_edit" alt="">
-                                    <!-- <a href="" class=" pt-3">
-                                    <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                </a> -->
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="text-dark text-decoration-none">3</span>
-                        </td>
-                        <td class="k_user_img">
-                            <img src="image/ca_par.png" alt="user">
-                        </td>
-                        <td>Party</td>
-                        <td>
-                            <span class="me-1 k_status_active">Active</span>
-                        </td>
-                        <td>
-                            <div class="actions-btn d-flex ">
-                                <!-- <a href="" class="me-1 pt-3">
-                                    <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                </a>                                         -->
-                                <span class="me-1 pt-3" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                    <img src="image/edit.svg" class="k_edit" alt="">
-                                    <!-- <a href="" class=" pt-3">
-                                    <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                </a> -->
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <span class="text-dark text-decoration-none">4</span>
-                        </td>
-                        <td class="k_user_img">
-                            <img src="image/ca_tre2.png" alt="user">
-                        </td>
-                        <td>Trending</td>
-                        <td>
-                            <span class="me-1 k_status_active">Active</span>
-                        </td>
-                        <td>
-                            <div class="actions-btn d-flex ">
-                                <!-- <a href="" class="me-1 pt-3">
-                                    <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                </a>                                         -->
-                                <span class="me-1 pt-3" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                    <img src="image/edit.svg" class="k_edit" alt="">
-                                    <!-- <a href="" class=" pt-3">
-                                    <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                </a> -->
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="text-dark text-decoration-none">5</span>
-                        </td>
-                        <td class="k_user_img">
-                            <img src="image/ca_mood2.png" alt="user">
-                        </td>
-                        <td>Mood</td>
-                        <td>
-                            <span class="me-1 k_status_block">Block</span>
-                        </td>
-                        <td>
-                            <div class="actions-btn d-flex ">
-                                <!-- <a href="" class="me-1 pt-3">
-                                    <i class="fa-solid fa-eye k_eye" title="View"></i>
-                                </a>                                         -->
-                                <span class="me-1 pt-3" data-bs-toggle="modal"
-                                data-bs-target="#editModal">
-                                    <img src="image/edit.svg" class="k_edit" alt="">
-                                    <!-- <a href="" class=" pt-3">
-                                    <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                </a> -->
-                            </div>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr class="table_bottom_border">
+                            <th>No.</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        {{-- <tr>
+                            <td>
+                                <span class="text-dark text-decoration-none">1</span>
+                            </td>
+                            <td class="k_user_img">
+                                <img src="image/ca_mood.png" alt="user">
+                            </td>
+                            <td>Mood</td>
+                            <td>
+                                <span class="me-1 k_status_block">Block</span>
+                            </td>
+                            <td>
+                                <div class="actions-btn d-flex ">
+                                    <span class="me-1 pt-3" data-bs-toggle="modal"
+                                    data-bs-target="#editModal">
+                                        <img src="image/edit.svg" class="k_edit" alt="">
+                                    </span>
+                                </div>
+                            </td>
+                        </tr> --}}
+                    </tbody>
                 </table>
             </div>
 
@@ -271,10 +172,13 @@
                         </div>
                         <div class="modal-body">
                             <h2 class="pageTitleHeading">Edit Category</h2>
-                    <form class="row g-3">
+                    <form class="row g-3" id="editFrm">
                         <div class="col-12">
-                            <label for="fname" class="form-label">Name :</label>
-                            <input type="text" class="form-control" id="fname">
+                            <label for="fname-edit" class="form-label">Name :</label>
+                            <input type="text" name="fname-edit" class="form-control" id="fname-edit">
+                        </div>
+                        <div class="col-12">
+                            <img src="" id="editImage" alt="">
                         </div>
                         {{-- <div class="col-12">
                             <label for="inputState" class="form-label">Status :</label>
@@ -284,8 +188,8 @@
                             </select>
                         </div> --}}
                         <div class="col-12 ">
-                            <label for="inputImage" class="form-label">Choose Image</label>
-                            <input type="file" class="form-control" id="inputImage">
+                            <label for="inputImage-edit" class="form-label">Choose Image</label>
+                            <input type="file" class="form-control" id="inputImage-edit" name="inputImage-edit">
                         </div>
                         <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                             <button type="submit" class="btn btn-primary">Update</button>
@@ -303,5 +207,242 @@
 </section>
 @endsection
 @push('script')
+<script>
+    $("#editFrm").validate({
+        rules:{
+            "fname-edit":{
+                required: true
+            },
+            "inputImage-edit": {
+                required: true
+            }
+        },
+        messages: {
+            "fname-edit":{
+                required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
+            },
+            "inputImage-edit": {
+                required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
+            }
+        }
+    })
+    $("#addfrm").validate({
+        rules:{
+            "fname":{
+                required: true
+            },
+            "inputImage": {
+                required: true
+            }
+        },
+        messages: {
+            "fname-edit":{
+                required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
+            },
+            "inputImage-edit": {
+                required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
+            }
+        }
+    })
 
+    showLoading();
+    $.ajax({
+        "url": "http://127.0.0.1:8000/api/category",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Authorization": sessionStorage.getItem('token')
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "success": function(response){
+            response = JSON.parse(response)
+            let i = 1;
+            $.each(response.result, function(){
+                let tr = `
+                    <tr>
+                        <td>
+                            <span class="text-dark text-decoration-none">${i++}</span>
+                        </td>
+                        <td class="k_user_img">
+                            <img src="/category_images/${this.image}" alt="user">
+                        </td>
+                        <td>${this.name}</td>
+                        <td>
+                            <button data-status="${(this.status == 'Active')?"Block":"Active"}" data-id="${this.id}" class="categoryStatusUpdate me-1 ${(this.status == 'Active')?"k_status_active":"k_status_block"}">${(this.status == 'Active')?"Active":"Block"}</button>
+                        </td>
+                        <td>
+                            <div class="actions-btn d-flex ">
+                                <span data-id="${this.id}" class="getCat me-1 pt-3" data-bs-toggle="modal"
+                                data-bs-target="#editModal">
+                                    <img src="image/edit.svg" class="k_edit" alt="">
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                $("#tbody").append(tr);
+            });
+            hideLoading();
+        },
+        "error": function(err){
+            hideLoading();
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: err.responseText
+            })
+        }
+    });
+
+    $("#tbody").on('click', '.categoryStatusUpdate', function(){
+        let id = $(this).data('id');
+        let status = $(this).data('status');
+        showLoading();
+        const form = new FormData();
+        form.append('status', status);
+        $.ajax({
+            "url": "http://127.0.0.1:8000/api/category/updateStatus/" + id,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Authorization": sessionStorage.getItem('token')
+            },
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form,
+            "success": function(response){
+                hideLoading()
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Status Updated"
+                }).then(function(){
+                    window.location.reload();
+                })
+            },
+            "error": function(err){
+                hideLoading()
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.responseText
+                })
+            }
+        })
+    });
+
+    $("#tbody").on('click', '.getCat', function(){
+        let id = $(this).data('id')
+        showLoading();
+        $.ajax({
+            "url": "http://127.0.0.1:8000/api/category/" + id,
+            "method": "GET",
+            "timeout": 0,
+            "headers": {
+                "Authorization": sessionStorage.getItem('token')
+            },
+            "success": function(response){
+                hideLoading()
+
+                $("#fname-edit").attr('data-id', id);
+                $("#fname-edit").val(response.result.name)
+                $("#editImage").attr('src', '/images/' + response.result.image)
+            },
+            "error": function(err){
+                hideLoading()
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.responseText
+                })
+            }
+        })
+    });
+
+    $("#editFrm").submit(function(e){
+        e.preventDefault();
+        if($("#editFrm").valid())
+        {
+            showLoading();
+            let id = $("#fname-edit").data('id');
+            const form = new FormData();
+            form.append('name', $("#fname-edit").val())
+            form.append('status', 'Active')
+            form.append('image', $("#inputImage-edit")[0].files[0])
+
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/category/update/" + id,
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "success": function(response){
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Category Updated"
+                    }).then(function(){
+                        window.location.reload();
+                    })
+                },
+                "error": function(err){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: err.responseText
+                    })
+                }
+            })
+        }
+    })
+    $("#addfrm").submit(function(e){
+        e.preventDefault();
+        if($("#editFrm").valid())
+        {
+            showLoading();
+            const form = new FormData();
+            form.append('name', $("#fname").val())
+            form.append('status', 'Active')
+            form.append('image', $("#inputImage")[0].files[0])
+
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/category/store",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "success": function(response){
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Category Saved"
+                    }).then(function(){
+                        window.location.reload();
+                    })
+                },
+                "error": function(err){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: err.responseText
+                    })
+                }
+            })
+        }
+    })
+</script>
 @endpush

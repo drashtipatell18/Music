@@ -1,3 +1,6 @@
+@php
+    $page = "dashboard";
+@endphp
 @extends('layouts.main')
 @section('title', 'Dashboard: Music App Management')
 @section('content')

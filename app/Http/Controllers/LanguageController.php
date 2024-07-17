@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Validator;
 
 class LanguageController extends Controller
 {
+    public function getLanguage($id)
+    {
+        $languages = Language::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Language Data successfully',
+            'result' => $languages
+        ], 200);
+    }
     public function language(Request $request)
     {
         $languages = Language::all();
@@ -69,7 +78,7 @@ class LanguageController extends Controller
                 'errors' => $validateRequest->errors()
             ], 403);
         }
-        
+
         $language = Language::find($id);
 
         $filename = $language->image;

@@ -9,7 +9,7 @@
                 <div class="inner-box rounded-3 border-light  text-dark m-0 k_bg">
                     <h2 class="login_title text-center">Log In</h2>
                     <p class="text-center k_rtxt" >Welcome onboard with us!</p>
-                    <form method="POST" class="login">
+                    <form method="POST" id="loginFrm" class="login">
                         @csrf
                         <div class=" field">
                             <label for="exampleInputEmail1" class="form-label mb-0 mt-3">Email or Phone*</label>
@@ -65,5 +65,89 @@
     });
 </script>
 <script src="../bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    if(sessionStorage.getItem('token') && sessionStorage.getItem('token') != null && sessionStorage.getItem('token') != "")
+    {
+        window.location.replace('/dashboard')
+    }
+    function showLoading()
+    {
+        Swal.fire({
+            title: 'Loading...',
+            text: 'Please wait while we process your request.',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+    }
+    function hideLoading()
+    {
+        Swal.hideLoading();
+        Swal.clickConfirm();
+    }
+    $("#loginFrm").validate({
+        rules:{
+            email:{
+                required: true,
+                email: true
+            },
+            password:{
+                required: true,
+            }
+        },
+        messages: {
+            email:{
+                required: "<span class='text-danger' style='font-size:small'>Please enter email</span>",
+                email: "<span class='text-danger' style='font-size:small'>Please enter email correctly</span>"
+            },
+            password:{
+                required: "<span class='text-danger' style='font-size:small'>Please enter password</span>",
+            }
+        }
+    })
+    $("#loginFrm").submit((e)=>{
+        e.preventDefault();
+        if($("#loginFrm").valid())
+        {
+            let formData = new FormData();
+            formData.append('email', $("#email").val())
+            formData.append('password', $("#password").val())
 
+            showLoading();
+            $.ajax({
+                "url": "/api/login",
+                "method": "POST",
+                "timeout": 0,
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": formData,
+                "success": function(response){
+                    response = JSON.parse(response);
+                    hideLoading();
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: response.message
+                    }).then(()=>{
+                        sessionStorage.setItem('token', 'Bearer ' + response.access_token)
+                        window.location.replace('/dashboard')
+                    })
+                },
+                "error": function(err){
+                    hideLoading();
+                    Swal.fire({
+                        icon: "error",
+                        title: err.statusText,
+                        text: "Credential does not match"
+                    })
+                }
+            })
+        }
+    })
+</script>
 @endsection

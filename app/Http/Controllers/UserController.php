@@ -26,6 +26,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'phone' => 'required'
 
         ]);
 
@@ -42,6 +43,8 @@ class UserController extends Controller
             'email'     => $request->input('email'),
             'password'  => Hash::make($request->input('password')),
             'role' => 1,
+            'api_token' => 0,
+            'phone' => $request->input('phone')
         ]);
 
         // session()->flash('success', 'User added successfully!');
@@ -148,6 +151,18 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('myprofile')->with('success', 'Profile updated successfully');
+    }
+
+    public function statusUpdate($id, Request $request)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+        $user->update([
+            'status' => $request->input('status')
+        ]);
+        return response()->json(['success' => true, 'message' => 'Status Updated'], 200);
     }
 
 }

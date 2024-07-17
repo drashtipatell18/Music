@@ -24,26 +24,46 @@
             <span class="d-flex justify-content-center fs-2 my-2 m_logo">Logo</span>
           </a>
           <ul class="mynav nav nav-pills flex-column mb-auto">
-            <li class="nav-item d-flex align-items-center mb-2 sideBar_active">
-              <a href="{{ route('dashboard') }}" class="active">
+            <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "dashboard")
+                {
+                    echo 'sideBar_active';
+                }
+            @endphp">
+              <a href="/dashboard">
                 <img src="image/sb_db.svg" class="m_svg">
                 Dashboard
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center mb-2">
-              <a href="{{ route('user') }}">
+            <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "user")
+                {
+                    echo 'sideBar_active';
+                }
+            @endphp">
+              <a href="/users">
                 <img src="image/sb_user.svg">
                 User
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center mb-2">
-              <a href="{{ route('language') }}">
+            <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "language")
+                {
+                    echo 'sideBar_active';
+                }
+            @endphp">
+              <a href="/language">
                 <img src="image/sb_lang.svg">
                 Language
               </a>
             </li>
-            <li class="nav-item d-flex align-items-center mb-2">
-              <a href="{{ route('category') }}">
+            <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "category")
+                {
+                    echo 'sideBar_active';
+                }
+            @endphp">
+              <a href="/category">
                 <img src="image/sb_cat.svg">
                 category
               </a>
@@ -337,6 +357,30 @@
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        if(!sessionStorage.getItem('token') || sessionStorage.getItem('token') == null || sessionStorage.getItem('token') == "")
+        {
+            window.location.replace('/')
+        }
+        function showLoading()
+        {
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Please wait while we process your request.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+        function hideLoading()
+        {
+            Swal.hideLoading();
+            Swal.clickConfirm();
+        }
+      </script>
       @stack('script')
 </body>
 </html>

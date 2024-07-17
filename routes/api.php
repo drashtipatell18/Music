@@ -52,6 +52,7 @@ Route::middleware('auth.api')->group(function () {
     Route::post('/user/insert', [UserController::class, 'userInsert'])->name('insert.user');
     Route::post('/user/update/{id}', [UserController::class, 'userUpdate'])->name('update.user');
     Route::get('/user/destroy/{id}', [UserController::class, 'userDestroy'])->name('destroy.user');
+    Route::post('/user/{id}/status-update', [UserController::class, 'statusUpdate']);
 
     // Language
 
@@ -59,12 +60,15 @@ Route::middleware('auth.api')->group(function () {
     Route::post('/language/insert', [LanguageController::class, 'languageInsert'])->name('insert.language');
     Route::post('/language/update/{id}', [LanguageController::class, 'languageUpdate'])->name('update.language');
     Route::post('/language/status/{id}', [LanguageController::class, 'UpdateStatus'])->name('updatestatus.language');
+    Route::get('/language/{id}', [LanguageController::class, 'getLanguage']);
 
     // Category
 
     Route::get('/category', [CategoryController::class, 'category'])->name('category');
+    Route::get('/category/{id}', [CategoryController::class, 'categoryGet']);
     Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
     Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
+    Route::post('/category/updateStatus/{id}', [CategoryController::class, 'categoryUpdateStatus'])->name('update.category');
 
     // Artist
 
@@ -72,12 +76,6 @@ Route::middleware('auth.api')->group(function () {
     Route::post('/artist/store', [ArtistController::class, 'storeArtist'])->name('artist.store');
     Route::post('/artist/update/{id}', [ArtistController::class, 'ArtistUpdate'])->name('update.artist');
     Route::post('/artist/status/{id}', [ArtistController::class, 'ArtistUpdateStatus'])->name('updatestatus.artist');
-
-    // Category
-
-    Route::get('/category', [CategoryController::class, 'category'])->name('category');
-    Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
-    Route::post('/category/update/{id}', [CategoryController::class, 'categoryUpdate'])->name('update.category');
 
     // Album
 

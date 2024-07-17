@@ -24,6 +24,9 @@ class User extends Authenticatable
         'otp',
         'image',
         'role',
+        'api_token',
+        'status',
+        'phone'
     ];
 
     /**
