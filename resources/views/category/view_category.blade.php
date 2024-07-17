@@ -14,78 +14,6 @@
         </button>
     </div>
 
-
-    <!-- Change password Modal Start -->
-    <div class="modal fade" id="chngPassModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h2 class="pageTitleHeading">Change password</h2>
-                    <div class="field">
-                        <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="oldPassword" />
-                            <span class="input-group-text k_igt">
-                                <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="newPassword" />
-                            <span class="input-group-text k_igt">
-                                <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
-                        <div class="input-group">
-                            <input type="password" class="form-control" id="confirmPassword" />
-                            <span class="input-group-text  k_igt">
-                                <i class="fas fa-eye-slash toggle-password"
-                                    data-toggle="#confirmPassword"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="password mb-4 fs-6 text-secondary">
-                        <p>Both passwords must match</p>
-                    </div>
-                    <div class="d-flex justify-content-center mt-5">
-                        <a href="Dashboard.html" type="submit"
-                            class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Change password Modal End -->
-
-    <!-- Logout Modal Start -->
-    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body k_modal-body">
-                    <p>Are you Sure to Logout?</p>
-                    <div class="k_lob d-flex">
-                        <button type="button" class="k_loClose" data-bs-dismiss="modal"
-                            aria-label="Close">Cancel</button>
-                        <a href="Login.html">Sure</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Logout Modal End -->
-
     <!-- Add Modal Start -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -102,13 +30,6 @@
                             <label for="fname" class="form-label">Name :</label>
                             <input type="text" class="form-control" id="fname" name="fname">
                         </div>
-                        {{-- <div class="col-12">
-                            <label for="inputState" class="form-label">Status :</label>
-                            <select id="inputState" class="form-select">
-                                <option selected>Active</option>
-                                <option>Block</option>
-                            </select>
-                        </div> --}}
                         <div class="col-12 ">
                             <label for="inputImage" class="form-label">Choose Image</label>
                             <input type="file" class="form-control" id="inputImage" name="inputImage">
@@ -137,26 +58,7 @@
                         </tr>
                     </thead>
                     <tbody id="tbody">
-                        {{-- <tr>
-                            <td>
-                                <span class="text-dark text-decoration-none">1</span>
-                            </td>
-                            <td class="k_user_img">
-                                <img src="image/ca_mood.png" alt="user">
-                            </td>
-                            <td>Mood</td>
-                            <td>
-                                <span class="me-1 k_status_block">Block</span>
-                            </td>
-                            <td>
-                                <div class="actions-btn d-flex ">
-                                    <span class="me-1 pt-3" data-bs-toggle="modal"
-                                    data-bs-target="#editModal">
-                                        <img src="image/edit.svg" class="k_edit" alt="">
-                                    </span>
-                                </div>
-                            </td>
-                        </tr> --}}
+                 
                     </tbody>
                 </table>
             </div>
@@ -180,13 +82,6 @@
                         <div class="col-12">
                             <img src="" id="editImage" alt="">
                         </div>
-                        {{-- <div class="col-12">
-                            <label for="inputState" class="form-label">Status :</label>
-                            <select id="inputState" class="form-select">
-                                <option selected>Active</option>
-                                <option>Block</option>
-                            </select>
-                        </div> --}}
                         <div class="col-12 ">
                             <label for="inputImage-edit" class="form-label">Choose Image</label>
                             <input type="file" class="form-control" id="inputImage-edit" name="inputImage-edit">

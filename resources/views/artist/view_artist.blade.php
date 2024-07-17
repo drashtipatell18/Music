@@ -27,13 +27,6 @@
                                 <label for="fname" class="form-label">Description :</label>
                                 <textarea style="width: 100%;" name="description" id="description" class="k_fclr"></textarea>
                             </div>
-                            {{-- <div class="col-12">
-                                <label for="inputState" class="form-label">Status :</label>
-                                <select id="inputState" class="form-select">
-                                    <option selected>Active</option>
-                                    <option>Block</option>
-                                </select>
-                            </div> --}}
                             <div class="col-12 ">
                                 <label for="inputImage" class="form-label">Choose Image</label>
                                 <input type="file" class="form-control" id="inputImage">
@@ -252,9 +245,6 @@
                     "description": {
                         required: true
                     },
-                    // "inputImage-edit": {
-                    //     required: true
-                    // }
                 },
                 messages: {
                     "name": {
@@ -262,10 +252,7 @@
                     },
                     "description": {
                         required: "<span class='text-danger' style='font-size:small'>Please enter description</span>"
-                    },
-                    // "inputImage-edit": {
-                    //     required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
-                    // }
+                    }
                 }
             })
 
