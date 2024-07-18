@@ -99,6 +99,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
     Route::post('/premiums/insert', [PremiumController::class, 'premiumsInsert'])->name('insert.premiums');
     Route::post('/premiums/update/{id}', [PremiumController::class, 'premiumsUpdate'])->name('update.premiums');
+    Route::post('/premiums/updateStatus/{id}', [PremiumController::class, 'UpdateStatus']);
+    Route::get('/premiums/{id}', [PremiumController::class, 'getSingle']);
 
 
 });

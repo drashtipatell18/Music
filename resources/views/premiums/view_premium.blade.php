@@ -1,3 +1,6 @@
+@php
+    $page = 'Premium';
+@endphp
 @extends('layouts.main')
 @section('title', 'Premium: Music App Management')
 @section('content')
@@ -95,18 +98,18 @@
                             </div>
                             <div class="modal-body">
                                 <h2 class="pageTitleHeading">Add Premium</h2>
-                                <form class="row g-3">
+                                <form class="row g-3" id="insertFrm">
                                     <div class="col-md-6">
                                         <label for="pname" class="form-label">Premium name :</label>
-                                        <input type="text" class="form-control" id="pname">
+                                        <input type="text" class="form-control" id="pname" name="pname">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="price" class="form-label">Price :</label>
-                                        <input type="text" class="form-control" id="price">
+                                        <input type="text" class="form-control" id="price" name="price">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="time" class="form-label">Time Period (days) :</label>
-                                        <input type="text" class="form-control" id="time">
+                                        <input type="text" class="form-control" id="time" name="time">
                                     </div>
 
                                     {{-- <div class="col-md-6">
@@ -120,7 +123,7 @@
                                     <div class="col-12">
                                         <label for="description" class="form-label">Description :</label>
                                         <!-- <input type="text" class="form-control" id="description"> -->
-                                        <textarea class="form-control k_fclr" rows="4"></textarea>
+                                        <textarea id="description" name="description" class="form-control k_fclr" rows="4"></textarea>
                                     </div>
                                     <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -136,324 +139,46 @@
                     <div class="container-fluid">
                         <div class=" daily_table">
                             <table class="table_new">
-                                <tr class="table_bottom_border">
-                                    <th>No.</th>
-                                    <th>Premium name</th>
-                                    <th>Price</th>
-                                    <th>Time Period (days)</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">1</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Mini</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 100</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">25</span>
-                                    </td>
+                                <thead>
+                                    <tr class="table_bottom_border">
+                                        <th>No.</th>
+                                        <th>Premium name</th>
+                                        <th>Price</th>
+                                        <th>Time Period (days)</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+                                    {{-- <tr>
+                                        <td>
+                                            <span class="text-dark text-decoration-none">10</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-dark text-decoration-none">Max</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-dark text-decoration-none">₹ 290</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-dark text-decoration-none">60</span>
+                                        </td>
 
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">2</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Max</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 160</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">30</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_block">block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">3</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Mini</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 130</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">30</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">4</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Max</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 200</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">40</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_block">block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">5</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Mini</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 170</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">40</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">6</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Max</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 230</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">45</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_block">block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">7</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Max</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 250</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">50</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_block">block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">8</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Mini</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 210</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">50</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">9</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Mini</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 240</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">57</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_block">block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">10</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">Max</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">₹ 290</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">60</span>
-                                    </td>
-
-                                    <td>
-                                        <span class="me-1 k_status_active">Active</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-1 pt-3" data-bs-toggle="modal"
-                                                data-bs-target="#premiumModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                                <!-- <a href="" class=" pt-3">
-                                                <i class="fa-solid fa-trash-can k_delet" title="Delete"></i>
-                                            </a> -->
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <span class="me-1 k_status_active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="actions-btn d-flex ">
+                                                <span class="me-1 pt-3" data-bs-toggle="modal"
+                                                    data-bs-target="#premiumModal">
+                                                    <img src="image/view.svg" class="k_eye" alt="">
+                                                </span>
+                                                <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    <img src="image/edit.svg" class="k_edit" alt="">
+                                            </div>
+                                        </td>
+                                    </tr> --}}
+                                </tbody>
                             </table>
 
                             <!-- View modal -->
@@ -512,18 +237,18 @@
                                         </div>
                                         <div class="modal-body">
                                             <h2 class="pageTitleHeading">Edit Premium</h2>
-                                            <form class="row g-3">
+                                            <form class="row g-3" id="updateFrm">
                                                 <div class="col-md-6">
-                                                    <label for="pname" class="form-label">Premium name :</label>
-                                                    <input type="text" class="form-control" id="pname">
+                                                    <label for="pname-edit" class="form-label">Premium name :</label>
+                                                    <input type="text" class="form-control" id="pname-edit" name="pname-edit">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="price" class="form-label">Price :</label>
-                                                    <input type="text" class="form-control" id="price">
+                                                    <label for="price-edit" class="form-label">Price :</label>
+                                                    <input type="text" class="form-control" id="price-edit" name="price-edit">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label for="time" class="form-label">Time Period (days) :</label>
-                                                    <input type="text" class="form-control" id="time">
+                                                    <label for="time-edit" class="form-label">Time Period (days) :</label>
+                                                    <input type="text" class="form-control" id="time-edit" name="time-edit">
                                                 </div>
 
                                                 {{-- <div class="col-md-6">
@@ -535,9 +260,9 @@
                                                 </div> --}}
 
                                                 <div class="col-12">
-                                                    <label for="description" class="form-label">Description :</label>
+                                                    <label for="description-edit" class="form-label">Description :</label>
                                                     <!-- <input type="text" class="form-control" id="description"> -->
-                                                    <textarea class="form-control k_fclr" rows="4"></textarea>
+                                                    <textarea id="description-edit" name="description-edit" class="form-control k_fclr" rows="4"></textarea>
                                                 </div>
                                                 <div
                                                     class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
@@ -557,44 +282,315 @@
         </div>
     </div>
 
-    <script>
-        function myFunctionR() {
-            document.getElementById("myDropdownR").classList.toggle("show");
-        }
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+    @push('script')
+        <script>
+            function myFunctionR() {
+                document.getElementById("myDropdownR").classList.toggle("show");
+            }
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
 
-        window.onclick = function (event) {
-            if (!event.target.matches(".dropbtn")) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains("show")) {
-                        openDropdown.classList.remove("show");
+            window.onclick = function (event) {
+                if (!event.target.matches(".dropbtn")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains("show")) {
+                            openDropdown.classList.remove("show");
+                        }
                     }
                 }
-            }
-        };
-    </script>
-    <script>
+            };
 
+            document.addEventListener("DOMContentLoaded", function () {
+                var dropdown = document.getElementsByClassName("dropdown-btnnn");
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var dropdown = document.getElementsByClassName("dropdown-btnnn");
+                for (var i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
+            });
 
-            for (var i = 0; i < dropdown.length; i++) {
-                dropdown[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var dropdownContent = this.nextElementSibling;
-                    if (dropdownContent.style.display === "block") {
-                        dropdownContent.style.display = "none";
-                    } else {
-                        dropdownContent.style.display = "block";
+            showLoading()
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/premiums",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "success": function(response){
+                    hideLoading();
+                    let i = 1;
+                    $.each(response.result, function(){
+                        let tr = `
+                            <tr>
+                                <td>
+                                    <span class="text-dark text-decoration-none">${i++}</span>
+                                </td>
+                                <td>
+                                    <span class="text-dark text-decoration-none">${this.premium_name}</span>
+                                </td>
+                                <td>
+                                    <span class="text-dark text-decoration-none">₹ ${this.price}</span>
+                                </td>
+                                <td>
+                                    <span class="text-dark text-decoration-none">${this.time_perid_days}</span>
+                                </td>
+
+                                <td>
+                                    <button data-id="${this.id}" data-status="${(this.status == 'Deactive')?'Active':'Deactive'}" class="updateStatus me-1 ${(this.status == 'Active')?'k_status_active':'k_status_block'}">${this.status}</button>
+                                </td>
+                                <td>
+                                    <div class="actions-btn d-flex ">
+                                        <span data-id="${this.id}" class="me-1 pt-3" data-bs-toggle="modal"
+                                            data-bs-target="#premiumModal">
+                                            <img src="image/view.svg" class="k_eye" alt="">
+                                        </span>
+                                        <span data-id="${this.id}" class="editData me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
+                                            <img src="image/edit.svg" class="k_edit" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+
+                        $("#tbody").append(tr);
+                    })
+                },
+                "error": function(err){
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: err.responseText
+                    })
+                }
+            });
+
+            // Update Status
+            $("#tbody").on('click', '.updateStatus', function(){
+                let id = $(this).data('id');
+                let status = $(this).data('status');
+                showLoading();
+                const form = new FormData();
+                form.append('status', status)
+                $.ajax({
+                    "url": '/api/premiums/updateStatus/' + id,
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "success": function(response){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Status Updated"
+                        }).then(()=>{
+                            window.location.reload()
+                        })
+                    },
+                    "error": function(err){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
                     }
-                });
-            }
-        });
-    </script>
+                })
+            })
+
+            // Edit Data
+            $("#tbody").on('click', '.editData', function(){
+                let id = $(this).data('id');
+                showLoading();
+                $.ajax({
+                    "url": "/api/premiums/" + id,
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response){
+                        hideLoading()
+                        $('#pname-edit').attr('data-id', id);
+                        $('#pname-edit').val(response.result.premium_name);
+                        $('#price-edit').val(response.result.price);
+                        $('#time-edit').val(response.result.time_perid_days);
+                        $('#description-edit').val(response.result.description);
+                    },
+                    "error": function(err){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            })
+
+            // Update Validation
+            $("#updateFrm").validate({
+                rules: {
+                    "pname-edit": {
+                        required: true
+                    },
+                    "price-edit": {
+                        required: true,
+                        number: true
+                    },
+                    "time-edit": {
+                        required: true,
+                        digits: true
+                    },
+                    "description-edit": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "pname-edit": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a premium name</span>"
+                    },
+                    "price-edit": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a price</span>",
+                        number: "<span class='text-danger' style='font-size:small'>Please enter a valid number</span>"
+                    },
+                    "time-edit": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a time period</span>",
+                        digits: "<span class='text-danger' style='font-size:small'>Please enter a valid number of days</span>"
+                    },
+                    "description-edit": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a description</span>"
+                    }
+                }
+            });
+            $("#updateFrm").submit(function(e){
+                e.preventDefault()
+                if($("#updateFrm").valid())
+                {
+                    let id = $('#pname-edit').data('id');
+                    showLoading();
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/premiums/update/" + id,
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token'),
+                            "Content-Type": "application/json"
+                        },
+                        "data": JSON.stringify({
+                            "premium_name": $('#pname-edit').val(),
+                            "price": $('#price-edit').val(),
+                            "time_perid_days": $('#time-edit').val(),
+                            "status": "Active",
+                            "description": $('#description-edit').val()
+                        }),
+                        "success": function(response){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Premium Updated"
+                            }).then(()=>{
+                                window.location.reload();
+                            })
+                        },
+                        "error": function(err){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            });
+
+            // Insert Validation
+            $("#insertFrm").validate({
+                rules: {
+                    "pname": {
+                        required: true
+                    },
+                    "price": {
+                        required: true,
+                        number: true
+                    },
+                    "time": {
+                        required: true,
+                        digits: true
+                    },
+                    "description": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "pname": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a premium name</span>"
+                    },
+                    "price": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a price</span>",
+                        number: "<span class='text-danger' style='font-size:small'>Please enter a valid number</span>"
+                    },
+                    "time": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a time period</span>",
+                        digits: "<span class='text-danger' style='font-size:small'>Please enter a valid number of days</span>"
+                    },
+                    "description": {
+                        required: "<span class='text-danger' style='font-size:small'>Please enter a description</span>"
+                    }
+                }
+            });
+            $("#insertFrm").submit(function(e){
+                e.preventDefault()
+                if($("#insertFrm").valid())
+                {
+                    showLoading();
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/premiums/insert",
+                        "method": "POST",
+                        "timeout": 0,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token'),
+                            "Content-Type": "application/json"
+                        },
+                        "data": JSON.stringify({
+                            "premium_name": $('#pname').val(),
+                            "price": $('#price').val(),
+                            "time_perid_days": $('#time').val(),
+                            "status": "Active",
+                            "description": $('#description').val()
+                        }),
+                        "success": function(response){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Premium Inserted"
+                            }).then(()=>{
+                                window.location.reload();
+                            })
+                        },
+                        "error": function(err){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            })
+        </script>
+    @endpush
 @endsection

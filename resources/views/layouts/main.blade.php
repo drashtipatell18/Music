@@ -103,8 +103,12 @@ if(isset($page) && $page == "artist")
                         Music & Video
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2">
-                    <a href="{{ route('premiums') }}">
+                <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "Premium")
+                {
+                    echo 'sideBar_active';
+                } @endphp">
+                    <a href="/premium">
                         <img src="image/sb_pr.svg">
                         Premium
                     </a>

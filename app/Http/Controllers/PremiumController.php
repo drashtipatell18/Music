@@ -18,6 +18,15 @@ class PremiumController extends Controller
             'result' => $premiums
         ], 200);
     }
+    public function getSingle($id)
+    {
+        $premiums = Premium::find($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Premiums Data successfully',
+            'result' => $premiums
+        ], 200);
+    }
 
     public function premiumsInsert(Request $request){
 

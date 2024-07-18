@@ -37,3 +37,6 @@ Route::get('/albums', function(){
 Route::get('/musicvideo', function(){
     return view('music_video.view_musicvideos');
 });
+Route::get('/premium', function(){
+    return view('premiums.view_premium');
+});
