@@ -34,3 +34,6 @@ Route::get('/artist', function(){
 Route::get('/albums', function(){
     return view('albums.view_albums');
 });
+Route::get('/musicvideo', function(){
+    return view('music_video.view_musicvideos');
+});

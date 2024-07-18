@@ -93,8 +93,12 @@ if(isset($page) && $page == "artist")
 
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2">
-                    <a href="{{ route('music_videos') }}">
+                <li class="nav-item d-flex align-items-center mb-2 @php
+                if(isset($page) && $page == "Music_Video")
+                {
+                    echo 'sideBar_active';
+                } @endphp">
+                    <a href="/musicvideo">
                         <img src="image/sb_mv.svg">
                         Music & Video
                     </a>

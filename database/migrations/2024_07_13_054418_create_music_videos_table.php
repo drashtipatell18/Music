@@ -13,7 +13,7 @@ class CreateMusicVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('music_videos', function (Blueprint $table) {
+        Schema::create('musicvideo', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('album_id')->nullable();

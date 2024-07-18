@@ -10,13 +10,33 @@ class MusicVideoController extends Controller
 {
     public function music_videos()
     {
-        $musicVideo = MusicVideo::all();
+        $musicVideo = MusicVideo::with(['artist', 'album', 'category', 'language'])->get();
+        foreach ($musicVideo as $m) {
+            if($m->type == 'video')
+            {
+                $m->url = "/music_images/" . $m->icons;
+            }
+        }
         return response()->json([
             'success' => true,
             'message' => 'Cate Data successfully',
             'result' => $musicVideo
         ], 200);
         // return view('music_videos.view_musicvideos');
+    }
+
+    public function getSingle($id)
+    {
+        $musicVideo = MusicVideo::with(['artist', 'album', 'category', 'language'])->find($id);
+        if($musicVideo->type == 'video')
+        {
+            $musicVideo->url = "/music_images/" . $musicVideo->icons;
+        }
+        return response()->json([
+            'success' => true,
+            'message' => 'Cate Data successfully',
+            'result' => $musicVideo
+        ], 200);
     }
     public function musicVideosInsert(Request $request){
 
@@ -27,7 +47,6 @@ class MusicVideoController extends Controller
             'category_id' => 'required',
             'language_id' => 'required',
             'type' => 'nullable|string',
-            'url' => 'required|url',
         ]);
 
         if ($validator->fails()) {
@@ -37,8 +56,8 @@ class MusicVideoController extends Controller
 
         $filename = '';
 
-        if ($request->hasFile('icons')) {
-            $image = $request->file('icons');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $image->move('music_images', $filename);
         }
@@ -74,6 +93,8 @@ class MusicVideoController extends Controller
 
         $musicVideo = MusicVideo::find($id);
 
+        $filename = '';
+
         if ($request->hasFile('icons')) {
             $image = $request->file('icons');
             $filename = time() . '.' . $image->getClientOriginalExtension();
@@ -81,18 +102,32 @@ class MusicVideoController extends Controller
             $musicVideo->image = $filename;
         }
 
-        // Update category name
-        $musicVideo->update([
-            'name' => $request->input('name'),
-            'artist_id' => $request->input('artist_id'),
-            'album_id' =>  $request->input('album_id'),
-            'category_id' =>  $request->input('category_id'),
-            'language_id' =>  $request->input('language_id'),
-            'icons' =>  $filename,
-            'type' =>   $request->input('type'),
-            'url' =>  $request->input('url'),
-            'status' => $request->input('status'),
-         ]);
+        if($filename == '')
+        {
+            // Update category name
+            $musicVideo->update([
+                'name' => $request->input('name'),
+                'artist_id' => $request->input('artist_id'),
+                'album_id' =>  $request->input('album_id'),
+                'category_id' =>  $request->input('category_id'),
+                'language_id' =>  $request->input('language_id'),
+                'type' =>   $request->input('type'),
+             ]);
+        }
+        else
+        {
+            // Update category name
+            $musicVideo->update([
+                'name' => $request->input('name'),
+                'artist_id' => $request->input('artist_id'),
+                'album_id' =>  $request->input('album_id'),
+                'category_id' =>  $request->input('category_id'),
+                'language_id' =>  $request->input('language_id'),
+                'type' =>   $request->input('type'),
+                'icons' => $filename,
+                'url' => '/music_images/' . $filename
+            ]);
+        }
 
          return response()->json([
             'success' => true,

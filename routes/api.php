@@ -90,8 +90,10 @@ Route::middleware('auth:sanctum')->group(function () {
     // Music & Video
 
     Route::get('/music_videos', [MusicVideoController::class, 'music_videos'])->name('music_videos');
+    Route::get('/music_videos/{id}', [MusicVideoController::class, 'getSingle']);
     Route::post('/music_videos/insert', [MusicVideoController::class, 'musicVideosInsert'])->name('insert.music_videos');
     Route::post('/music_videos/update/{id}', [MusicVideoController::class, 'musicVideosUpdate'])->name('update.music_videos');
+    Route::post('/music_videos/status/{id}', [MusicVideoController::class, 'UpdateStatus'])->name('UpdateStatus.music_videos');
 
     // Premium
     Route::get('/premiums', [PremiumController::class, 'premiums'])->name('premiums');
