@@ -108,17 +108,11 @@
             "fname-edit":{
                 required: true
             },
-            "inputImage-edit": {
-                required: true
-            }
         },
         messages: {
             "fname-edit":{
                 required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
             },
-            "inputImage-edit": {
-                required: "<span class='text-danger' style='font-size:small'>Please select image</span>"
-            }
         }
     })
     $("#addfrm").validate({
