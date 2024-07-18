@@ -51,8 +51,7 @@
                                     <div class="input-group">
                                         <input type="password" class="form-control" id="confirmPassword" />
                                         <span class="input-group-text  k_igt">
-                                            <i class="fas fa-eye-slash toggle-password"
-                                                data-toggle="#confirmPassword"></i>
+                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#confirmPassword"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -192,30 +191,26 @@
                                                 <label for="arName-edit" class="form-label">Artist name :</label>
                                                 <select id="arName-edit" name="arName-edit" class="form-select">
                                                     <option value="">-Select Artist-</option>
-                                                    {{-- <option>Camila Cabello</option>
-                                                    <option>Shawn Mendes</option> --}}
                                                 </select>
                                             </div>
                                             <div class="col-12">
                                                 <label for="fname-edit" class="form-label">Album name :</label>
-                                                <input type="text" class="form-control" id="fname-edit" name="fname-edit">
+                                                <input type="text" class="form-control" id="fname-edit"
+                                                    name="fname-edit">
                                             </div>
                                             <div class="col-12">
-                                                <img src="" style="width: 100px" id="oldImg" alt="">
+                                                <label for="inputImage-edit" class="form-label">Image</label>
+                                                <div>
+                                                    <img id="current-image" src="" alt="Current Image"
+                                                        style="width: 20%; max-height: 200px; object-fit: cover;">
+                                                </div>
                                             </div>
-                                            {{-- <div class="col-12">
-                                                <label for="inputState" class="form-label">Status :</label>
-                                                <select id="inputState" class="form-select">
-                                                    <option selected>Active</option>
-                                                    <option>Block</option>
-                                                </select>
-                                            </div> --}}
                                             <div class="col-12 ">
                                                 <label for="inputImage-edit" class="form-label">Choose Image</label>
-                                                <input type="file" class="form-control" id="inputImage-edit" name="inputImage-edit">
+                                                <input type="file" class="form-control" id="inputImage-edit"
+                                                    name="inputImage-edit">
                                             </div>
-                                            <div
-                                                class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
+                                            <div class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
                                                 <button type="submit" class="btn btn-primary">Update</button>
                                             </div>
                                         </form>
@@ -232,56 +227,57 @@
         </div>
     </div>
     @push('script')
-    <script>
-        function myFunctionR() {
-            document.getElementById("myDropdownR").classList.toggle("show");
-        }
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+        <script>
+            function myFunctionR() {
+                document.getElementById("myDropdownR").classList.toggle("show");
+            }
 
-        window.onclick = function (event) {
-            if (!event.target.matches(".dropbtn")) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains("show")) {
-                        openDropdown.classList.remove("show");
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            window.onclick = function(event) {
+                if (!event.target.matches(".dropbtn")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains("show")) {
+                            openDropdown.classList.remove("show");
+                        }
                     }
                 }
-            }
-        };
+            };
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var dropdown = document.getElementsByClassName("dropdown-btnnn");
+            document.addEventListener("DOMContentLoaded", function() {
+                var dropdown = document.getElementsByClassName("dropdown-btnnn");
 
-            for (var i = 0; i < dropdown.length; i++) {
-                dropdown[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var dropdownContent = this.nextElementSibling;
-                    if (dropdownContent.style.display === "block") {
-                        dropdownContent.style.display = "none";
-                    } else {
-                        dropdownContent.style.display = "block";
-                    }
-                });
-            }
-        });
+                for (var i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
+            });
 
-        showLoading();
-        $.ajax({
-            "url": "http://127.0.0.1:8000/api/albums",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Authorization": sessionStorage.getItem('token')
-            },
-            "success": function(response){
-                hideLoading();
-                let i = 1;
-                $.each(response.result, function(){
-                    let tr = `
+            showLoading();
+            $.ajax({
+                "url": "http://127.0.0.1:8000/api/albums",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Authorization": sessionStorage.getItem('token')
+                },
+                "success": function(response) {
+                    hideLoading();
+                    let i = 1;
+                    $.each(response.result, function() {
+                        let tr = `
                         <tr>
                             <td>
                                 <span class="text-dark text-decoration-none">${i++}</span>
@@ -303,234 +299,243 @@
                             </td>
                         </tr>
                     `;
-                    $("#tbody").append(tr);
-                })
-            },
-            "error": function(err){
-                hideLoading();
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: err.responseText
-                })
-            }
-        });
-        $.ajax({
-            "url": "http://127.0.0.1:8000/api/artist",
-            "method": "GET",
-            "timeout": 0,
-            "headers": {
-                "Authorization": sessionStorage.getItem('token')
-            },
-            "success": function(response){
-                $.each(response.result, function(){
-                    $("#arName-edit").append(`
-                        <option value="${this.name}">${this.name}</option>
-                    `);
-                    $("#arName").append(`
-                        <option value="${this.name}">${this.name}</option>
-                    `);
-                })
-            }
-        })
-
-        $("#insertArtist").validate({
-            rules: {
-                arName: {
-                    required: true
-                },
-                fname: {
-                    required: true
-                },
-                inputImage: {
-                    required: true
-                }
-            },
-            messages: {
-                arName: {
-                    required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
-                },
-                fname: {
-                    required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
-                },
-                inputImage: {
-                    required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
-                }
-            }
-        })
-        $("#insertArtist").submit(function(e){
-            e.preventDefault();
-            if($("#insertArtist").valid())
-            {
-                showLoading();
-                let form = new FormData();
-                form.append('artist_name', $("#arName").val())
-                form.append('album_name', $("#fname").val())
-                form.append('status', 'Active')
-                form.append('image', $("#inputImage")[0].files[0])
-
-                $.ajax({
-                    "url": "http://127.0.0.1:8000/api/albums/store",
-                    "method": "POST",
-                    "timeout": 0,
-                    "processData": false,
-                    "mimeType": "multipart/form-data",
-                    "contentType": false,
-                    "data": form,
-                    "headers": {
-                        "Authorization": sessionStorage.getItem('token')
-                    },
-                    "success": function(response){
-                        Swal.fire({
-                            icon: "success",
-                            title: "Success",
-                            text: "Album stored successfully"
-                        }).then(()=>{
-                            window.location.reload()
-                        })
-                    },
-                    "error": function(err){
-                        Swal.fire({
-                            icon: "error",
-                            title: "Error",
-                            text: err.responseText
-                        })
-                    }
-                })
-            }
-        })
-
-        $("#updateAlbum").validate({
-            rules: {
-                "arName-edit": {
-                    required: true
-                },
-                "fname-edit": {
-                    required: true
-                },
-                // "inputImage-edit": {
-                //     required: true
-                // }
-            },
-            messages: {
-                "arName-edit": {
-                    required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
-                },
-                "fname-edit": {
-                    required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
-                },
-                // "inputImage-edit": {
-                //     required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
-                // }
-            }
-        });
-        $("#updateAlbum").submit(function(e){
-            e.preventDefault();
-            if($("#updateAlbum").valid())
-            {
-                let id = $("#fname-edit").data('id');
-                let form = new FormData();
-
-                form.append('artist_name', $("#arName-edit").val())
-                form.append('album_name', $("#fname-edit").val())
-                form.append('image', $("#inputImage-edit")[0].files[0])
-                form.append('status', 'Active')
-
-                showLoading();
-
-                $.ajax({
-                    "url": "http://127.0.0.1:8000/api/albums/update/1",
-                    "method": "POST",
-                    "timeout": 0,
-                    "processData": false,
-                    "mimeType": "multipart/form-data",
-                    "contentType": false,
-                    "data": form,
-                    "headers": {
-                        "Authorization": sessionStorage.getItem('token')
-                    },
-                    "success": function(response){
-                        Swal.fire({
-                            icon: "success",
-                            title: "Success",
-                            text: "Album Updated"
-                        }).then(()=>{
-                            window.location.reload()
-                        })
-                    },
-                    "error": function(err){
-                        Swal.fire({
-                            icon: "error",
-                            title: "Error",
-                            text: err.responseText
-                        })
-                    }
-                })
-            }
-        })
-
-        $("#tbody").on('click', '.updateStatus', function(){
-            let id = $(this).data('id')
-            let status = $(this).data('status')
-            showLoading();
-            const form = new FormData();
-            form.append('status', status)
-            $.ajax({
-                "url": "http://127.0.0.1:8000/api/albums/status/" + id,
-                "method": "POST",
-                "timeout": 0,
-                "processData": false,
-                "headers": {
-                    "Authorization": sessionStorage.getItem('token')
-                },
-                "mimeType": "multipart/form-data",
-                "contentType": false,
-                "data": form,
-                "success": function(response){
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: "Status updated successfully."
-                    }).then(()=>{
-                        window.location.reload();
+                        $("#tbody").append(tr);
                     })
                 },
-                "error": function(err){
+                "error": function(err) {
+                    hideLoading();
                     Swal.fire({
                         icon: "error",
                         title: "Error",
                         text: err.responseText
                     })
                 }
-            })
-        });
-
-        $("#tbody").on('click', '.getAlbum', function(){
-            showLoading();
-            let id = $(this).data("id");
+            });
             $.ajax({
-                "url": "http://127.0.0.1:8000/api/albums/" + id,
+                "url": "http://127.0.0.1:8000/api/artist",
                 "method": "GET",
                 "timeout": 0,
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
-                    $("#oldImg").attr('src', "/images/" + response.result.image)
-                    $("#fname-edit").val(response.result.album_name)
-                    $("#arName-edit").find(`option[value='${response.result.artist_name}']`).prop('selected', true)
-                    $("#fname-edit").attr('data-id', response.result.id);
-                    hideLoading()
-                },
-                "error": function(err){
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: err.responseText
+                "success": function(response) {
+                    $.each(response.result, function() {
+                        $("#arName-edit").append(`
+                        <option value="${this.name}">${this.name}</option>
+                    `);
+                        $("#arName").append(`
+                        <option value="${this.name}">${this.name}</option>
+                    `);
                     })
                 }
             })
-        })
-    </script>
+
+            $("#insertArtist").validate({
+                rules: {
+                    arName: {
+                        required: true
+                    },
+                    fname: {
+                        required: true
+                    },
+                    inputImage: {
+                        required: true
+                    }
+                },
+                messages: {
+                    arName: {
+                        required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
+                    },
+                    fname: {
+                        required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
+                    },
+                    inputImage: {
+                        required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
+                    }
+                }
+            })
+            $("#insertArtist").submit(function(e) {
+                e.preventDefault();
+                if ($("#insertArtist").valid()) {
+                    showLoading();
+                    let form = new FormData();
+                    form.append('artist_name', $("#arName").val())
+                    form.append('album_name', $("#fname").val())
+                    form.append('status', 'Active')
+                    form.append('image', $("#inputImage")[0].files[0])
+
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/albums/store",
+                        "method": "POST",
+                        "timeout": 0,
+                        "processData": false,
+                        "mimeType": "multipart/form-data",
+                        "contentType": false,
+                        "data": form,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token')
+                        },
+                        "success": function(response) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Album stored successfully"
+                            }).then(() => {
+                                window.location.reload()
+                            })
+                        },
+                        "error": function(err) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            })
+
+            $("#updateAlbum").validate({
+                rules: {
+                    "arName-edit": {
+                        required: true
+                    },
+                    "fname-edit": {
+                        required: true
+                    },
+                    // "inputImage-edit": {
+                    //     required: true
+                    // }
+                },
+                messages: {
+                    "arName-edit": {
+                        required: "<span class='text-danger' style='font-style: small'>Please select artist name</span>"
+                    },
+                    "fname-edit": {
+                        required: "<span class='text-danger' style='font-style: small'>Please enter name</span>"
+                    },
+                    // "inputImage-edit": {
+                    //     required: "<span class='text-danger' style='font-style: small'>Please select image</span>"
+                    // }
+                }
+            });
+            $('#inputImage-edit').on('change', function(event) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#current-image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            });
+
+            $("#updateAlbum").submit(function(e) {
+                e.preventDefault();
+                if ($("#updateAlbum").valid()) {
+                    let id = $("#fname-edit").data('id');
+                    let form = new FormData();
+
+                    form.append('artist_name', $("#arName-edit").val())
+                    form.append('album_name', $("#fname-edit").val())
+                    form.append('image', $("#inputImage-edit")[0].files[0])
+                    form.append('status', 'Active')
+
+                    showLoading();
+
+                    $.ajax({
+                        "url": "http://127.0.0.1:8000/api/albums/update/1",
+                        "method": "POST",
+                        "timeout": 0,
+                        "processData": false,
+                        "mimeType": "multipart/form-data",
+                        "contentType": false,
+                        "data": form,
+                        "headers": {
+                            "Authorization": sessionStorage.getItem('token')
+                        },
+                        "success": function(response) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Success",
+                                text: "Album Updated"
+                            }).then(() => {
+                                window.location.reload()
+                            })
+                        },
+                        "error": function(err) {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: err.responseText
+                            })
+                        }
+                    })
+                }
+            })
+
+            $("#tbody").on('click', '.updateStatus', function() {
+                let id = $(this).data('id')
+                let status = $(this).data('status')
+                showLoading();
+                const form = new FormData();
+                form.append('status', status)
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/albums/status/" + id,
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "success": function(response) {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Status updated successfully."
+                        }).then(() => {
+                            window.location.reload();
+                        })
+                    },
+                    "error": function(err) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            });
+
+            $("#tbody").on('click', '.getAlbum', function() {
+                showLoading();
+                let id = $(this).data("id");
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/albums/" + id,
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response) {
+                        let currentImageUrl = response.result
+                            .image; // Ensure this URL is correct
+                        $("#current-image").attr('src', '/images/' + currentImageUrl);
+                        $("#fname-edit").val(response.result.album_name)
+                        $("#arName-edit").find(`option[value='${response.result.artist_name}']`).prop(
+                            'selected', true)
+                        $("#fname-edit").attr('data-id', response.result.id);
+                        hideLoading()
+                    },
+                    "error": function(err) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            })
+        </script>
     @endpush
-  @endsection
+@endsection

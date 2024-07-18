@@ -12,7 +12,7 @@ class AlbumController extends Controller
         $artists = Albums::find($id);
         return response()->json([
             'success' => true,
-            'message' => 'Artist Data successfully',
+            'message' => 'Albums Data successfully',
             'result' => $artists
         ], 200);
     }
@@ -20,7 +20,7 @@ class AlbumController extends Controller
         $artists = Albums::all();
         return response()->json([
             'success' => true,
-            'message' => 'Artist Data successfully',
+            'message' => 'Albums Data successfully',
             'result' => $artists
         ], 200);    }
 
