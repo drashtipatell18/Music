@@ -163,6 +163,8 @@
                     `;
                         $("#tbody").append(tr);
                     })
+                    // DataTable Code
+                    $('.table_new').DataTable();
                 },
                 "error": function(err) {
                     hideLoading();

@@ -152,6 +152,8 @@
                                 </tr>
                             `);
                             });
+                    // DataTable Code
+                        $('.table_new').DataTable();
                         } else {
                             artistsList.append('<tr><td colspan="5">No languages found.</td></tr>');
                         }

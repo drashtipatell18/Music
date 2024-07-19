@@ -1,0 +1,21 @@
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    margin: 3px !important;
+    padding:0px !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    background-color: transparent !important;
+}
+div.dataTables_wrapper div.dataTables_length select {
+    width: 56px !important;
+}
+
+.active > .page-link,
+.page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color); /* Use custom variable or color */
+    background-color: #162640;
+    border-color: #162640;
+}
+.page-link {
+    color: #162640; /* Set text color for all page links */
+}
