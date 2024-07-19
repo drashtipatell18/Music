@@ -460,6 +460,8 @@
                         `;
                         $("#tbody").append(tr)
                     })
+                    // DataTable Code
+                    $('.table_new').DataTable();
 
                     $("#tbody").on('click', '.updateStatus', function(){
                         showLoading();

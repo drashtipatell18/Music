@@ -58,7 +58,7 @@
                         </tr>
                     </thead>
                     <tbody id="tbody">
-                 
+
                     </tbody>
                 </table>
             </div>
@@ -173,6 +173,8 @@
                 `;
                 $("#tbody").append(tr);
             });
+            // DataTable Code
+            $('.table_new').DataTable();
             hideLoading();
         },
         "error": function(err){

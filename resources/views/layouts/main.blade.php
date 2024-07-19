@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="./css/table.css" />
     <link rel="stylesheet" href="./css/sidebar.css" />
     <link rel="stylesheet" href="./css/form.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     {{-- Dashboard --}}
     <link rel="stylesheet" href="./css/Dashboard.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+
+
 </head>
 
 <body>
@@ -400,6 +405,8 @@ if(isset($page) && $page == "artist")
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
             <script>
                 if (!sessionStorage.getItem('token') || sessionStorage.getItem('token') == null || sessionStorage.getItem(
                         'token') == "") {
