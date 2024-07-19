@@ -34,7 +34,7 @@ class MusicVideoController extends Controller
         }
         return response()->json([
             'success' => true,
-            'message' => 'Cate Data successfully',
+            'message' => 'Music & Video Data successfully',
             'result' => $musicVideo
         ], 200);
     }
