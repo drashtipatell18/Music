@@ -348,7 +348,7 @@
                                 </td>
 
                                 <td>
-                                    <button data-id="${this.id}" data-status="${(this.status == 'Deactive')?'Active':'Inactive'}" class="updateStatus me-1 ${(this.status == 'Active')?'k_status_active':'k_status_block'}">${this.status}</button>
+                                    <button data-id="${this.id}" data-status="${(this.status == 'Block')?'Active':'Block'}" class="updateStatus me-1 ${(this.status == 'Active')?'k_status_active':'k_status_block'}">${this.status}</button>
                                 </td>
                                 <td>
                                     <div class="actions-btn d-flex ">
