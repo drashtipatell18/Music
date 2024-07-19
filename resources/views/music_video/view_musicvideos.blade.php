@@ -1,5 +1,5 @@
 @php
-    $page = "Music_Video";
+    $page = 'Music_Video';
 @endphp
 @extends('layouts.main')
 @section('title', 'Music & Video: Music App Management')
@@ -16,80 +16,8 @@
                     </button>
                 </div>
 
-                <!-- Change password Modal Start -->
-                <div class="modal fade" id="chngPassModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h2 class="pageTitleHeading">Change password</h2>
-                                <div class="field">
-                                    <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" id="oldPassword" />
-                                        <span class="input-group-text k_igt">
-                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" id="newPassword" />
-                                        <span class="input-group-text k_igt">
-                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
-                                    <div class="input-group">
-                                        <input type="password" class="form-control" id="confirmPassword" />
-                                        <span class="input-group-text  k_igt">
-                                            <i class="fas fa-eye-slash toggle-password"
-                                                data-toggle="#confirmPassword"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="password mb-4 fs-6 text-secondary">
-                                    <p>Both passwords must match</p>
-                                </div>
-                                <div class="d-flex justify-content-center mt-5">
-                                    <a href="Dashboard.html" type="submit"
-                                        class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Change password Modal End -->
-
-                <!-- Logout Modal Start -->
-                <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body k_modal-body">
-                                <p>Are you Sure to Logout?</p>
-                                <div class="k_lob d-flex">
-                                    <button type="button" class="k_loClose" data-bs-dismiss="modal"
-                                        aria-label="Close">Cancel</button>
-                                    <a href="Login.html">Sure</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Logout Modal End -->
-
                 <!-- Add Modal Start -->
-                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog k_modalWide">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -137,21 +65,14 @@
                                     </div>
                                     <div class="col-md-6 col-xl-4">
                                         <label for="type" class="form-label">Type :</label>
-                                        <select id="type" name="type" class="form-select">
+                                        <select id="type" name="type" class="form-select"
+                                            onchange="updateFileLabel()">
                                             <option value="audio">Audio</option>
                                             <option value="video">Video</option>
-                                            <option value="image">Image</option>
                                         </select>
                                     </div>
-                                    {{-- <div class="col-md-6 col-xl-4">
-                                        <label for="status" class="form-label">Status :</label>
-                                        <select id="status" name="status" class="form-select">
-                                            <option selected>Active</option>
-                                            <option>Block</option>
-                                        </select>
-                                    </div> --}}
                                     <div class="col-xl-6 ">
-                                        <label for="inputImage" class="form-label">Choose Image</label>
+                                        <label for="inputImage" class="form-label" id="fileLabel">Choose File</label>
                                         <input type="file" class="form-control" id="inputImage" name="inputImage">
                                     </div>
                                     <div class="col-xl-6">
@@ -186,38 +107,11 @@
                                 <tbody id="tbody">
 
                                 </tbody>
-                                {{-- <tr>
-                                    <td>
-                                        <span class="text-dark text-decoration-none">10</span>
-                                    </td>
-                                    <td>Heeriye </td>
-                                    <td>Arijit Shing</td>
-                                    <td>
-                                        <a class="k_audio" href="image/video_sample.mp4">
-                                            <i class="fa-solid fa-circle-play"></i>
-                                        </a>
-                                    </td>
-                                    <td>Video</td>
-                                    <td>
-                                        <span class="me-1 k_status_block">Block</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions-btn d-flex ">
-                                            <span class="me-2 pt-3" data-bs-toggle="modal" data-bs-target="#viewModal">
-                                                <img src="image/view.svg" class="k_eye" alt="">
-                                            </span>
-                                            <span class="me-1 pt-3" data-bs-toggle="modal" data-bs-target="#editModal">
-                                                <img src="image/edit.svg" class="k_edit" alt="">
-                                        </div>
-                                    </td>
-                                </tr> --}}
-
                             </table>
 
                             <!-- View modal -->
                             <div class="modal fade k_modalContainer" id="viewModal" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true"
-                                style="padding-right: 0 !important;">
+                                aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 0 !important;">
                                 <div class="modal-dialog k_modal-dialog ">
                                     <div class="modal-content p-3 justify-content-center">
                                         <button type="button" class="btn-close k_closeBtn" data-bs-dismiss="modal"
@@ -232,46 +126,48 @@
                                                     <div class="d-flex mb-2">
                                                         <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
                                                             Name </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span id="viewName"></span> </p>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                id="viewName"></span> </p>
                                                     </div>
                                                     <div class="d-flex mb-2">
                                                         <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
                                                             Artist </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span id="artistView"></span> </p>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                id="artistView"></span> </p>
                                                     </div>
                                                     <div class="d-flex mb-2">
                                                         <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
                                                             Album </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span id="albumView"></span> </p>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                id="albumView"></span> </p>
                                                     </div>
                                                     <div class="d-flex mb-2">
                                                         <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
                                                             Category </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span id="catView"></span> </p>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                id="catView"></span> </p>
                                                     </div>
                                                     <!-- <div class="d-flex city-block"> -->
                                                     <div class="d-flex mb-2">
                                                         <h5 class='dot-width fs-6 fw-bold mb-0' style="width: 100px;">
                                                             Language </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span id="lanView"></span> </p>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                id="lanView"></span> </p>
                                                     </div>
                                                     <div class=" d-flex mb-2">
-                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
-                                                            style="width: 70px;">
+                                                        <h5 class='state-margin fs-6 fw-bold  mb-0' style="width: 70px;">
                                                             type </h5>
                                                         <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
                                                             &nbsp;&nbsp;&nbsp;<span id="typeView"></span> </p>
                                                     </div>
                                                     <div class=" d-flex mb-2">
-                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
-                                                            style="width: 70px;">
+                                                        <h5 class='state-margin fs-6 fw-bold  mb-0' style="width: 70px;">
                                                             Status </h5>
                                                         <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
                                                             &nbsp;&nbsp;&nbsp;<span id="statusView"></span> </p>
                                                     </div>
                                                     <div class=" d-flex mb-2">
-                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
-                                                            style="width: 70px;">
+                                                        <h5 class='state-margin fs-6 fw-bold  mb-0' style="width: 70px;">
                                                             Url </h5>
                                                         <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
                                                             &nbsp;&nbsp;&nbsp;<span id="urlView"></span> </p>
@@ -286,85 +182,86 @@
                             </div>
 
                             <!-- Edit Modal Start -->
-                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog k_modalWide">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 class="pageTitleHeading">Edit Music & Video</h2>
-                                    <form class="row g-3" id="updateFrm">
-                                        <div class="col-md-12">
-                                            <label for="fname-edit" class="form-label">Name :</label>
-                                            <input type="text" class="form-control" id="fname-edit" name="fname-edit">
+                            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog k_modalWide">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <label for="artist_id-edit" class="form-label">Artist name :</label><br>
-                                            <select id="artist_id-edit" name="artist_id-edit" class="form-select">
-                                                <option>Arman Malik</option>
-                                                <option>Camila Cabello</option>
-                                            </select>
+                                        <div class="modal-body">
+                                            <h2 class="pageTitleHeading">Edit Music & Video</h2>
+                                            <form class="row g-3" id="updateFrm">
+                                                <div class="col-md-12">
+                                                    <label for="fname-edit" class="form-label">Name :</label>
+                                                    <input type="text" class="form-control" id="fname-edit"
+                                                        name="fname-edit">
+                                                </div>
+                                                <div class="col-md-6 col-xl-4">
+                                                    <label for="artist_id-edit" class="form-label">Artist name
+                                                        :</label><br>
+                                                    <select id="artist_id-edit" name="artist_id-edit"
+                                                        class="form-select">
+                                                        <option>Arman Malik</option>
+                                                        <option>Camila Cabello</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-xl-4">
+                                                    <label for="album_id-edit" class="form-label">Album name :</label>
+                                                    <select id="album_id-edit" name="album_id-edit" class="form-select">
+                                                        <option>Wonder</option>
+                                                        <option>Camila Cabello</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-xl-4">
+                                                    <label for="category_id-edit" class="form-label">Category :</label>
+                                                    <select id="category_id-edit" name="category_id-edit"
+                                                        class="form-select">
+                                                        <option>Trending</option>
+                                                        <option>Mood</option>
+                                                        <option>Party</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-xl-4">
+                                                    <label for="language_id-edit" class="form-label">Language :</label>
+                                                    <select id="language_id-edit" name="language_id-edit"
+                                                        class="form-select">
+                                                        <option>English</option>
+                                                        <option>Hindi</option>
+                                                        <option>Gujarati</option>
+                                                        <option>Punjabi</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6 col-xl-4">
+                                                    <label for="type" class="form-label">Type :</label>
+                                                    <select id="type-edit" name="type" class="form-select"
+                                                        onchange="updateFileLabel()">
+                                                        <option value="audio">Audio</option>
+                                                        <option value="video">Video</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-xl-6 ">
+                                                    <label for="inputImage" class="form-label" id="fileLabel">Choose
+                                                        File</label>
+                                                    <input type="file" class="form-control" id="inputImage"
+                                                        name="inputImage">
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <label for="url-edit" class="form-label">URL :</label>
+                                                    <input type="text" class="form-control" id="url-edit"
+                                                        name="url-edit">
+                                                </div>
+                                                <div
+                                                    class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
+                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <label for="album_id-edit" class="form-label">Album name :</label>
-                                            <select id="album_id-edit" name="album_id-edit" class="form-select">
-                                                <option>Wonder</option>
-                                                <option>Camila Cabello</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <label for="category_id-edit" class="form-label">Category :</label>
-                                            <select id="category_id-edit" name="category_id-edit" class="form-select">
-                                                <option>Trending</option>
-                                                <option>Mood</option>
-                                                <option>Party</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <label for="language_id-edit" class="form-label">Language :</label>
-                                            <select id="language_id-edit" name="language_id-edit" class="form-select">
-                                                <option>English</option>
-                                                <option>Hindi</option>
-                                                <option>Gujarati</option>
-                                                <option>Punjabi</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <label for="type-edit" class="form-label">Type :</label>
-                                            <select id="type-edit" name="type-edit" class="form-select">
-                                                <option value="audio">Audio</option>
-                                                <option value="video">Video</option>
-                                                <option value="image">Image</option>
-                                            </select>
-                                        </div>
-                                        {{-- <div class="col-md-6 col-xl-4">
-                                            <label for="status" class="form-label">Status :</label>
-                                            <select id="status" class="form-select">
-                                                <option selected>Active</option>
-                                                <option>Block</option>
-                                            </select>
-                                        </div> --}}
-                                        <div class="col-xl-6 ">
-                                            <label for="inputImage-edit" class="form-label">Choose Image</label>
-                                            <input type="file" class="form-control" id="inputImage-edit" name="inputImage-edit">
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <label for="url-edit" class="form-label">URL :</label>
-                                            <input type="text" class="form-control" id="url-edit" name="url-edit">
-                                        </div>
-                                        <div
-                                            class="col-12 col-auto d-flex justify-content-center submit_button mt-5">
-                                            <button type="submit" class="btn btn-primary">Update</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Edit Modal End -->
+                            <!-- Edit Modal End -->
 
                         </div>
                     </div>
@@ -382,14 +279,16 @@
                 },
                 enumerable: false
             });
+
             function myFunctionR() {
                 document.getElementById("myDropdownR").classList.toggle("show");
             }
+
             function myFunction() {
                 document.getElementById("myDropdown").classList.toggle("show");
             }
 
-            window.onclick = function (event) {
+            window.onclick = function(event) {
                 if (!event.target.matches(".dropbtn")) {
                     var dropdowns = document.getElementsByClassName("dropdown-content");
                     var i;
@@ -402,11 +301,11 @@
                 }
             };
 
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function() {
                 var dropdown = document.getElementsByClassName("dropdown-btnnn");
 
                 for (var i = 0; i < dropdown.length; i++) {
-                    dropdown[i].addEventListener("click", function () {
+                    dropdown[i].addEventListener("click", function() {
                         this.classList.toggle("active");
                         var dropdownContent = this.nextElementSibling;
                         if (dropdownContent.style.display === "block") {
@@ -427,10 +326,10 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
+                "success": function(response) {
                     hideLoading()
                     let i = 1
-                    $.each(response.result, function(){
+                    $.each(response.result, function() {
                         let tr = `
                             <tr>
                                 <td>
@@ -460,8 +359,10 @@
                         `;
                         $("#tbody").append(tr)
                     })
+                    // DataTable Code
+                    $('.table_new').DataTable();
 
-                    $("#tbody").on('click', '.updateStatus', function(){
+                    $("#tbody").on('click', '.updateStatus', function() {
                         showLoading();
                         let id = $(this).data('id');
                         let status = $(this).data('status');
@@ -478,16 +379,16 @@
                             "headers": {
                                 "Authorization": sessionStorage.getItem('token')
                             },
-                            "success": function(response){
+                            "success": function(response) {
                                 Swal.fire({
                                     icon: "success",
                                     title: "Success",
                                     text: "Status Updated"
-                                }).then(()=>{
+                                }).then(() => {
                                     window.location.reload();
                                 })
                             },
-                            "error": function(err){
+                            "error": function(err) {
                                 Swal.fire({
                                     icon: "error",
                                     title: "Error",
@@ -497,7 +398,7 @@
                         })
                     })
                 },
-                "error": function(err){
+                "error": function(err) {
                     Swal.fire({
                         icon: "error",
                         title: "Error",
@@ -516,14 +417,16 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
+                "success": function(response) {
                     $("#artist_id").empty();
                     $("#artist_id").append(`<option value="">-Select Artist-</option>`);
                     $("#artist_id-edit").empty();
                     $("#artist_id-edit").append(`<option value="">-Select Artist-</option>`);
-                    $.each(response.result, function(){
-                        $("#artist_id").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
-                        $("#artist_id-edit").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
+                    $.each(response.result, function() {
+                        $("#artist_id").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
+                        $("#artist_id-edit").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
                     })
                 }
             })
@@ -535,14 +438,16 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
+                "success": function(response) {
                     $("#album_id").empty();
                     $("#album_id").append(`<option value="">-Select Album-</option>`);
                     $("#album_id-edit").empty();
                     $("#album_id-edit").append(`<option value="">-Select Album-</option>`);
-                    $.each(response.result, function(){
-                        $("#album_id").append(`<option value="${this.id}">${this.album_name.capitalize()}</option>`);
-                        $("#album_id-edit").append(`<option value="${this.id}">${this.album_name.capitalize()}</option>`);
+                    $.each(response.result, function() {
+                        $("#album_id").append(
+                            `<option value="${this.id}">${this.album_name.capitalize()}</option>`);
+                        $("#album_id-edit").append(
+                            `<option value="${this.id}">${this.album_name.capitalize()}</option>`);
                     })
                 }
             })
@@ -554,14 +459,16 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
+                "success": function(response) {
                     $("#category_id").empty();
                     $("#category_id").append(`<option value="">-Select Category-</option>`);
                     $("#category_id-edit").empty();
                     $("#category_id-edit").append(`<option value="">-Select Category-</option>`);
-                    $.each(response.result, function(){
-                        $("#category_id").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
-                        $("#category_id-edit").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
+                    $.each(response.result, function() {
+                        $("#category_id").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
+                        $("#category_id-edit").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
                     })
                 }
             })
@@ -573,14 +480,16 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response){
+                "success": function(response) {
                     $("#language_id").empty();
                     $("#language_id").append(`<option value="">-Select Language-</option>`);
                     $("#language_id-edit").empty();
                     $("#language_id-edit").append(`<option value="">-Select Language-</option>`);
-                    $.each(response.result, function(){
-                        $("#language_id").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
-                        $("#language_id-edit").append(`<option value="${this.id}">${this.name.capitalize()}</option>`);
+                    $.each(response.result, function() {
+                        $("#language_id").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
+                        $("#language_id-edit").append(
+                            `<option value="${this.id}">${this.name.capitalize()}</option>`);
                     })
                 }
             });
@@ -643,15 +552,14 @@
                     }
                 }
             });
-            $("#insertMusic").submit(function(e){
+            $("#insertMusic").submit(function(e) {
                 e.preventDefault();
-                if($("#insertMusic").valid())
-                {
+                if ($("#insertMusic").valid()) {
                     showLoading();
                     const form = new FormData($("#insertMusic")[0]);
                     form.append('name', $("#fname").val());
                     form.append('status', 'Active');
-                    if($("#inputImage")[0].files[0]){
+                    if ($("#inputImage")[0].files[0]) {
                         form.append('image', $("#inputImage")[0].files[0])
                     }
                     $.ajax({
@@ -665,16 +573,16 @@
                         "mimeType": "multipart/form-data",
                         "contentType": false,
                         "data": form,
-                        "success": function(response){
+                        "success": function(response) {
                             Swal.fire({
                                 icon: "success",
                                 title: "Success",
                                 text: "Music / Video Insert Successfully"
-                            }).then(()=>{
+                            }).then(() => {
                                 window.location.reload()
                             })
                         },
-                        "error": function(err){
+                        "error": function(err) {
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -686,7 +594,7 @@
             });
 
             // Viewing Data
-            $("#tbody").on('click', '.viewData', function(){
+            $("#tbody").on('click', '.viewData', function() {
                 let id = $(this).data('id');
                 showLoading();
                 $.ajax({
@@ -696,7 +604,7 @@
                     "headers": {
                         "Authorization": sessionStorage.getItem('token')
                     },
-                    "success": function(response){
+                    "success": function(response) {
                         hideLoading();
                         $("#viewName").text(response.result.name);
                         $("#artistView").text(response.result.artist.name);
@@ -712,16 +620,21 @@
                         var contentHtml = '';
 
                         if (contentType === 'image') {
-                            contentHtml = '<img width="200px" src="' + contentUrl + '" alt="" class="form-image" />';
+                            contentHtml = '<img width="200px" src="' + contentUrl +
+                                '" alt="" class="form-image" />';
                         } else if (contentType === 'video') {
-                            contentHtml = '<video width="200px" controls class="form-video"><source src="' + contentUrl + '" type="video/mp4">Your browser does not support the video tag.</video>';
+                            contentHtml = '<video width="200px" controls class="form-video"><source src="' +
+                                contentUrl +
+                                '" type="video/mp4">Your browser does not support the video tag.</video>';
                         } else if (contentType === 'audio') {
-                            contentHtml = '<audio width="100px" controls class="form-audio"><source src="' + contentUrl + '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
+                            contentHtml = '<audio width="100px" controls class="form-audio"><source src="' +
+                                contentUrl +
+                                '" type="audio/mpeg">Your browser does not support the audio tag.</audio>';
                         }
 
                         $("#videoAudio").html(contentHtml);
                     },
-                    "error": function(err){
+                    "error": function(err) {
                         Swal.fire({
                             icon: "error",
                             title: "Error",
@@ -732,7 +645,7 @@
             });
 
             // Edit Button Click
-            $("#tbody").on('click', '.editData', function(){
+            $("#tbody").on('click', '.editData', function() {
                 let id = $(this).data('id');
                 showLoading();
                 $.ajax({
@@ -742,18 +655,25 @@
                     "headers": {
                         "Authorization": sessionStorage.getItem('token')
                     },
-                    "success": function(response){
+                    "success": function(response) {
+                        console.log(response.result.icons);
                         hideLoading();
                         $("#fname-edit").attr('data-id', id);
                         $("#fname-edit").val(response.result.name);
-                        $("#artist_id-edit").find(`option[value='${response.result.artist.id}']`).prop('selected', true);
-                        $("#album_id-edit").find(`option[value='${response.result.album.id}']`).prop('selected', true);
-                        $("#category_id-edit").find(`option[value='${response.result.category.id}']`).prop('selected', true);
-                        $("#language_id-edit").find(`option[value='${response.result.language.id}']`).prop('selected', true);
-                        $("#type-edit").find(`option[value='${response.result.type}']`).prop('selected', true);
+                        $("#artist_id-edit").find(`option[value='${response.result.artist.id}']`).prop(
+                            'selected', true);
+                        $("#album_id-edit").find(`option[value='${response.result.album.id}']`).prop(
+                            'selected', true);
+                        $("#category_id-edit").find(`option[value='${response.result.category.id}']`).prop(
+                            'selected', true);
+                        $("#language_id-edit").find(`option[value='${response.result.language.id}']`).prop(
+                            'selected', true);
+                        $("#type-edit").find(`option[value='${response.result.type}']`).prop('selected',
+                            true);
                         $("#url-edit").val(response.result.url);
+                        $("#inputImage").val(response.result.icons);
                     },
-                    "error": function(err){
+                    "error": function(err) {
                         Swal.fire({
                             icon: "error",
                             title: "Error",
@@ -812,10 +732,9 @@
                     }
                 }
             });
-            $("#updateFrm").submit(function(e){
+            $("#updateFrm").submit(function(e) {
                 e.preventDefault();
-                if($("#updateFrm").valid())
-                {
+                if ($("#updateFrm").valid()) {
                     showLoading();
                     let id = $("#fname-edit").data('id');
                     const formData = new FormData();
@@ -843,16 +762,16 @@
                         "mimeType": "multipart/form-data",
                         "contentType": false,
                         "data": formData,
-                        "success": function(response){
+                        "success": function(response) {
                             Swal.fire({
                                 icon: "success",
                                 title: "Success",
                                 text: "Music / Video Updated Successfully"
-                            }).then(()=>{
+                            }).then(() => {
                                 window.location.reload()
                             })
                         },
-                        "error": function(err){
+                        "error": function(err) {
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -862,6 +781,29 @@
                     })
                 }
             })
+
+            function updateFileLabel() {
+                const typeSelect = document.getElementById('type-edit');
+                const fileLabel = document.getElementById('fileLabel');
+                const selectedType = typeSelect.value;
+
+                let labelText;
+                switch (selectedType) {
+                    case 'audio':
+                        labelText = 'Choose Audio';
+                        break;
+                    case 'video':
+                        labelText = 'Choose Video';
+                        break;
+                    default:
+                        labelText = 'Choose File';
+                }
+
+                fileLabel.textContent = labelText;
+            }
+
+            // Ensure the label is updated when the page loads if there is a preselected type
+            document.addEventListener('DOMContentLoaded', updateFileLabel);
         </script>
     @endpush
 

@@ -13,6 +13,7 @@
             color: white;
             margin-right: 10px;
         }
+
     </style>
     <section class="daily_price">
         <div class="p-3 btn-clr d-flex justify-content-between">
@@ -158,6 +159,8 @@
                                 </tr>
                             `);
                             });
+                    // DataTable Code
+                        $('.table_new').DataTable();
                         } else {
                             languagesList.append('<tr><td colspan="5">No languages found.</td></tr>');
                         }
@@ -351,7 +354,7 @@
                     });
                 }
             });
-           
+
 
         });
     </script>
