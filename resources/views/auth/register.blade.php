@@ -8,7 +8,7 @@
                     <div class="inner-box rounded-3 border-light text-dark m-0 k_bg">
                         <h2 class="login_title text-center">Register</h2>
                         <p class="text-center k_rtxt">Welcome onboard with us!</p>
-                        <form method="POST" action="{{ route('store.register') }}">
+                        <form method="POST" id="registerFrm">
                             @csrf
                             <div class="field">
                                 <label for="name" class="form-label mb-0 mt-3">{{ __('Name') }}</label>
@@ -81,4 +81,92 @@
         });
     </script>
     <script src="../bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function showLoading() {
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Please wait while we process your request.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+
+        function hideLoading() {
+            Swal.hideLoading();
+            Swal.clickConfirm();
+        }
+
+
+        $("#registerFrm").validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true
+                },
+                password: {
+                    required: true
+                },
+                password_confirmation: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                name: {
+                    required: "<span class='text-danger' style='font-size:small'>Please enter name</span>"
+                },
+                email: {
+                    required: "<span class='text-danger' style='font-size:small'>Please enter email</span>"
+                },
+                password: {
+                    required: "<span class='text-danger' style='font-size:small'>Please enter password</span>"
+                },
+                password_confirmation: {
+                    required: "<span class='text-danger' style='font-size:small'>Please enter confirm password</span>"
+                }
+            }
+        });
+
+        $("#registerFrm").submit(function(e){
+            e.preventDefault();
+            if($("#registerFrm").valid()){
+                showLoading();
+                const form = new FormData($("#registerFrm")[0]);
+                $.ajax({
+                    "url": "/api/create/register",
+                    "method": "POST",
+                    "timeout": 0,
+                    "processData": false,
+                    "mimeType": "multipart/form-data",
+                    "contentType": false,
+                    "data": form,
+                    "success": function(response){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: "Registration Successful"
+                        }).then(()=>{
+                            window.location.href = '/';
+                        })
+                    },
+                    "error": function(err){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            }
+        })
+    </script>
 @endsection

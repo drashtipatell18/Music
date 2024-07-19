@@ -36,7 +36,7 @@
                             <button type="submit" class="btn text-white align-items-center text-light k_loginBtn rounded-0" >Log In</button>
                         </div>
                         <div class="text-center">
-                            <p>Don't have an account? <a href="{{ route('register') }}" class=" text-decoration-underline text-dark">Register </a></p>
+                            <p>Don't have an account? <a href="/register" class=" text-decoration-underline text-dark">Register </a></p>
                         </div>
                     </form>
                 </div>

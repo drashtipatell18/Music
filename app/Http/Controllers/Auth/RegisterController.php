@@ -78,8 +78,8 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|same:confirm_password',
-            'confirm_password' => 'required|string|min:8|same:password',
+            'password' => 'required|string|min:8|same:password_confirmation',
+            'password_confirmation' => 'required|string|min:8|same:password',
         ]);
 
         if ($validator->fails()) {
@@ -90,7 +90,8 @@ class RegisterController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 1
+            'role' => 1,
+            "api_token" => 0
         ]);
 
         event(new Registered($user));

@@ -226,7 +226,7 @@ if(isset($page) && $page == "artist")
                             <div class="k_lob d-flex">
                                 <button type="button" class="k_loClose" data-bs-dismiss="modal"
                                     aria-label="Close">Cancel</button>
-                                <a href="{{ route('logout') }}">Sure</a>
+                                <a href="#" onclick="sessionStorage.clear();window.location.replace('/')">Sure</a>
                             </div>
                         </div>
                     </div>

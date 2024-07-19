@@ -25,11 +25,10 @@ use App\Http\Controllers\MusicVideoController;
 |
 */
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-
+Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordForm'])->name('forget.password');
