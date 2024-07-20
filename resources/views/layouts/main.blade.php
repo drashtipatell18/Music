@@ -18,7 +18,24 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 </head>
+<style>
+     table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_desc:after {
+            content: "" !important;
+        }
 
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_desc:before {
+            content: "" !important;
+        }
+
+        table.dataTable thead th {
+            padding-right: 10px;
+            /* adjust as needed */
+        }
+</style>
 <body>
 
     <div class="container-fluid p-0 d-flex h-100">
@@ -85,8 +102,9 @@ if(isset($page) && $page == "artist")
                         Artist
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "albums")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "albums")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -96,8 +114,9 @@ if(isset($page) && $page == "artist")
 
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "Music_Video")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "Music_Video")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -106,8 +125,9 @@ if(isset($page) && $page == "artist")
                         Music & Video
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "Premium")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "Premium")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -229,7 +249,8 @@ if(isset($page) && $page == "artist")
                             <div class="k_lob d-flex">
                                 <button type="button" class="k_loClose" data-bs-dismiss="modal"
                                     aria-label="Close">Cancel</button>
-                                <a href="#" onclick="sessionStorage.clear();window.location.replace('/')">Sure</a>
+                                <a href="#"
+                                    onclick="sessionStorage.clear();window.location.replace('/')">Sure</a>
                             </div>
                         </div>
                     </div>

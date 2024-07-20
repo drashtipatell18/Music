@@ -34,6 +34,7 @@
 @endsection
 @push('script')
     <script>
+        
         showLoading();
         $("#tbody").empty();
         $.ajax({
@@ -68,6 +69,7 @@
                     </tr>
                     `;
                     $("#tbody").append(tr)
+                    $('.table_new').DataTable();
                 });
 
                 $("#tbody").on('click', '.updateStatus', function(){

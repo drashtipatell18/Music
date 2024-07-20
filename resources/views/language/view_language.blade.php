@@ -13,7 +13,6 @@
             color: white;
             margin-right: 10px;
         }
-
     </style>
     <section class="daily_price">
         <div class="p-3 btn-clr d-flex justify-content-between">
@@ -159,8 +158,8 @@
                                 </tr>
                             `);
                             });
-                    // DataTable Code
-                        $('.table_new').DataTable();
+                            // DataTable Code
+                            $('.table_new').DataTable();
                         } else {
                             languagesList.append('<tr><td colspan="5">No languages found.</td></tr>');
                         }
@@ -188,7 +187,7 @@
                         hideLoading();
                         $("#fname-edit").attr('data-id', id);
                         $("#fname-edit").val(response.result.name)
-                            let currentImageUrl = response.result
+                        let currentImageUrl = response.result
                             .image; // Ensure this URL is correct
                         $("#current-image").attr('src', '/images/' + currentImageUrl);
 
