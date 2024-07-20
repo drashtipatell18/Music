@@ -26,19 +26,21 @@ use App\Http\Controllers\MusicVideoController;
 */
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/create/register', [RegisterController::class, 'register'])->name('create.register');
+Route::post('/forget-password', [RegisterController::class,'forgetPassword']);
+Route::post('/reset-password', [RegisterController::class, 'resetPassword']);
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordForm'])->name('forget.password');
-    Route::post('/forget-password', [DashboardController::class, 'sendResetLinkEmail'])->name('forget.password.email');
+    // Route::get('/forget-password', [DashboardController::class, 'showForgetPasswordForm'])->name('forget.password');
+    // Route::post('/forget-password', [DashboardController::class, 'sendResetLinkEmail'])->name('forget.password.email');
     Route::get('/verify-otp', [DashboardController::class, 'verifyOTPForm'])->name('verify.otp');
     Route::post('verify-otp', [DashboardController::class, 'verifyOTP']);
     // Route::get('/resend-otp', [DashboardController::class, 'resend'])->name('resend.otp');
     Route::post('/resend-otp', [DashboardController::class, 'resend'])->name('resend.otp');
 
-    Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
+    // Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('reset.password');
     Route::post('/password-reset', [DashboardController::class, 'passwordReset'])->name('password.reset');
 
     // Dashboard

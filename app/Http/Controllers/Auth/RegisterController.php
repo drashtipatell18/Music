@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ExampleMail;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -101,6 +103,43 @@ class RegisterController extends Controller
 
 
         return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+    }
+
+    public function forgetPassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users,email'
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json(['success' => false, 'message' => 'Validation error', 'errors' => $validator->errors()], 400);
+        }
+        $email = new ExampleMail();
+        Mail::to($request->input('email'))->send($email);
+
+        return response()->json(['otp' => $email->randomNumber]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|exists:users,email',
+            'password' => 'required'
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json(['success' => false, 'message' => 'Validation error', 'errors' => $validator->errors()], 400);
+        }
+
+        $user = User::where('email', $request->input('email'))->first();
+
+        $user->update([
+            'password' => Hash::make($request->input('password'))
+        ]);
+
+        return response()->json(['success' => true, 'message' => 'Password Updated Successfully.'], 200);
     }
 
 

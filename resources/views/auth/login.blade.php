@@ -2,6 +2,49 @@
 @section('title', 'Login: Music App Management')
 @section('content')
 
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" id="sendOtp">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email address and we'll send you otp to reset your password.</p>
+                <div class="mb-3">
+                    <label for="resetEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="resetEmail" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="sendOtpBtn" class="btn btn-primary">Send OTP</button>
+            </div>
+        </div>
+        <div class="modal-content d-none" id="resetPassword">
+            <div class="modal-header">
+                <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your otp received and new password.</p>
+                <div class="mb-3">
+                    <label for="otp" class="form-label">OTP</label>
+                    <input type="number" class="form-control" id="otp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newpassword" class="form-label">New Password</label>
+                    <input type="password" class="form-control" id="newpassword" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="resetPasswordBtn" class="btn btn-primary">Reset Password</button>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="Login_form">
     <div class="bg">
         <div class="bg-img bg-dark">
@@ -30,7 +73,7 @@
                             @enderror
                         </div>
                         <div class="password  mb-4 text-end fs-6 text-secondary">
-                            <a href="{{ route('forget.password') }}" class="text-dark">Forgot password?</a>
+                            <a href="#" data-bs-target="#forgotPasswordModal" data-bs-toggle="modal" class="text-dark">Forgot password?</a>
                         </div>
                         <div class="d-flex justify-content-center mt-5">
                             <button type="submit" class="btn text-white align-items-center text-light k_loginBtn rounded-0" >Log In</button>
@@ -69,6 +112,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    let otp = 0;
     if(sessionStorage.getItem('token') && sessionStorage.getItem('token') != null && sessionStorage.getItem('token') != "")
     {
         window.location.replace('/dashboard')
@@ -148,6 +192,121 @@
                 }
             })
         }
+    });
+
+    $("#sendOtpBtn").click(function(){
+        if(!$("#resetEmail").val() || $("#resetEmail").val() == '')
+        {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Please enter your email id"
+            })
+
+            return;
+        }
+
+        showLoading();
+        let formData = new FormData();
+        formData.append('email', $("#resetEmail").val())
+        $.ajax({
+            "url": "/api/forget-password",
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": formData,
+            "success": function(response){
+                response = JSON.parse(response)
+                otp = response.otp;
+                Swal.fire({
+                    icon: "success",
+                    title: "OTP Sent",
+                    text: "Please check your mail id and enter OTP and new password to reset your password"
+                }).then(()=>{
+                    $("#resetPassword").removeClass('d-none')
+                    $("#sendOtp").addClass('d-none')
+                })
+            },
+            "error": function(err){
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.responseText
+                })
+            }
+        })
+    })
+
+    $("#resetPasswordBtn").click(function(){
+        if(!$("#otp").val() || $("#otp").val() == '')
+        {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Please enter your otp"
+            })
+
+            return;
+        }
+        if(!$("#newpassword").val() || $("#newpassword").val() == '')
+        {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Please enter your new password"
+            })
+
+            return;
+        }
+        if($("#otp").val() != otp)
+        {
+            Swal.fire({
+                icon: "warning",
+                title: "Warning",
+                text: "Invalid OTP"
+            })
+
+            return;
+        }
+
+        showLoading();
+        let formData = new FormData();
+        formData.append('email', $("#resetEmail").val())
+        formData.append('password', $("#newpassword").val())
+        $.ajax({
+            "url": "/api/reset-password",
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": formData,
+            "success": function(response){
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: "Password reset successful."
+                }).then(()=>{
+                    $("#resetEmail").val('')
+                    $("#newpassword").val('')
+                    $("#otp").val('')
+
+                    $("#resetPassword").addClass('d-none')
+                    $("#sendOtp").removeClass('d-none')
+
+                    $("#forgotPasswordModal").modal('hide')
+                })
+            },
+            "error": function(err){
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: err.responseText
+                })
+            }
+        })
     })
 </script>
 @endsection
