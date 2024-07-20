@@ -188,40 +188,41 @@
                                     <div class="modal-content h-100 justify-content-start k_mdl_tbl">
                                         <button type="button" class="btn-close k_closeBtn" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
-                                        <div class="d-flex align-items-center row info ">
-                                            <table class="table_new">
-                                                <tr class="table_bottom_border">
-                                                    <th>No.</th>
-                                                    <th>User Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Purchase Date</th>
-                                                    <th>Expired Date</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">1</span>
-                                                    </td>
-                                                    <td>
-                                                        <span
-                                                            class="text-dark text-decoration-none">Abc</span>
-                                                    </td>
-                                                    <td>
-                                                        <span
-                                                            class="text-dark text-decoration-none">abc@gmail.com</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">123456789</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">12-06-2024</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">12-08-2024</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
+                                            <div class="d-flex align-items-center row info">
+                                                {{-- <div id="videoAudio" class="col-md-4 text-center mb-3">
+                                                    <img src="image/profile.jpg" alt="" class="form-image" />
+                                                </div> --}}
+                                                <div class="col-md-8" id="permimumdata">
+                                                    <h2 class='fw-bold fs-4 mb-4'>View Premium</h2>
+                                                    <div class="data-center">
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Premium Name </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="viewName"></span> </p>
+                                                        </div>
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Price </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="Viewprice"></span> </p>
+                                                        </div>
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Time Periods(days) </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="viewtime"></span> </p>
+                                                        </div>                                                
+                                                        <div class=" d-flex mb-2">
+                                                            <h5 class='state-margin fs-6 fw-bold  mb-0' style="width: 70px;">
+                                                                Status </h5>
+                                                            <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
+                                                                &nbsp;&nbsp;&nbsp;<span id="statusView"></span> </p>
+                                                        </div>
+                                                        <!-- </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +353,7 @@
                                 </td>
                                 <td>
                                     <div class="actions-btn d-flex ">
-                                        <span data-id="${this.id}" class="me-1 pt-3" data-bs-toggle="modal"
+                                        <span data-id="${this.id}" class="viewData me-1 pt-3" data-bs-toggle="modal"
                                             data-bs-target="#premiumModal">
                                             <img src="image/view.svg" class="k_eye" alt="">
                                         </span>
@@ -413,6 +414,34 @@
                     }
                 })
             })
+
+            $("#tbody").on('click', '.viewData', function() {
+                let id = $(this).data('id');
+                showLoading();
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/premiums/" + id,
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response) {
+                        console.log(response);
+                        hideLoading();
+                        $("#viewName").text(response.result.premium_name);
+                        $("#Viewprice").text(response.result.price);
+                        $("#viewtime").text(response.result.time_perid_days);
+                        $("#statusView").text(response.result.status);
+                    },
+                    "error": function(err) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            });
 
             // Edit Data
             $("#tbody").on('click', '.editData', function(){
