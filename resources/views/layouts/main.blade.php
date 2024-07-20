@@ -18,7 +18,24 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 </head>
+<style>
+     table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_desc:after {
+            content: "" !important;
+        }
 
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_desc:before {
+            content: "" !important;
+        }
+
+        table.dataTable thead th {
+            padding-right: 10px;
+            /* adjust as needed */
+        }
+</style>
 <body>
 
     <div class="container-fluid p-0 d-flex h-100">
