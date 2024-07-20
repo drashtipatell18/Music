@@ -68,6 +68,7 @@
                     </tr>
                     `;
                     $("#tbody").append(tr)
+                    $('.table_new').DataTable();
                 });
 
                 $("#tbody").on('click', '.updateStatus', function(){
