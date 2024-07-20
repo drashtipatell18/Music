@@ -74,11 +74,12 @@
 
                 $("#tbody").on('click', '.updateStatus', function(){
                     showLoading();
+                    let id = $(this).data('id');
                     const formData = new FormData();
                     formData.append('status', $(this).data('status'));
 
                     $.ajax({
-                        "url": "http://127.0.0.1:8000/api/user/"+ $(this).data('id') +"/status-update",
+                        "url": "http://127.0.0.1:8000/api/user/status-update/" + id,
                         "method": "POST",
                         "timeout": 0,
                         "headers": {
