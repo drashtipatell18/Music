@@ -19,23 +19,42 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
 </head>
 <style>
-     table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_desc:after {
-            content: "" !important;
-        }
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_desc:after {
+        content: "" !important;
+    }
 
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_desc:before {
-            content: "" !important;
-        }
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_desc:before {
+        content: "" !important;
+    }
 
-        table.dataTable thead th {
-            padding-right: 10px;
-            /* adjust as needed */
-        }
+    table.dataTable thead th {
+        padding-right: 10px;
+        /* adjust as needed */
+    }
+
+    .actions-btn>span,
+    .actions-btn>a {
+        padding-top: 0 !important;
+    }
+
+    /* .daily_table tr td {
+        padding: 25px 0 0 !important;
+    } */
+
+    .mynav li {
+        margin-bottom: 25px !important;
+    }
+
+    .m_cpbtn {
+        padding: 8px;
+        text-align: center;
+    }
 </style>
+
 <body>
 
     <div class="container-fluid p-0 d-flex h-100">
@@ -87,7 +106,7 @@ if(isset($page) && $page == "category")
                 } @endphp">
                     <a href="/category">
                         <img src="image/sb_cat.svg">
-                        category
+                        Category
                     </a>
                 </li>
 
@@ -102,8 +121,9 @@ if(isset($page) && $page == "artist")
                         Artist
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "albums")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "albums")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -113,8 +133,9 @@ if(isset($page) && $page == "artist")
 
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "Music_Video")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "Music_Video")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -123,8 +144,9 @@ if(isset($page) && $page == "artist")
                         Music & Video
                     </a>
                 </li>
-                <li class="nav-item d-flex align-items-center mb-2 @php
-                if(isset($page) && $page == "Premium")
+                <li
+                    class="nav-item d-flex align-items-center mb-2 @php
+if(isset($page) && $page == "Premium")
                 {
                     echo 'sideBar_active';
                 } @endphp">
@@ -191,7 +213,7 @@ if(isset($page) && $page == "artist")
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h2 class="pageTitleHeading">Change password</h2>
+                            <h2 class="pageTitleHeading">Change Password</h2>
                             <div class="field">
                                 <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
                                 <div class="input-group">
@@ -225,7 +247,8 @@ if(isset($page) && $page == "artist")
                             </div>
                             <div class="d-flex justify-content-center mt-5">
                                 <a href="Dashboard.html" type="submit"
-                                    class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
+                                    class="m_cpbtn text-white align-items-center text-light k_loginBtn rounded-0">Change
+                                    Password</a>
                             </div>
                             </form>
                         </div>
@@ -246,7 +269,8 @@ if(isset($page) && $page == "artist")
                             <div class="k_lob d-flex">
                                 <button type="button" class="k_loClose" data-bs-dismiss="modal"
                                     aria-label="Close">Cancel</button>
-                                <a href="#" onclick="sessionStorage.clear();window.location.replace('/')">Sure</a>
+                                <a href="#"
+                                    onclick="sessionStorage.clear();window.location.replace('/')">Sure</a>
                             </div>
                         </div>
                     </div>

@@ -90,13 +90,6 @@
                                         <label for="fname-edit" class="form-label">Name :</label>
                                         <input type="text" class="form-control" id="fname-edit" name="fname-edit">
                                     </div>
-                                    <div class="col-12">
-                                        <label for="inputImage-edit" class="form-label"> Image</label>
-                                        <div>
-                                            <img id="current-image" src="" alt="Current Image"
-                                                style="width: 20%; max-height: 200px; object-fit: cover;">
-                                        </div>
-                                    </div>
                                     <div class="col-12 ">
                                         <label for="inputImage-edit" class="form-label">Choose Image</label>
                                         <input type="file" class="form-control" name="inputImage-edit"
@@ -188,9 +181,22 @@
                         hideLoading();
                         $("#fname-edit").attr('data-id', id);
                         $("#fname-edit").val(response.result.name)
-                            let currentImageUrl = response.result
-                            .image; // Ensure this URL is correct
-                        $("#current-image").attr('src', '/images/' + currentImageUrl);
+                        if (response.result.image) {
+                        var fileName = response.result.image.split('/').pop();
+
+                        // Create a new FileList object
+                        var fileList = new DataTransfer();
+                        var file = new File([""], fileName, {
+                            type: "file"
+                        });
+                        fileList.items.add(file);
+
+                        // Set the files property of the input element
+                        $('#inputImage-edit')[0].files = fileList.files;
+
+                        // Update the label to show the file name
+                        $('#inputImage-edit').next('.custom-file-label').html(fileName);
+                    }
 
                     }
                 })

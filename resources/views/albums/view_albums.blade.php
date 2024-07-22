@@ -97,15 +97,9 @@
                                                 <input type="text" class="form-control" id="fname-edit"
                                                     name="fname-edit">
                                             </div>
-                                            <div class="col-12">
-                                                <label for="inputImage-edit" class="form-label">Image</label>
-                                                <div>
-                                                    <img id="current-image" src="" alt="Current Image"
-                                                        style="width: 20%; max-height: 200px; object-fit: cover;">
-                                                </div>
-                                            </div>
-                                            <div class="col-12 ">
-                                                <label for="inputImage-edit" class="form-label">Choose Image</label>
+                                            <div class="col-xl-12">
+                                                <label for="inputImage" class="form-label" id="fileLabel">Choose
+                                                    File</label>
                                                 <input type="file" class="form-control" id="inputImage-edit"
                                                     name="inputImage-edit">
                                             </div>
@@ -382,13 +376,26 @@
                         "Authorization": sessionStorage.getItem('token')
                     },
                     "success": function(response) {
-                        let currentImageUrl = response.result
-                            .image; // Ensure this URL is correct
-                        $("#current-image").attr('src', '/images/' + currentImageUrl);
                         $("#fname-edit").val(response.result.album_name)
                         $("#arName-edit").find(`option[value='${response.result.artist_name}']`).prop(
                             'selected', true)
                         $("#fname-edit").attr('data-id', response.result.id);
+                        if (response.result.image) {
+                        var fileName = response.result.image.split('/').pop();
+
+                        // Create a new FileList object
+                        var fileList = new DataTransfer();
+                        var file = new File([""], fileName, {
+                            type: "file"
+                        });
+                        fileList.items.add(file);
+
+                        // Set the files property of the input element
+                        $('#inputImage-edit')[0].files = fileList.files;
+
+                        // Update the label to show the file name
+                        $('#inputImage-edit').next('.custom-file-label').html(fileName);
+                    }
                         hideLoading()
                     },
                     "error": function(err) {
