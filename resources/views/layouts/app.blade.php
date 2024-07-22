@@ -13,7 +13,26 @@
     <title>@yield('title', 'Music App Management')</title>
 
 </head>
-
+<style>
+    .k_loginBtn{
+  border-radius: 6px !important;
+  background: #162640 !important;
+  background-color: #162640 !important;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.k_loginBtn:hover, .k_loginBtn:active{
+  background:#2b446c !important;
+  border-color: 1px solid #2b446c !important ;
+}
+@media only screen and (max-width: 425px) {
+    .otp_input {
+        padding: 3px 16px;
+        width: 21px;
+        margin: 5px;
+    }
+}
+</style>
 <body>
     @yield('content')
 

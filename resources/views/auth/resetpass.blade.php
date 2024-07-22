@@ -31,7 +31,7 @@
                             <p>Both passwords must match</p>
                         </div>
                         <div class="d-flex justify-content-center mt-5">
-                            <a href="Dashboard.html" type="submit" class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
+                            <a href="Dashboard.html" type="submit" class="btn text-white align-items-center text-light k_loginBtn rounded-0">Change Password</a>
                         </div>
                     </form>
                 </div>

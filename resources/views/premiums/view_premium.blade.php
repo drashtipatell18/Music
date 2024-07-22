@@ -112,45 +112,63 @@
                             <div class="modal fade k_modalContainer" id="premiumModal" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog k_modal-dialog">
-                                    <div class="modal-content h-100 justify-content-start k_mdl_tbl">
+                                    <div class="modal-content p-3 justify-content-center">
                                         <button type="button" class="btn-close k_closeBtn" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
-                                        <div class="d-flex align-items-center row info ">
-                                            <table class="table_new">
-                                                <tr class="table_bottom_border">
-                                                    <th>No.</th>
-                                                    <th>User Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Purchase Date</th>
-                                                    <th>Expired Date</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">1</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">Abc</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">abc@gmail.com</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">123456789</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">12-06-2024</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark text-decoration-none">12-08-2024</span>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <div class="d-flex align-items-center row info">
+                                            <div class="col-md-4 text-center mb-3">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h2 class='fw-bold fs-4 mb-4 '>Yash Desai</h2>
+                                                <div class="data-center">
+                                                    <div class="d-flex mb-2">
+                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                            Name </h5>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;Familia </p>
+                                                    </div>
+                                                    <div class="d-flex mb-2">
+                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                            Artist </h5>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Camila Cabello
+                                                        </p>
+                                                    </div>
+                                                    <div class="d-flex mb-2">
+                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                            Album </h5>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Familia </p>
+                                                    </div>
+                                                    <div class="d-flex mb-2">
+                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                            Category </h5>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Romence</p>
+                                                    </div>
+                                                    <!-- <div class="d-flex city-block"> -->
+                                                    <div class="d-flex mb-2">
+                                                        <h5 class='dot-width fs-6 fw-bold mb-0' style="width: 100px;">
+                                                            Language </h5>
+                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; English</p>
+                                                    </div>
+                                                    <div class=" d-flex mb-2">
+                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
+                                                            style="width: 70px;">
+                                                            type </h5>
+                                                        <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
+                                                            &nbsp;&nbsp;&nbsp; Audio</p>
+                                                    </div>
+                                                    <div class=" d-flex mb-2">
+                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
+                                                            style="width: 70px;">
+                                                            Status </h5>
+                                                        <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
+                                                            &nbsp;&nbsp;&nbsp; Active</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Edit Modal Start -->
                             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
