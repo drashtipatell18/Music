@@ -244,8 +244,8 @@
                                                 <div class="col-xl-6 ">
                                                     <label for="inputImage" class="form-label" id="fileLabel">Choose
                                                         File</label>
-                                                    <input type="file" class="form-control" id="inputImage"
-                                                        name="inputImage">
+                                                    <input type="file" class="form-control" id="inputImage-edit"
+                                                        name="inputImage-edit">
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <label for="url-edit" class="form-label">URL :</label>
@@ -656,7 +656,6 @@
                         "Authorization": sessionStorage.getItem('token')
                     },
                     "success": function(response) {
-                        console.log(response.result.icons);
                         hideLoading();
                         $("#fname-edit").attr('data-id', id);
                         $("#fname-edit").val(response.result.name);
@@ -671,7 +670,25 @@
                         $("#type-edit").find(`option[value='${response.result.type}']`).prop('selected',
                             true);
                         $("#url-edit").val(response.result.url);
-                        $("#inputImage").val(response.result.icons);
+
+                        // Handle file input
+                        if (response.result.icons) {
+                            // Get the file name from the path
+                            var fileName = response.result.icons.split('/').pop();
+
+                            // Create a new FileList object
+                            var fileList = new DataTransfer();
+                            var file = new File([""], fileName, {
+                                type: "file"
+                            });
+                            fileList.items.add(file);
+
+                            // Set the files property of the input element
+                            $('#inputImage-edit')[0].files = fileList.files;
+
+                            // Update the label to show the file name
+                            $('#inputImage-edit').next('.custom-file-label').html(fileName);
+                        }
                     },
                     "error": function(err) {
                         Swal.fire({
@@ -683,7 +700,7 @@
                 })
             });
 
-            // Validating Insert Form
+            // Validating Update Form
             $("#updateFrm").validate({
                 rules: {
                     "fname-edit": {
@@ -732,6 +749,7 @@
                     }
                 }
             });
+
             $("#updateFrm").submit(function(e) {
                 e.preventDefault();
                 if ($("#updateFrm").valid()) {
