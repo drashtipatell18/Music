@@ -72,7 +72,7 @@ if(isset($page) && $page == "dashboard")
                     echo 'sideBar_active';
                 } @endphp">
                     <a href="/dashboard">
-                        <img src="image/sb_db.svg" class="m_svg">
+                        <img src="image/sb_db.svg">
                         Dashboard
                     </a>
                 </li>

@@ -3,6 +3,14 @@
 @endphp
 @extends('layouts.main')
 @section('title', 'Premium: Music App Management')
+<style>
+    .viewpremium{
+        justify-content: center;
+    }
+    .permimumdata{
+        width:fit-content !important;
+    }
+</style>
 @section('content')
 
     <div class="container-fluid p-0 d-flex h-100">
@@ -15,8 +23,81 @@
                         + &nbsp;Add
                     </button>
                 </div>
+
+                <!-- Change password Modal Start -->
+                <div class="modal fade" id="chngPassModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h2 class="pageTitleHeading">Change password</h2>
+                                <div class="field">
+                                    <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="oldPassword" />
+                                        <span class="input-group-text k_igt">
+                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="newPassword" />
+                                        <span class="input-group-text k_igt">
+                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="confirmPassword" />
+                                        <span class="input-group-text  k_igt">
+                                            <i class="fas fa-eye-slash toggle-password"
+                                                data-toggle="#confirmPassword"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="password mb-4 fs-6 text-secondary">
+                                    <p>Both passwords must match</p>
+                                </div>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <a href="Dashboard.html" type="submit"
+                                        class="btn text-white align-items-center text-light k_loginBtn rounded-0">verify</a>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Change password Modal End -->
+
+                <!-- Logout Modal Start -->
+                <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body k_modal-body">
+                                <p>Are you Sure to Logout?</p>
+                                <div class="k_lob d-flex">
+                                    <button type="button" class="k_loClose" data-bs-dismiss="modal"
+                                        aria-label="Close">Cancel</button>
+                                    <a href="Login.html">Sure</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Logout Modal End -->
+
                 <!-- Add Modal Start -->
-                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -38,14 +119,6 @@
                                         <label for="time" class="form-label">Time Period (days) :</label>
                                         <input type="text" class="form-control" id="time" name="time">
                                     </div>
-
-                                    {{-- <div class="col-md-6">
-                                        <label for="status" class="form-label">Status :</label>
-                                        <select id="status" class="form-select">
-                                            <option selected>Active</option>
-                                            <option>Block</option>
-                                        </select>
-                                    </div> --}}
 
                                     <div class="col-12">
                                         <label for="description" class="form-label">Description :</label>
@@ -112,63 +185,48 @@
                             <div class="modal fade k_modalContainer" id="premiumModal" tabindex="-1"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog k_modal-dialog">
-                                    <div class="modal-content p-3 justify-content-center">
+                                    <div class="modal-content h-100 justify-content-start k_mdl_tbl">
                                         <button type="button" class="btn-close k_closeBtn" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
-                                        <div class="d-flex align-items-center row info">
-                                            <div class="col-md-4 text-center mb-3">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h2 class='fw-bold fs-4 mb-4 '>Yash Desai</h2>
-                                                <div class="data-center">
-                                                    <div class="d-flex mb-2">
-                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
-                                                            Name </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;Familia </p>
+                                            <div class="d-flex align-items-center row info viewpremium">
+                                                {{-- <div id="videoAudio" class="col-md-4 text-center mb-3">
+                                                    <img src="image/profile.jpg" alt="" class="form-image" />
+                                                </div> --}}
+                                                <div class="col-md-8 permimumdata" id="permimumdata">
+                                                    <h2 class='fw-bold fs-4 mb-4'>View Premium</h2>
+                                                    <div class="data-center">
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Premium Name </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="viewName"></span> </p>
+                                                        </div>
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Price </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="Viewprice"></span> </p>
+                                                        </div>
+                                                        <div class="d-flex mb-2">
+                                                            <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
+                                                                Time Periods(days) </h5>
+                                                            <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                                                    id="viewtime"></span> </p>
+                                                        </div>                                                
+                                                        <div class=" d-flex mb-2">
+                                                            <h5 class='state-margin fs-6 fw-bold  mb-0' style="width: 70px;">
+                                                                Status </h5>
+                                                            <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
+                                                                &nbsp;&nbsp;&nbsp;<span id="statusView"></span> </p>
+                                                        </div>
+                                                        <!-- </div> -->
                                                     </div>
-                                                    <div class="d-flex mb-2">
-                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
-                                                            Artist </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Camila Cabello
-                                                        </p>
-                                                    </div>
-                                                    <div class="d-flex mb-2">
-                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
-                                                            Album </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Familia </p>
-                                                    </div>
-                                                    <div class="d-flex mb-2">
-                                                        <h5 class='dot-width fs-6 fw-bold' style="width: 100px;">
-                                                            Category </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; Romence</p>
-                                                    </div>
-                                                    <!-- <div class="d-flex city-block"> -->
-                                                    <div class="d-flex mb-2">
-                                                        <h5 class='dot-width fs-6 fw-bold mb-0' style="width: 100px;">
-                                                            Language </h5>
-                                                        <p class='fs-6 mb-0'>:&nbsp;&nbsp;&nbsp;&nbsp; English</p>
-                                                    </div>
-                                                    <div class=" d-flex mb-2">
-                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
-                                                            style="width: 70px;">
-                                                            type </h5>
-                                                        <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
-                                                            &nbsp;&nbsp;&nbsp; Audio</p>
-                                                    </div>
-                                                    <div class=" d-flex mb-2">
-                                                        <h5 class='state-margin fs-6 fw-bold  mb-0'
-                                                            style="width: 70px;">
-                                                            Status </h5>
-                                                        <p class='fs-6 mb-0'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;:
-                                                            &nbsp;&nbsp;&nbsp; Active</p>
-                                                    </div>
-
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- Edit Modal Start -->
                             <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
@@ -183,18 +241,15 @@
                                             <form class="row g-3" id="updateFrm">
                                                 <div class="col-md-6">
                                                     <label for="pname-edit" class="form-label">Premium name :</label>
-                                                    <input type="text" class="form-control" id="pname-edit"
-                                                        name="pname-edit">
+                                                    <input type="text" class="form-control" id="pname-edit" name="pname-edit">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="price-edit" class="form-label">Price :</label>
-                                                    <input type="text" class="form-control" id="price-edit"
-                                                        name="price-edit">
+                                                    <input type="text" class="form-control" id="price-edit" name="price-edit">
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="time-edit" class="form-label">Time Period (days) :</label>
-                                                    <input type="text" class="form-control" id="time-edit"
-                                                        name="time-edit">
+                                                    <input type="text" class="form-control" id="time-edit" name="time-edit">
                                                 </div>
 
                                                 {{-- <div class="col-md-6">
@@ -230,42 +285,41 @@
 
     @push('script')
         <script>
-            // function myFunctionR() {
-            //     document.getElementById("myDropdownR").classList.toggle("show");
-            // }
+            function myFunctionR() {
+                document.getElementById("myDropdownR").classList.toggle("show");
+            }
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
 
-            // function myFunction() {
-            //     document.getElementById("myDropdown").classList.toggle("show");
-            // }
+            window.onclick = function (event) {
+                if (!event.target.matches(".dropbtn")) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains("show")) {
+                            openDropdown.classList.remove("show");
+                        }
+                    }
+                }
+            };
 
-            // window.onclick = function(event) {
-            //     if (!event.target.matches(".dropbtn")) {
-            //         var dropdowns = document.getElementsByClassName("dropdown-content");
-            //         var i;
-            //         for (i = 0; i < dropdowns.length; i++) {
-            //             var openDropdown = dropdowns[i];
-            //             if (openDropdown.classList.contains("show")) {
-            //                 openDropdown.classList.remove("show");
-            //             }
-            //         }
-            //     }
-            // };
+            document.addEventListener("DOMContentLoaded", function () {
+                var dropdown = document.getElementsByClassName("dropdown-btnnn");
 
-            // document.addEventListener("DOMContentLoaded", function() {
-            //     var dropdown = document.getElementsByClassName("dropdown-btnnn");
-
-            //     for (var i = 0; i < dropdown.length; i++) {
-            //         dropdown[i].addEventListener("click", function() {
-            //             this.classList.toggle("active");
-            //             var dropdownContent = this.nextElementSibling;
-            //             if (dropdownContent.style.display === "block") {
-            //                 dropdownContent.style.display = "none";
-            //             } else {
-            //                 dropdownContent.style.display = "block";
-            //             }
-            //         });
-            //     }
-            // });
+                for (var i = 0; i < dropdown.length; i++) {
+                    dropdown[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var dropdownContent = this.nextElementSibling;
+                        if (dropdownContent.style.display === "block") {
+                            dropdownContent.style.display = "none";
+                        } else {
+                            dropdownContent.style.display = "block";
+                        }
+                    });
+                }
+            });
 
             showLoading()
             $.ajax({
@@ -275,10 +329,10 @@
                 "headers": {
                     "Authorization": sessionStorage.getItem('token')
                 },
-                "success": function(response) {
+                "success": function(response){
                     hideLoading();
                     let i = 1;
-                    $.each(response.result, function() {
+                    $.each(response.result, function(){
                         let tr = `
                             <tr>
                                 <td>
@@ -299,7 +353,7 @@
                                 </td>
                                 <td>
                                     <div class="actions-btn d-flex ">
-                                        <span data-id="${this.id}" class="me-1 pt-3" data-bs-toggle="modal"
+                                        <span data-id="${this.id}" class="viewData me-1 pt-3" data-bs-toggle="modal"
                                             data-bs-target="#premiumModal">
                                             <img src="image/view.svg" class="k_eye" alt="">
                                         </span>
@@ -315,7 +369,7 @@
                     // DataTable Code
                     $('.table_new').DataTable();
                 },
-                "error": function(err) {
+                "error": function(err){
                     Swal.fire({
                         icon: "error",
                         title: "Error",
@@ -325,7 +379,7 @@
             });
 
             // Update Status
-            $("#tbody").on('click', '.updateStatus', function() {
+            $("#tbody").on('click', '.updateStatus', function(){
                 let id = $(this).data('id');
                 let status = $(this).data('status');
                 showLoading();
@@ -342,16 +396,16 @@
                     "mimeType": "multipart/form-data",
                     "contentType": false,
                     "data": form,
-                    "success": function(response) {
+                    "success": function(response){
                         Swal.fire({
                             icon: "success",
                             title: "Success",
                             text: "Status Updated"
-                        }).then(() => {
+                        }).then(()=>{
                             window.location.reload()
                         })
                     },
-                    "error": function(err) {
+                    "error": function(err){
                         Swal.fire({
                             icon: "error",
                             title: "Error",
@@ -361,8 +415,36 @@
                 })
             })
 
+            $("#tbody").on('click', '.viewData', function() {
+                let id = $(this).data('id');
+                showLoading();
+                $.ajax({
+                    "url": "http://127.0.0.1:8000/api/premiums/" + id,
+                    "method": "GET",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": sessionStorage.getItem('token')
+                    },
+                    "success": function(response) {
+                        console.log(response);
+                        hideLoading();
+                        $("#viewName").text(response.result.premium_name);
+                        $("#Viewprice").text(response.result.price);
+                        $("#viewtime").text(response.result.time_perid_days);
+                        $("#statusView").text(response.result.status);
+                    },
+                    "error": function(err) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: err.responseText
+                        })
+                    }
+                })
+            });
+
             // Edit Data
-            $("#tbody").on('click', '.editData', function() {
+            $("#tbody").on('click', '.editData', function(){
                 let id = $(this).data('id');
                 showLoading();
                 $.ajax({
@@ -372,7 +454,7 @@
                     "headers": {
                         "Authorization": sessionStorage.getItem('token')
                     },
-                    "success": function(response) {
+                    "success": function(response){
                         hideLoading()
                         $('#pname-edit').attr('data-id', id);
                         $('#pname-edit').val(response.result.premium_name);
@@ -380,7 +462,7 @@
                         $('#time-edit').val(response.result.time_perid_days);
                         $('#description-edit').val(response.result.description);
                     },
-                    "error": function(err) {
+                    "error": function(err){
                         Swal.fire({
                             icon: "error",
                             title: "Error",
@@ -425,9 +507,10 @@
                     }
                 }
             });
-            $("#updateFrm").submit(function(e) {
+            $("#updateFrm").submit(function(e){
                 e.preventDefault()
-                if ($("#updateFrm").valid()) {
+                if($("#updateFrm").valid())
+                {
                     let id = $('#pname-edit').data('id');
                     showLoading();
                     $.ajax({
@@ -445,16 +528,16 @@
                             "status": "Active",
                             "description": $('#description-edit').val()
                         }),
-                        "success": function(response) {
+                        "success": function(response){
                             Swal.fire({
                                 icon: "success",
                                 title: "Success",
                                 text: "Premium Updated"
-                            }).then(() => {
+                            }).then(()=>{
                                 window.location.reload();
                             })
                         },
-                        "error": function(err) {
+                        "error": function(err){
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
@@ -500,9 +583,10 @@
                     }
                 }
             });
-            $("#insertFrm").submit(function(e) {
+            $("#insertFrm").submit(function(e){
                 e.preventDefault()
-                if ($("#insertFrm").valid()) {
+                if($("#insertFrm").valid())
+                {
                     showLoading();
                     $.ajax({
                         "url": "http://127.0.0.1:8000/api/premiums/insert",
@@ -519,16 +603,16 @@
                             "status": "Active",
                             "description": $('#description').val()
                         }),
-                        "success": function(response) {
+                        "success": function(response){
                             Swal.fire({
                                 icon: "success",
                                 title: "Success",
                                 text: "Premium Inserted"
-                            }).then(() => {
+                            }).then(()=>{
                                 window.location.reload();
                             })
                         },
-                        "error": function(err) {
+                        "error": function(err){
                             Swal.fire({
                                 icon: "error",
                                 title: "Error",
