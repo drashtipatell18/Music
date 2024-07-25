@@ -213,43 +213,44 @@ if(isset($page) && $page == "Premium")
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <h2 class="pageTitleHeading">Change Password</h2>
-                            <div class="field">
-                                <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="oldPassword" />
-                                    <span class="input-group-text k_igt">
-                                        <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                    </span>
+                            <form id="chngPaswordFrm">
+                                <h2 class="pageTitleHeading">Change Password</h2>
+                                <div class="field">
+                                    <label for="oldPassword" class="form-label mb-0 mt-3">Old Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="oldPassword" name="oldPassword" />
+                                        <span class="input-group-text k_igt">
+                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="newPassword" />
-                                    <span class="input-group-text k_igt">
-                                        <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
-                                    </span>
+                                <div class="field">
+                                    <label for="newPassword" class="form-label mb-0 mt-3">New Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="newPassword" name="newPassword" />
+                                        <span class="input-group-text k_igt">
+                                            <i class="fas fa-eye-slash toggle-password" data-toggle="#newPassword"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
-                                <div class="input-group">
-                                    <input type="password" class="form-control" id="confirmPassword" />
-                                    <span class="input-group-text  k_igt">
-                                        <i class="fas fa-eye-slash toggle-password"
-                                            data-toggle="#confirmPassword"></i>
-                                    </span>
+                                <div class="field">
+                                    <label for="confirmPassword" class="form-label mb-0 mt-3">Confirm Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" />
+                                        <span class="input-group-text  k_igt">
+                                            <i class="fas fa-eye-slash toggle-password"
+                                                data-toggle="#confirmPassword"></i>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="password mb-4 fs-6 text-secondary">
-                                <p>Both passwords must match</p>
-                            </div>
-                            <div class="d-flex justify-content-center mt-5">
-                                <a href="Dashboard.html" type="submit"
-                                    class="m_cpbtn text-white align-items-center text-light k_loginBtn rounded-0">Change
-                                    Password</a>
-                            </div>
+                                <div class="password mb-4 fs-6 text-secondary">
+                                    <p>Both passwords must match</p>
+                                </div>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <button type="submit"
+                                        class="m_cpbtn text-white align-items-center text-light k_loginBtn rounded-0">Change
+                                        Password</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -467,6 +468,68 @@ if(isset($page) && $page == "Premium")
                     Swal.hideLoading();
                     Swal.clickConfirm();
                 }
+
+                $("#chngPaswordFrm").validate({
+                    rules: {
+                        oldPassword: "required",
+                        newPassword: "required",
+                        confirmPassword: {
+                            required: true,
+                            equalTo: "#newPassword"
+                        }
+                    },
+                    messages: {
+                        oldPassword: {
+                            required: "<span class='text-danger'>Please enter old password</span>"
+                        },
+                        newPassword: {
+                            required: "<span class='text-danger'>Please enter new password</span>"
+                        },
+                        confirmPassword: {
+                            required: "<span class='text-danger'>Please enter confirm password</span>",
+                            equalTo: "<span class='text-danger'>Confirm Password should be equal to new password</span>"
+                        },
+                    },
+                    errorPlacement: function(error, element){
+                        error.insertAfter($(element).parent())
+                    }
+                });
+
+                $("#chngPaswordFrm").submit(function(e){
+                    e.preventDefault();
+                    if($("#chngPaswordFrm").valid())
+                    {
+                        showLoading();
+                        let form = new FormData($("#chngPaswordFrm")[0]);
+                        $.ajax({
+                            url: '/api/change-password',
+                            method: "POST",
+                            processData: false,
+                            contentType: false,
+                            data: form,
+                            headers: {
+                                "Authorization": sessionStorage.getItem('token')
+                            },
+                            success: function(response){
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Success",
+                                    text: "Password changed successfully"
+                                }).then(()=>{
+                                    $("#chngPaswordFrm")[0].reset();
+                                    $("#chngPassModal").modal('hide');
+                                })
+                            },
+                            error: function(err){
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Error",
+                                    text: err.responseText
+                                })
+                            }
+                        })
+                    }
+                })
             </script>
             @stack('script')
 </body>

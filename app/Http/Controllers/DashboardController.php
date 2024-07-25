@@ -184,29 +184,30 @@ class DashboardController extends Controller
     public function changePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'old_password' => 'required',
-            'new_password' => 'required|min:8',
-            'confirm_password' => 'required|same:new_password',
+            'oldPassword' => 'required',
+            'newPassword' => 'required',
+            'confirmPassword' => 'required|same:newPassword',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => 'error',
-                'message' => $validator->errors()
+                'success' => 'false',
+                'message' => "Validation Fails",
+                'errors' => $validator->errors()
             ], 400);
         }
 
         $user = Auth::user();
 
 
-        if (!Hash::check($request->old_password, $user->password)) {
+        if (!Hash::check($request->oldPassword, $user->password)) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'The old password does not match our records.'
             ], 400);
         }
 
-        $user->password = Hash::make($request->new_password);
+        $user->password = Hash::make($request->newPassword);
         $user->save();
 
         return response()->json([
