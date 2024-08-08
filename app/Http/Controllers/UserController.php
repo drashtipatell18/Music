@@ -49,7 +49,11 @@ class UserController extends Controller
 
         // session()->flash('success', 'User added successfully!');
         // return redirect()->route('user');
-        return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+        return response()->json([
+            'success' => true,
+            'message' => 'User registered successfully',
+             'user' => $user
+            ], 201);
 
     }
 
@@ -76,7 +80,10 @@ class UserController extends Controller
 
         $users = User::find($id);
         if (is_null($users)) {
-            return response()->json(['message' => 'User not found'], 404);
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found'
+            ], 404);
         }
 
         $users->update([
@@ -85,44 +92,12 @@ class UserController extends Controller
         ]);
 
         return response()->json([
+            'success' => true,
             'message' => 'User updated successfully',
-            'user' => $users,
+            'user' => $users
         ], 200);
-
-        // session()->flash('success', 'User Update successfully!');
-        // return redirect()->route('user');
     }
 
-    public function userDestroy($id)
-    {
-        $user = User::find($id);
-        if (!$user) {
-            return response()->json(['message' => 'User not found'], 404);
-        }
-        $user->delete();
-        // session()->flash('danger', 'User Delete successfully!');
-        // return redirect()->back();
-
-        return response()->json(['message' => 'User deleted successfully']);
-    }
-
-    // public function myProfile()
-    // {
-    //     if (Auth::check()) {
-    //         $userid = Auth::user()->id;
-    //         $users = User::with('role')->find($userid);
-    //     }
-    //     $roles = Role::pluck('role_name', 'id');
-    //     return view('admin.user_profile', compact('users', 'roles'));
-    // }
-
-    // public function editProfile($id)
-    // {
-    //     if (Auth::check()) {
-    //         $users = User::find($id);
-    //     }
-    //     return view('admin.user_profile', compact('users'));
-    // }
 
     public function Profileupdate(Request $request, $id)
     {
@@ -162,7 +137,12 @@ class UserController extends Controller
         $user->update([
             'status' => $request->input('status')
         ]);
-        return response()->json(['success' => true, 'message' => 'Status Updated'], 200);
+        return response()->json([
+            'success' => true,
+         'message' => 'Status Updated',
+         'result' => $user
+
+        ], 200);
     }
 
 }

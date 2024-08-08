@@ -47,15 +47,24 @@ class DashboardController extends Controller
             try {
                 Mail::to($user->email)->send(new ForgotPasswordMail($user));
             } catch (\Exception $e) {
-                return response()->json(['error' => 'Failed to send OTP email'], 500);
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to send OTP email'
+                ], 500);
             }
 
             // return redirect()->route('verify.otp')->with('success', 'OTP sent successfully.');
 
-            return response()->json(['success' => 'OTP sent successfully.'], 200);
+            return response()->json([
+                'success' => true,
+                'message' => 'OTP sent successfully.'
+            ], 200);
         } else {
             // return back()->with('danger', 'User not found.');
-            return response()->json(['error' => 'User not found.'], 404);
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found.'
+            ], 404);
         }
     }
     public function verifyOTPForm()
@@ -102,11 +111,18 @@ class DashboardController extends Controller
         }
         if ($user->otp === $otp) {
             $user->save();
-            return response()->json(['message' => 'OTP Verified successfully.'], 200);
+            return response()->json([
+                'success' => true,
+                'message' => 'OTP Verified successfully.'
+            ], 200);
         } else {
-            return response()->json(['error' => 'Invalid OTP.'], 400);
+            return response()->json( [
+                    'success' => false,
+                    'message' => 'Invalid OTP.'
+                ],
+                400
+            );
         }
-
     }
 
     // public function resend()
@@ -147,9 +163,15 @@ class DashboardController extends Controller
         try {
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to send OTP email'], 500);
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to send OTP email'
+            ], 500);
         }
-        return response()->json(['message' => 'New OTP sent successfully'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'New OTP sent successfully'
+        ], 200);
     }
 
     public function resetPassword()
@@ -172,13 +194,19 @@ class DashboardController extends Controller
         $user = User::where('email', $request->input('email'))->first();
 
         if (!$user) {
-            return response()->json(['error' => 'User not found.'], 404);
+            return response()->json([
+                'success' => false,
+                'message' => 'User not found.'
+            ], 404);
         }
 
         $user->password = Hash::make($request->input('password'));
         $user->remember_token = Str::random(60);
         $user->save();
-        return response()->json(['message' => 'Password has been reset.'], 200);
+        return response()->json([
+            'success' => true,
+            'message' => 'Password has been reset.'
+        ], 200);
     }
 
     public function changePassword(Request $request)
@@ -202,7 +230,7 @@ class DashboardController extends Controller
 
         if (!Hash::check($request->oldPassword, $user->password)) {
             return response()->json([
-                'status' => 'error',
+                'success' => false,
                 'message' => 'The old password does not match our records.'
             ], 400);
         }
@@ -211,10 +239,8 @@ class DashboardController extends Controller
         $user->save();
 
         return response()->json([
-            'status' => 'success',
+            'success' => true,
             'message' => 'Password changed successfully.'
         ], 200);
     }
-
-
 }

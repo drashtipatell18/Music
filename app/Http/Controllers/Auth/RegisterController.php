@@ -102,7 +102,11 @@ class RegisterController extends Controller
 
 
 
-        return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+        return response()->json([
+            'success' => true,
+            'message' => 'User registered successfully',
+            'user' => $user
+        ], 201);
     }
 
     public function forgetPassword(Request $request)
@@ -111,14 +115,17 @@ class RegisterController extends Controller
             'email' => 'required|exists:users,email'
         ]);
 
-        if($validator->fails())
-        {
+        if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Validation error', 'errors' => $validator->errors()], 400);
         }
         $email = new ExampleMail();
         Mail::to($request->input('email'))->send($email);
 
-        return response()->json(['otp' => $email->randomNumber]);
+        return response()->json([
+            'success' => true,
+            'message' => 'OTP genrate successfully',
+            'otp' => $email->randomNumber
+        ]);
     }
 
     public function resetPassword(Request $request)
@@ -128,8 +135,7 @@ class RegisterController extends Controller
             'password' => 'required'
         ]);
 
-        if($validator->fails())
-        {
+        if ($validator->fails()) {
             return response()->json(['success' => false, 'message' => 'Validation error', 'errors' => $validator->errors()], 400);
         }
 
@@ -139,8 +145,9 @@ class RegisterController extends Controller
             'password' => Hash::make($request->input('password'))
         ]);
 
-        return response()->json(['success' => true, 'message' => 'Password Updated Successfully.'], 200);
+        return response()->json([
+            'success' => true, 
+            'message' => 'Password Updated Successfully.'
+        ], 200);
     }
-
-
 }

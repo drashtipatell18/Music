@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
          return response()->json([
             'success' => true,
-            'message' => 'Language status updated successfully',
+            'message' => 'category status updated successfully',
             'result' => $category
         ], 200);
     }
@@ -116,7 +116,11 @@ class CategoryController extends Controller
         $category->save();
 
         // You can return a response if needed
-        return response()->json(['message' => 'Category status updated successfully']);
+        return response()->json([
+            'success' => true,
+            'message' => 'Category status updated successfully',
+            'result' => $category
+        ], 200);
     }
 
 

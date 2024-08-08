@@ -19,7 +19,7 @@ class MusicVideoController extends Controller
         }
         return response()->json([
             'success' => true,
-            'message' => 'Cate Data successfully',
+            'message' => 'Music & Video Data successfully',
             'result' => $musicVideo
         ], 200);
         // return view('music_videos.view_musicvideos');
@@ -75,7 +75,11 @@ class MusicVideoController extends Controller
             'status' => $request->input('status'),
         ]);
 
-        return response()->json(['message' => 'Music video created successfully', 'data' => $musicVideo], 201);
+        return response()->json([
+            'success' => true,
+            'message' => 'Music video created successfully', 
+            'result' => $musicVideo
+        ], 201);
 
 
     }
@@ -146,7 +150,11 @@ class MusicVideoController extends Controller
         $musicVideo->save();
 
         // You can return a response if needed
-        return response()->json(['message' => 'MusicVideo status updated successfully']);
+        return response()->json([
+            'success' => true,
+            'message' => 'MusicVideo status updated successfully',
+            'result' => $musicVideo
+        ]);
     }
 
 }

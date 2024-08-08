@@ -103,7 +103,11 @@ class PremiumController extends Controller
         $premiums->save();
 
         // You can return a response if needed
-        return response()->json(['message' => 'premium status updated successfully']);
+        return response()->json([
+            'success' => true,
+            'message' => 'premium status updated successfully',
+            'result' => $premiums
+        ]);
     }
 }
 

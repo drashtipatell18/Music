@@ -108,6 +108,10 @@ class LanguageController extends Controller
         $language->save();
 
         // You can return a response if needed
-        return response()->json(['message' => 'Language status updated successfully']);
+        return response()->json([
+            'success' => true,
+            'message' => 'Language status updated successfully',
+            'result' => $language
+        ]);
     }
 }
