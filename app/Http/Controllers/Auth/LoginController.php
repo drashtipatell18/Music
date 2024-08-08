@@ -67,11 +67,17 @@ class   LoginController extends Controller
         }
         $user = User::where('email', $request->input('email'))->first();
         $token = $user->createToken($user->id)->plainTextToken;
+       
         return response()->json([
             'success' => true,
-            'message' => 'Login successfully',
-            'result' => $user,
-            'access_token' => $token,
+            'message' => 'Login successful',
+            'result' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'access_token' => $token,
+                'role' => $user->role ? $user->role_id : 'N/A', // Ensure role is properly handled
+            ],
         ]);
     }
 
